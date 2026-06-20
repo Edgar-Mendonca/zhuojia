@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZHUOJIA 卓嘉 Engineering & Consultants</title>
+
+    <meta name="description"
+          content="ZHUOJIA Engineering & Consultants - Engineering, Manufacturing, Industrial Sourcing, Project Management, Product Development and Global Supply Chain Solutions.">
+
+    <meta name="keywords"
+          content="Engineering, Manufacturing, Industrial Sourcing, China, UAE, India, Project Management, Product Development, Mechanical Engineering, Industrial Consulting">
+
+    <meta name="author" content="ZHUOJIA Engineering & Consultants">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="ZHUOJIA-NEW-NO_TEXT-NO-BG.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+
+                    colors: {
+
+                        /* ZHUOJIA Brand Colors */
+
+                        brandBlue: '#004C99',
+                        brandRed: '#D91E18',
+                        brandGold: '#D4AF37',
+
+                        dark: '#1F2937',
+                        light: '#FFFFFF',
+                        muted: '#6B7280',
+
+                        lightBlue: '#F4F8FC',
+                        lightGold: '#FFF8E7'
+                    },
+
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        ::selection {
+            background: #D4AF37;
+            color: white;
+        }
+
+        /* Desktop Navbar Underline Animation */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            width: 0;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(
+                90deg,
+                #004C99 0%, #D4AF37 100%
+
+            );
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 75%;
+        }
+    </style>
+
+</head>
+
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden">
+
+
+<!-- NAVIGATION BAR -->
+<header id="navbar"
+class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-[#D4AF37]/20">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex justify-between items-center h-20">
+
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-4">
+
+                <img
+                    src="ZHUOJIA-NEW-NO-BG.png"
+                    alt="ZHUOJIA"
+                    class="h-16 w-auto object-contain">
+
+                <div class="leading-tight">
+
+                    <h1 class="text-[22px] font-bold tracking-wide">
+
+                        <span class="text-[#004C99]">
+                            ZHUOJIA
+                        </span>
+
+                        <span class="text-[#004C99]">
+                            卓嘉
+                        </span>
+
+                    </h1>
+
+                    <p class="text-[7.5px] uppercase tracking-[0.25em] text-gray-500">
+                        Engineering &amp; Consultants
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex items-center gap-6">
+
+                <li>
+                    <a href="#home"
+                      class="nav-link font-medium text-gray-700 hover:text-[#004C99] transition">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about"
+                      class="nav-link font-medium text-gray-700 hover:text-[#004C99] transition">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services"
+                      class="nav-link font-medium text-gray-700 hover:text-[#004C99] transition">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#industries"
+                      class="nav-link font-medium text-gray-700 hover:text-[#004C99] transition">
+                        Industries
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#capabilities"
+                      class="nav-link font-medium text-gray-700 hover:text-[#004C99] transition">
+                        Capabilities
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#global"
+                      class="nav-link font-medium text-gray-700 hover:text-[#004C99] transition">
+                        Global Operations
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact"
+                      class="ml-2 px-5 py-2.5 rounded-lg bg-[#004C99] text-white font-semibold hover:bg-[#003B78] transition">
+                        Contact Us
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Mobile Button -->
+            <button id="menuBtn"
+                    class="lg:hidden text-[#004C99]">
+
+                <i class="fas fa-bars text-2xl"></i>
+
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="menuOverlay"
+     class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden">
+</div>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu"
+     class="fixed top-0 right-0 h-full w-80 max-w-[85vw]
+            bg-white shadow-2xl z-50
+            translate-x-full
+            transition-transform duration-300
+            lg:hidden">
+
+    <div class="flex justify-between items-center p-6 border-b">
+
+        <span class="font-bold text-lg text-[#004C99]">
+            Menu
+        </span>
+
+        <button id="closeMenuBtn">
+            <i class="fas fa-times text-xl text-gray-600"></i>
+        </button>
+
+    </div>
+
+    <div class="flex flex-col p-6 space-y-2">
+
+        <a href="#home"
+           class="px-4 py-3 rounded-lg hover:bg-blue-50 hover:text-[#004C99] transition">
+            Home
+        </a>
+
+        <a href="#about"
+           class="px-4 py-3 rounded-lg hover:bg-blue-50 hover:text-[#004C99] transition">
+            About Us
+        </a>
+
+        <a href="#services"
+           class="px-4 py-3 rounded-lg hover:bg-blue-50 hover:text-[#004C99] transition">
+            Products & Services
+        </a>
+
+        <a href="#industries"
+           class="px-4 py-3 rounded-lg hover:bg-blue-50 hover:text-[#004C99] transition">
+            Industries
+        </a>
+
+        <a href="#capabilities"
+           class="px-4 py-3 rounded-lg hover:bg-blue-50 hover:text-[#004C99] transition">
+            Capabilities
+        </a>
+
+        <a href="#global"
+           class="px-4 py-3 rounded-lg hover:bg-blue-50 hover:text-[#004C99] transition">
+            Global Operations
+        </a>
+
+        <a href="#contact"
+           class="mt-4 text-center px-5 py-3 rounded-lg bg-[#D4AF37] text-black font-semibold hover:bg-[#C89B20] transition">
+            Contact Us
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- Home / Hero -->
+<section id="home"
+  class="min-h-screen flex items-center pt-[72px] relative overflow-hidden text-white bg-dark">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 opacity-30 bg-[url('images/Background%20Image.avif')] bg-cover bg-center"></div>
+
+  <!-- Lighter Brand Glow Overlay (FIXED) -->
+  <div class="absolute inset-0 bg-gradient-to-br from-dark/70 via-brandBlue/25 to-dark/80"></div>
+
+  <!-- Subtle radial light boost for center visibility -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_60%)]"></div>
+
+  <!-- Content -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="fade-up">
+
+    <!-- Badge -->
+    <span class="inline-flex items-center gap-2 bg-brandGold/15 text-brandGold px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-brandGold/40 shadow-sm">
+      <i class="fas fa-globe"></i>
+      Engineering Integrators • R&D • Manufacturing
+    </span>
+
+    <!-- Heading -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white">
+      Complex Multidisciplinary Engineering Projects.
+      <span class="text-brandGold drop-shadow-md">Delivered.</span>
+    </h1>
+
+    <!-- Description (FIXED visibility) -->
+    <p class="text-lg text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+      ZHUOJIA 卓嘉 Engineering & Consultants specializes in custom industrial products,
+      precision manufacturing, advanced PCB development, and end-to-end industrial sourcing.
+      From prototype to production.
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+      <!-- Primary CTA (FIXED STRONG HOVER) -->
+      <a href="#contact"
+         class="bg-brandGold text-dark hover:bg-white hover:text-brandBlue px-7 py-3 rounded-lg font-semibold shadow-lg shadow-brandGold/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-brandGold/40">
+        Submit RFQ / Project Inquiry
+      </a>
+
+      <!-- Secondary CTA (FIXED INTERACTIVE FEEL) -->
+      <a href="#services"
+         class="border-2 border-brandGold text-brandGold hover:bg-brandGold hover:text-dark px-7 py-3 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brandGold/20">
+        Explore Capabilities
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- About Us -->
+<section id="about" class="py-20 bg-gradient-to-b from-white via-lightBlue to-white">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-#004C99 relative inline-block">
+        About ZHUOJIA 卓嘉
+
+        <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-brandGold rounded-full"></span>
+      </h2>
+
+      <p class="mt-4 text-muted text-lg leading-relaxed">
+        A project-driven engineering company solving complex industrial challenges through innovation,
+        precision manufacturing, and global supply chain integration.
+      </p>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-14 items-center">
+
+      <!-- LEFT CONTENT -->
+      <div data-aos="fade-right">
+
+        <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-8 hover:shadow-xl transition-all duration-300">
+
+          <h3 class="text-2xl font-bold text-dark mb-5">
+            Engineering, Manufacturing & Global Sourcing
+          </h3>
+
+          <p class="mb-4 text-muted leading-relaxed">
+            Very few companies bridge engineering design, manufacturing capabilities, material science,
+            and international sourcing under one roof. ZHUOJIA does.
+          </p>
+
+          <p class="mb-4 text-muted leading-relaxed">
+            We operate as a hybrid of engineering consultancy, advanced manufacturing firm, and industrial
+            product development partner. This allows us to manage projects from CAD/FEA validation to prototype
+            fabrication and full-scale production.
+          </p>
+
+          <p class="mb-6 text-dark font-semibold">
+            Core Identity:
+            <span class="text-muted font-normal">
+              Project-driven. Solution-focused. Globally positioned.
+            </span>
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+
+            <span class="bg-lightBlue text-brandBlue px-3 py-1.5 rounded-full text-sm font-medium border border-brandBlue/10">
+              Custom Engineering
+            </span>
+
+            <span class="bg-lightBlue text-brandBlue px-3 py-1.5 rounded-full text-sm font-medium border border-brandBlue/10">
+              Precision Manufacturing
+            </span>
+
+            <span class="bg-lightBlue text-brandBlue px-3 py-1.5 rounded-full text-sm font-medium border border-brandBlue/10">
+              Global Sourcing
+            </span>
+
+            <span class="bg-lightBlue text-brandBlue px-3 py-1.5 rounded-full text-sm font-medium border border-brandBlue/10">
+              R&D Prototyping
+            </span>
+
+            <span class="bg-lightBlue text-brandBlue px-3 py-1.5 rounded-full text-sm font-medium border border-brandBlue/10">
+              Industrial Electronics
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT STATS -->
+      <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+
+        <!-- Card -->
+        <div class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <div class="w-12 h-12 bg-lightBlue rounded-xl flex items-center justify-center text-brandBlue mb-3 group-hover:bg-brandBlue group-hover:text-white transition">
+            <i class="fas fa-globe"></i>
+          </div>
+
+          <h3 class="text-3xl font-extrabold text-dark leading-none">3</h3>
+          <p class="text-sm text-muted mt-1">Global Hubs</p>
+
+        </div>
+
+        <div class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <div class="w-12 h-12 bg-lightBlue rounded-xl flex items-center justify-center text-brandBlue mb-3 group-hover:bg-brandBlue group-hover:text-white transition">
+            <i class="fas fa-layer-group"></i>
+          </div>
+
+          <h3 class="text-3xl font-extrabold text-dark leading-none">6</h3>
+          <p class="text-sm text-muted mt-1">Core Disciplines</p>
+
+        </div>
+
+        <div class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <div class="w-12 h-12 bg-lightBlue rounded-xl flex items-center justify-center text-brandBlue mb-3 group-hover:bg-brandBlue group-hover:text-white transition">
+            <i class="fas fa-cubes"></i>
+          </div>
+
+          <h3 class="text-3xl font-extrabold text-dark leading-none">100%</h3>
+          <p class="text-sm text-muted mt-1">On-Demand Projects</p>
+
+        </div>
+
+        <div class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <div class="w-12 h-12 bg-lightBlue rounded-xl flex items-center justify-center text-brandBlue mb-3 group-hover:bg-brandBlue group-hover:text-white transition">
+            <i class="fas fa-industry"></i>
+          </div>
+
+          <h3 class="text-3xl font-extrabold text-dark leading-none">50+</h3>
+          <p class="text-sm text-muted mt-1">Industrial Projects</p>
+
+        </div>
+
+        <div class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <div class="w-12 h-12 bg-lightBlue rounded-xl flex items-center justify-center text-brandBlue mb-3 group-hover:bg-brandBlue group-hover:text-white transition">
+            <i class="fas fa-user-cog"></i>
+          </div>
+
+          <h3 class="text-3xl font-extrabold text-dark leading-none">25+</h3>
+          <p class="text-sm text-muted mt-1">Engineering Experts</p>
+
+        </div>
+
+        <div class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <div class="w-12 h-12 bg-lightBlue rounded-xl flex items-center justify-center text-brandBlue mb-3 group-hover:bg-brandBlue group-hover:text-white transition">
+            <i class="fas fa-check-circle"></i>
+          </div>
+
+          <h3 class="text-3xl font-extrabold text-dark leading-none">ISO</h3>
+          <p class="text-sm text-muted mt-1">Quality Compliance</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Products & Services -->
+<section id="services" class="py-20 bg-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-14 max-w-3xl mx-auto" data-aos="fade-up">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-dark relative inline-block">
+        Engineering Solutions & Capabilities
+        <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-brandGold rounded-full"></span>
+      </h2>
+
+      <p class="mt-4 text-muted text-lg">
+        Integrated engineering, manufacturing, sourcing, and technology solutions delivered through specialized divisions.
+      </p>
+
+    </div>
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 1. Precision Manufacturing -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+
+        <img
+          src="images/1. Precision Manufacturing.jpg"
+          class="w-full h-44 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-500"
+          alt="Precision Manufacturing"
+        />
+
+        <h3 class="text-xl font-bold text-dark mb-2">Precision Manufacturing</h3>
+
+        <p class="text-muted text-sm mb-3">
+          High-tolerance CNC machining, multi-axis milling, turning, and rapid fabrication for prototypes and production runs.
+        </p>
+
+        <ul class="text-sm text-muted space-y-1 pl-4">
+          <li>Carbon, Stainless & Exotic Alloys</li>
+          <li>Aluminum, Brass & Engineering Plastics</li>
+          <li>Prototype to Mass Production</li>
+          <li>3D Printing & Hybrid Manufacturing</li>
+        </ul>
+      </div>
+
+      <!-- 2. Industrial Casting -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+
+        <img
+          src="images/2. Industrial Casting.jpg"
+          class="w-full h-44 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-500"
+          alt="Industrial Casting"
+        />
+
+        <h3 class="text-xl font-bold text-dark mb-2">Industrial Casting</h3>
+
+        <p class="text-muted text-sm mb-3">
+          Custom metal casting solutions using investment, sand, and precision casting techniques.
+        </p>
+
+        <ul class="text-sm text-muted space-y-1 pl-4">
+          <li>Steel, Iron & Aluminum Casting</li>
+          <li>Mold Design & Pattern Engineering</li>
+          <li>Pump & Valve Components</li>
+          <li>Structural & Automotive Parts</li>
+        </ul>
+      </div>
+
+      <!-- 3. Engineering & Design -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+
+        <img
+          src="images/3. Engineering & Design.avif"
+          class="w-full h-44 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-500"
+          alt="Engineering Design"
+        />
+
+        <h3 class="text-xl font-bold text-dark mb-2">Engineering & Design</h3>
+
+        <p class="text-muted text-sm mb-3">
+          CAD, FEA, engineering calculations, validation, and manufacturing optimization.
+        </p>
+
+        <ul class="text-sm text-muted space-y-1 pl-4">
+          <li>3D CAD Modeling & Drafting</li>
+          <li>FEA Structural & Thermal Analysis</li>
+          <li>Rotating Equipment Engineering</li>
+          <li>Material Optimization</li>
+        </ul>
+      </div>
+
+      <!-- 4. Industrial Electronics -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+
+        <img
+          src="images/4. Industrial Electronics.avif"
+          class="w-full h-44 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-500"
+          alt="PCB Electronics"
+        />
+
+        <h3 class="text-xl font-bold text-dark mb-2">Industrial Electronics & PCB</h3>
+
+        <p class="text-muted text-sm mb-3">
+          Complete electronics lifecycle from schematic design to PCB fabrication and integration.
+        </p>
+
+        <ul class="text-sm text-muted space-y-1 pl-4">
+          <li>Custom PCB Design & Assembly</li>
+          <li>Embedded Systems & IoT</li>
+          <li>Control Panels & Automation</li>
+          <li>Smart Monitoring Systems</li>
+        </ul>
+      </div>
+
+      <!-- 5. Supply Chain -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+
+        <img
+          src="images/5. Supply Chain.avif"
+          class="w-full h-44 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-500"
+          alt="Supply Chain"
+        />
+
+        <h3 class="text-xl font-bold text-dark mb-2">Industrial Supply & Sourcing</h3>
+
+        <p class="text-muted text-sm mb-3">
+          Strategic procurement, OEM development, and supplier quality management.
+        </p>
+
+        <ul class="text-sm text-muted space-y-1 pl-4">
+          <li>Industrial Hardware & Components</li>
+          <li>Electrical & Instrumentation</li>
+          <li>OEM Supplier Development</li>
+          <li>Quality & Vendor Control</li>
+        </ul>
+      </div>
+
+      <!-- 6. Specialized Projects -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+
+        <img
+          src="images/6. Specialized Projects.jpg"
+          class="w-full h-44 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-500"
+          alt="Special Projects"
+        />
+
+        <h3 class="text-xl font-bold text-dark mb-2">Specialized Engineering Projects</h3>
+
+        <p class="text-muted text-sm mb-3">
+          One-off engineered solutions, prototypes, innovation projects, and failure analysis.
+        </p>
+
+        <ul class="text-sm text-muted space-y-1 pl-4">
+          <li>Custom Machines & Systems</li>
+          <li>Prototype Development</li>
+          <li>Product Engineering</li>
+          <li>Reverse Engineering & Analysis</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Featured Projects -->
+<section id="projects" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="text-center mb-14 max-w-3xl mx-auto" data-aos="fade-up">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-dark relative inline-block">
+        Featured Projects
+        <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-brandBlue rounded-full"></span>
+      </h2>
+
+      <p class="mt-4 text-muted text-lg">
+        A glimpse into our recent multidisciplinary engineering and manufacturing successes.
+      </p>
+
+    </div>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- CARD 1 -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="h-52 overflow-hidden relative">
+          <img
+            src="images/projects/Compressor Package.jpg"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            alt="Oil & Gas Engineering"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-brandBlue/40 to-transparent"></div>
+        </div>
+
+        <div class="p-6">
+
+          <span class="text-xs font-bold tracking-wider text-brandBlue uppercase">
+            Oil & Gas
+          </span>
+
+          <h3 class="text-xl font-bold text-dark mt-2 mb-3 group-hover:text-brandBlue transition-colors">
+            Compressor Package Components
+          </h3>
+
+          <p class="text-muted text-sm mb-4">
+            Reverse-engineered and manufactured high-tolerance valve bodies and instrumentation panels for EPC applications.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-50 border border-gray-200 text-dark text-xs rounded-full">
+              CNC Machining
+            </span>
+
+            <span class="px-3 py-1 bg-gray-50 border border-gray-200 text-dark text-xs rounded-full">
+              Exotic Alloys
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="h-52 overflow-hidden relative">
+          <img
+            src="images/projects/IoT Control PCB.avif"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            alt="Industrial Electronics"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-brandBlue/40 to-transparent"></div>
+        </div>
+
+        <div class="p-6">
+
+          <span class="text-xs font-bold tracking-wider text-brandBlue uppercase">
+            Industrial Electronics
+          </span>
+
+          <h3 class="text-xl font-bold text-dark mt-2 mb-3 group-hover:text-brandBlue transition-colors">
+            Multi-layer IoT Control PCB
+          </h3>
+
+          <p class="text-muted text-sm mb-4">
+            Designed and assembled a 6-layer industrial IoT control board with embedded sensing and real-time monitoring.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-50 border border-gray-200 text-dark text-xs rounded-full">
+              PCB Design
+            </span>
+
+            <span class="px-3 py-1 bg-gray-50 border border-gray-200 text-dark text-xs rounded-full">
+              SMT Assembly
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="h-52 overflow-hidden relative">
+          <img
+            src="images/projects/Alloy Casting.jpg"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            alt="Manufacturing Casting"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-brandBlue/40 to-transparent"></div>
+        </div>
+
+        <div class="p-6">
+
+          <span class="text-xs font-bold tracking-wider text-brandBlue uppercase">
+            Manufacturing
+          </span>
+
+          <h3 class="text-xl font-bold text-dark mt-2 mb-3 group-hover:text-brandBlue transition-colors">
+            Exotic Alloy Casting Components
+          </h3>
+
+          <p class="text-muted text-sm mb-4">
+            Developed precision investment casting molds and produced corrosion-resistant offshore pump components.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-50 border border-gray-200 text-dark text-xs rounded-full">
+              Investment Casting
+            </span>
+
+            <span class="px-3 py-1 bg-gray-50 border border-gray-200 text-dark text-xs rounded-full">
+              NDT Testing
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Trusted Partners -->
+<section class="py-16 bg-white border-y border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h3 class="text-2xl md:text-3xl font-bold text-dark">
+        Trusted Manufacturing Partners & Vendors
+      </h3>
+
+      <p class="text-muted mt-2 max-w-2xl mx-auto">
+        Strategic global alliances enabling precision manufacturing, electronics, and industrial scale production.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+
+      <!-- Partner 1 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-brandBlue/10 transition">
+          <i class="fas fa-industry text-xl text-brandBlue"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-base group-hover:text-brandBlue transition">
+          RAYFORCE
+        </h4>
+
+        <p class="text-xs text-muted mt-1 tracking-wider">
+          TAIYUAN, CHINA
+        </p>
+
+      </div>
+
+      <!-- Partner 2 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-brandBlue/10 transition">
+          <i class="fas fa-industry text-xl text-brandBlue"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-base group-hover:text-brandBlue transition">
+          GTS
+        </h4>
+
+        <p class="text-xs text-muted mt-1 tracking-wider">
+          DONGGUAN, CHINA
+        </p>
+
+      </div>
+
+      <!-- Partner 3 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-brandBlue/10 transition">
+          <i class="fas fa-microchip text-xl text-brandBlue"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-base group-hover:text-brandBlue transition">
+          HDI PCB
+        </h4>
+
+        <p class="text-xs text-muted mt-1 tracking-wider">
+          SHENZHEN, CHINA
+        </p>
+
+      </div>
+
+      <!-- Partner 4 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-brandBlue/10 transition">
+          <i class="fas fa-cogs text-xl text-brandBlue"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-base group-hover:text-brandBlue transition">
+          HEADTECH
+        </h4>
+
+        <p class="text-xs text-muted mt-1 tracking-wider">
+          SHENYANG, CHINA
+        </p>
+
+      </div>
+
+      <!-- Partner 5 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-brandBlue/10 transition">
+          <i class="fas fa-layer-group text-xl text-brandBlue"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-base group-hover:text-brandBlue transition">
+          MAKER PCB
+        </h4>
+
+        <p class="text-xs text-muted mt-1 tracking-wider">
+          SHENZHEN, CHINA
+        </p>
+
+      </div>
+
+      <!-- Partner 6 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-brandBlue/10 transition">
+          <i class="fas fa-industry text-xl text-brandBlue"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-base group-hover:text-brandBlue transition">
+          HUAYANG STEEL PIPE CO
+        </h4>
+
+        <p class="text-xs text-muted mt-1 tracking-wider">
+          HEBEI, CHINA
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Industries -->
+<section id="industries" class="py-20 bg-gradient-to-b from-white to-lightBlue">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-dark relative inline-block">
+        Industries Served
+        <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-brandBlue rounded-full"></span>
+      </h2>
+
+      <p class="mt-4 text-muted text-lg">
+        Delivering specialized engineering solutions across high-performance industrial sectors.
+      </p>
+
+    </div>
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Oil & Gas -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandBlue/10 mb-4 group-hover:bg-brandBlue/20 transition">
+          <i class="fas fa-oil-well text-brandBlue text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandBlue transition">
+          Oil & Gas
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>Compressor package components</li>
+          <li>API equipment support & valves</li>
+          <li>Reverse engineering & instrumentation panels</li>
+        </ul>
+
+      </div>
+
+      <!-- Industrial Manufacturing -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandBlue/10 mb-4 group-hover:bg-brandBlue/20 transition">
+          <i class="fas fa-industry text-brandBlue text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandBlue transition">
+          Industrial Manufacturing
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>CNC machined components</li>
+          <li>Casting & sheet metal fabrication</li>
+          <li>Structural assemblies & automation</li>
+        </ul>
+
+      </div>
+
+      <!-- Energy -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandBlue/10 mb-4 group-hover:bg-brandBlue/20 transition">
+          <i class="fas fa-bolt text-brandBlue text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandBlue transition">
+          Energy & Utilities
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>Turbine & pump components</li>
+          <li>Electrical control systems</li>
+          <li>Mechanical infrastructure support</li>
+        </ul>
+
+      </div>
+
+      <!-- Automation -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandBlue/10 mb-4 group-hover:bg-brandBlue/20 transition">
+          <i class="fas fa-robot text-brandBlue text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandBlue transition">
+          Automation & Electronics
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>PCB design & embedded systems</li>
+          <li>Industrial IoT solutions</li>
+          <li>Smart sensor integration</li>
+        </ul>
+
+      </div>
+
+      <!-- Infrastructure -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandBlue/10 mb-4 group-hover:bg-brandBlue/20 transition">
+          <i class="fas fa-landmark text-brandBlue text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandBlue transition">
+          Infrastructure
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>Electrical control panels</li>
+          <li>Structural steel fabrication</li>
+          <li>Retrofit & maintenance systems</li>
+        </ul>
+
+      </div>
+
+      <!-- R&D -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandGold/10 mb-4 group-hover:bg-brandGold/20 transition">
+          <i class="fas fa-flask text-brandGold text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandGold transition">
+          R&D & Startups
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>Prototype development</li>
+          <li>Experimental mechanical systems</li>
+          <li>Testing rigs & validation setups</li>
+        </ul>
+
+      </div>
+
+      <!-- Marine -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandBlue/10 mb-4 group-hover:bg-brandBlue/20 transition">
+          <i class="fas fa-ship text-brandBlue text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandBlue transition">
+          Marine & Offshore
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>Corrosion-resistant components</li>
+          <li>Marine electrical systems</li>
+          <li>Deck machinery & pumps</li>
+        </ul>
+
+      </div>
+
+      <!-- Automotive -->
+      <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brandBlue/10 mb-4 group-hover:bg-brandBlue/20 transition">
+          <i class="fas fa-car text-brandBlue text-xl"></i>
+        </div>
+
+        <h4 class="font-bold text-dark text-lg mb-3 group-hover:text-brandBlue transition">
+          Automotive & Transport
+        </h4>
+
+        <ul class="text-sm text-muted space-y-1 list-disc pl-5">
+          <li>Precision drivetrain components</li>
+          <li>EV control electronics</li>
+          <li>Lightweight alloy prototyping</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Capabilities -->
+<section id="capabilities" class="py-20 bg-gradient-to-b from-light to-lightBlue">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-14 max-w-3xl mx-auto" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark relative inline-block">
+        Engineering Capabilities
+        <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-brandGold rounded-full"></span>
+      </h2>
+
+      <p class="mt-4 text-muted text-lg">
+        State-of-the-art technical infrastructure supporting design, simulation, manufacturing, and validation.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-cube text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">CAD & 3D Modeling</h3>
+        <p class="text-sm text-muted">
+          Parametric design, assembly simulation, and manufacturing-ready drafting.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="100">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-wave-square text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">FEA & Simulation</h3>
+        <p class="text-sm text-muted">
+          Stress, thermal, and structural analysis to validate performance before production.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="200">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-print text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">Rapid Prototyping</h3>
+        <p class="text-sm text-muted">
+          CNC machining, 3D printing, and iterative testing to accelerate time-to-market.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="300">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-industry text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">Material Engineering</h3>
+        <p class="text-sm text-muted">
+          Metallurgy selection, corrosion resistance planning, and alloy optimization.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="400">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-arrows-rotate text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">Reverse Engineering</h3>
+        <p class="text-sm text-muted">
+          Component scanning, dimension capture, and legacy part reproduction.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="500">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-microchip text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">Industrial Electronics</h3>
+        <p class="text-sm text-muted">
+          Control logic design, PCB fabrication, and embedded system integration.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="600">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-clipboard-check text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">Quality Assurance</h3>
+        <p class="text-sm text-muted">
+          Precision inspection, NDT testing, dimensional verification, and compliance validation.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center
+                  hover:border-brandGold hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="700">
+
+        <div class="mb-4 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-lightGold flex items-center justify-center">
+            <i class="fas fa-boxes-stacked text-brandBlue text-xl"></i>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-dark text-lg mb-2">Supply Chain & Sourcing</h3>
+        <p class="text-sm text-muted">
+          Global vendor qualification, OEM procurement, logistics optimization, and traceability.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Tech tags -->
+    <div class="flex flex-wrap justify-center gap-3 mt-10 pt-8 border-t border-gray-200" data-aos="fade-up">
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        SolidWorks
+      </span>
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        ANSYS
+      </span>
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        Abaqus
+      </span>
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        AutoCAD
+      </span>
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        CAD/CAM Systems
+      </span>
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        Altium / KiCad
+      </span>
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        3D Scanners
+      </span>
+
+      <span class="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-dark border border-gray-200 shadow-sm hover:shadow-md transition">
+        CMM & NDT Equipment
+      </span>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Global Operations -->
+<section id="global" class="py-20 bg-gradient-to-b from-light to-lightBlue relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-14 max-w-3xl mx-auto" data-aos="fade-up">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-dark relative inline-block">
+        Global Operations
+        <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-brandGold rounded-full"></span>
+      </h2>
+
+      <p class="mt-4 text-muted text-lg">
+        Strategic hubs optimized for engineering, manufacturing scale, and international logistics.
+      </p>
+
+    </div>
+
+    <!-- GRID: HK → CN → IN → UAE -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+
+      <!-- HONG KONG -->
+      <div class="group relative bg-white border border-gray-100 p-7 rounded-2xl overflow-hidden shadow-sm
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+        <img src="https://flagcdn.com/w320/hk.png"
+             class="absolute inset-0 w-full h-full object-cover opacity-5 scale-125 group-hover:scale-110 transition duration-700" />
+
+        <div class="relative">
+
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://flagcdn.com/w40/hk.png" class="w-6 h-6 rounded-full shadow-sm" />
+            <h3 class="text-xl font-bold text-dark">Hong Kong</h3>
+          </div>
+
+          <span class="inline-block bg-lightGold text-brandBlue text-xs font-bold px-3 py-1 rounded-full mb-3">
+            Trade & Logistics Hub
+          </span>
+
+          <p class="text-sm text-muted leading-relaxed">
+            Central coordination hub enabling procurement flow, financial transactions, customs handling,
+            and cross-border integration between Asia and the Middle East.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- CHINA -->
+      <div class="group relative bg-white border border-gray-100 p-7 rounded-2xl overflow-hidden shadow-sm
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+        <img src="https://flagcdn.com/w320/cn.png"
+             class="absolute inset-0 w-full h-full object-cover opacity-5 scale-125 group-hover:scale-110 transition duration-700" />
+
+        <div class="relative">
+
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://flagcdn.com/w40/cn.png" class="w-6 h-6 rounded-full shadow-sm" />
+            <h3 class="text-xl font-bold text-dark">China</h3>
+          </div>
+
+          <span class="inline-block bg-lightGold text-brandBlue text-xs font-bold px-3 py-1 rounded-full mb-3">
+            Manufacturing & Sourcing Base
+          </span>
+
+          <p class="text-sm text-muted leading-relaxed">
+            High-volume CNC machining, precision casting, stamping, and OEM production partnerships
+            enabling scalable industrial manufacturing.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- INDIA -->
+      <div class="group relative bg-white border border-gray-100 p-7 rounded-2xl overflow-hidden shadow-sm
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+        <img src="https://flagcdn.com/w320/in.png"
+             class="absolute inset-0 w-full h-full object-cover opacity-5 scale-125 group-hover:scale-110 transition duration-700" />
+
+        <div class="relative">
+
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://flagcdn.com/w40/in.png" class="w-6 h-6 rounded-full shadow-sm" />
+            <h3 class="text-xl font-bold text-dark">India</h3>
+          </div>
+
+          <span class="inline-block bg-lightGold text-brandBlue text-xs font-bold px-3 py-1 rounded-full mb-3">
+            Engineering & R&D Center
+          </span>
+
+          <p class="text-sm text-muted leading-relaxed">
+            CAD/FEA design, PCB development, embedded systems, and prototype validation
+            through highly skilled engineering teams.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- UAE -->
+      <div class="group relative bg-white border border-gray-100 p-7 rounded-2xl overflow-hidden shadow-sm
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+        <img src="https://flagcdn.com/w320/ae.png"
+             class="absolute inset-0 w-full h-full object-cover opacity-5 scale-125 group-hover:scale-110 transition duration-700" />
+
+        <div class="relative">
+
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://flagcdn.com/w40/ae.png" class="w-6 h-6 rounded-full shadow-sm" />
+            <h3 class="text-xl font-bold text-dark">United Arab Emirates</h3>
+          </div>
+
+          <span class="inline-block bg-lightGold text-brandBlue text-xs font-bold px-3 py-1 rounded-full mb-3">
+            Headquarters & Client Interface
+          </span>
+
+          <p class="text-sm text-muted leading-relaxed">
+            Project management, EPC coordination, client engagement, and regional logistics hub
+            serving Middle East industrial operations.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact" class="py-24 bg-white relative overflow-hidden">
+
+  <!-- Soft brand glow -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#004C99]/5 via-white to-[#004C99]/5"></div>
+
+  <!-- Subtle grid -->
+  <div class="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2750%27 height=%2750%27 viewBox=%270 0 50 50%27%3E%3Cpath d=%27M 50 0 L 0 0 0 50%27 fill=%27none%27 stroke=%27000%27 stroke-width=%270.5%27/%3E%3C/svg%3E')]"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 relative inline-block">
+        Start Your Project
+        <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-[#004C99] rounded-full"></span>
+      </h2>
+
+      <p class="mt-5 text-gray-600 text-lg">
+        Submit RFQs, CAD files, or technical requirements. Our engineering team responds within 24 hours with structured feedback and execution roadmap.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-10">
+
+      <!-- LEFT -->
+      <div class="lg:col-span-2 space-y-6" data-aos="fade-right">
+
+        <!-- Emails Card -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+
+          <h3 class="text-lg font-semibold text-[#004C99] mb-4">
+            Engineering Contacts
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-600">
+
+            <div class="flex gap-3">
+              <i class="fas fa-envelope text-[#004C99] mt-1"></i>
+              <div>
+                <p class="font-semibold text-gray-900">Projects</p>
+                <p>projects@zhuojia-engineering.com</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <i class="fas fa-file-invoice text-[#004C99] mt-1"></i>
+              <div>
+                <p class="font-semibold text-gray-900">RFQ Desk</p>
+                <p>rfq@zhuojia-engineering.com</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <i class="fas fa-info-circle text-[#004C99] mt-1"></i>
+              <div>
+                <p class="font-semibold text-gray-900">General Info</p>
+                <p>info@zhuojia-engineering.com</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Operations -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition text-sm text-gray-600">
+
+          <h3 class="text-lg font-semibold text-[#004C99] mb-4">Global Operations</h3>
+
+          <p class="font-semibold text-gray-900 mb-2">Phone / WhatsApp</p>
+
+          <p>HK +852 XX XXX XXXX</p>
+          <p>CN +86 XX XXX XXXX</p>
+          <p>IN +91 XX XXX XXXX</p>
+          <p>UAE +971 XX XXX XXXX</p>
+
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <p class="font-semibold text-gray-900">Business Hours</p>
+            <p>Mon – Fri: 09:00 – 17:00</p>
+            <p class="text-xs text-gray-500 mt-1">Global engineering support across time zones</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div class="lg:col-span-3 bg-white rounded-2xl p-8 shadow-xl border border-gray-100"
+           data-aos="fade-left">
+
+        <form class="space-y-5">
+
+          <div class="grid sm:grid-cols-2 gap-4">
+
+            <div>
+              <label class="text-sm font-medium text-gray-700">Full Name *</label>
+              <input class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#004C99]/30 focus:border-[#004C99] outline-none transition"
+                     type="text" required>
+            </div>
+
+            <div>
+              <label class="text-sm font-medium text-gray-700">Business Email *</label>
+              <input class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#004C99]/30 focus:border-[#004C99] outline-none transition"
+                     type="email" required>
+            </div>
+
+          </div>
+
+          <div>
+            <label class="text-sm font-medium text-gray-700">Company</label>
+            <input class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#004C99]/30 focus:border-[#004C99]"
+                   type="text">
+          </div>
+
+          <div>
+            <label class="text-sm font-medium text-gray-700">Project Type *</label>
+            <select class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#004C99]/30 focus:border-[#004C99]" required>
+              <option>Select Service</option>
+              <option>Precision Manufacturing</option>
+              <option>Industrial Casting</option>
+              <option>Engineering & FEA</option>
+              <option>PCB & Electronics</option>
+              <option>Sourcing & Supply Chain</option>
+              <option>Special Engineering Project</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm font-medium text-gray-700">Project Details *</label>
+            <textarea rows="5"
+              class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#004C99]/30 focus:border-[#004C99]"
+              placeholder="Materials, tolerances, quantity, CAD/BOM, timeline..." required></textarea>
+          </div>
+
+          <button type="submit"
+            class="w-full bg-[#004C99] hover:bg-[#003A75] text-white font-semibold py-3 rounded-lg transition-all hover:-translate-y-0.5 shadow-lg">
+            <i class="fas fa-paper-plane mr-2"></i> Submit RFQ
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#020617] text-gray-400 pt-20 pb-10 border-t border-white/10 relative overflow-hidden">
+
+  <!-- subtle glow background -->
+  <div class="absolute inset-0 bg-gradient-to-tr from-[#004C99]/10 via-transparent to-yellow-500/5"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
+      <!-- Company -->
+      <div>
+        <h4 class="text-white text-lg font-bold mb-4 tracking-wide">
+          ZHUOJIA 卓嘉
+        </h4>
+
+        <p class="text-sm leading-relaxed text-gray-400">
+          Multidisciplinary engineering, manufacturing, sourcing, and industrial solutions provider delivering precision execution across global supply chains.
+        </p>
+
+        <p class="mt-4 text-sm">
+          <span class="text-white font-semibold">Positioning:</span>
+          <span class="text-[#004C99] font-medium">Engineering Integrator</span>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-white text-lg font-bold mb-4">Quick Links</h4>
+
+        <ul class="space-y-2 text-sm">
+          <li><a href="#home" class="hover:text-[#004C99] transition hover:translate-x-1 inline-block">Home</a></li>
+          <li><a href="#about" class="hover:text-[#004C99] transition hover:translate-x-1 inline-block">About</a></li>
+          <li><a href="#services" class="hover:text-[#004C99] transition hover:translate-x-1 inline-block">Services</a></li>
+          <li><a href="#capabilities" class="hover:text-[#004C99] transition hover:translate-x-1 inline-block">Capabilities</a></li>
+          <li><a href="#global" class="hover:text-[#004C99] transition hover:translate-x-1 inline-block">Global Operations</a></li>
+          <li><a href="#contact" class="hover:text-[#004C99] transition hover:translate-x-1 inline-block">Contact / RFQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Global Network -->
+      <div>
+        <h4 class="text-white text-lg font-bold mb-4">Global Network</h4>
+
+        <ul class="space-y-4 text-sm">
+
+          <!-- Hong Kong -->
+          <li class="flex items-start gap-3">
+            <i class="fas fa-bridge text-brandGold mt-1"></i>
+            <div class="leading-snug">
+              <span class="text-white font-medium">Hong Kong</span>
+              <span class="text-gray-400 block">Trade & Logistics Bridge</span>
+            </div>
+          </li>
+
+          <!-- China -->
+          <li class="flex items-start gap-3">
+            <i class="fas fa-industry text-brandGold mt-1"></i>
+            <div class="leading-snug">
+              <span class="text-white font-medium">China</span>
+              <span class="text-gray-400 block">Manufacturing & Sourcing Base</span>
+            </div>
+          </li>
+
+          <!-- India -->
+          <li class="flex items-start gap-3">
+            <i class="fas fa-cogs text-brandGold mt-1"></i>
+            <div class="leading-snug">
+              <span class="text-white font-medium">India</span>
+              <span class="text-gray-400 block">Engineering & R&D Center</span>
+            </div>
+          </li>
+
+          <!-- UAE -->
+          <li class="flex items-start gap-3">
+            <i class="fas fa-building text-brandGold mt-1"></i>
+            <div class="leading-snug">
+              <span class="text-white font-medium">UAE</span>
+              <span class="text-gray-400 block">HQ & Client Relations</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <h4 class="text-white text-lg font-bold mb-4">Connect</h4>
+
+        <p class="text-sm mb-5 text-gray-400">
+          Engineering updates, project showcases, and global execution insights.
+        </p>
+
+        <div class="flex gap-3 flex-wrap">
+
+          <a class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#004C99] hover:border-[#004C99] hover:-translate-y-1 transition"
+             href="#">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <a class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#004C99] hover:border-[#004C99] hover:-translate-y-1 transition"
+             href="#">
+            <i class="fa-brands fa-weixin"></i>
+          </a>
+
+          <a class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#004C99] hover:border-[#004C99] hover:-translate-y-1 transition"
+             href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#004C99] hover:border-[#004C99] hover:-translate-y-1 transition"
+             href="#">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-gray-500">
+      <p>
+        © <span id="year"></span> ZHUOJIA 卓嘉. All Rights Reserved.
+        <span class="text-[#004C99]">| Precision • Engineering • Execution</span>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+<!-- Consolidated Scripts (Fixes all JS errors) -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+    /* =========================
+       AOS ANIMATION
+    ========================= */
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 60
+    });
+
+
+    /* =========================
+       COPYRIGHT YEAR
+    ========================= */
+    const yearElement = document.getElementById('year');
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+
+        mobileMenu.classList.remove('translate-x-full');
+
+        menuOverlay.classList.remove(
+            'opacity-0',
+            'pointer-events-none'
+        );
+
+        menuBtn.setAttribute('aria-expanded', 'true');
+
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuFn() {
+
+        mobileMenu.classList.add('translate-x-full');
+
+        menuOverlay.classList.add(
+            'opacity-0',
+            'pointer-events-none'
+        );
+
+        menuBtn.setAttribute('aria-expanded', 'false');
+
+        document.body.style.overflow = '';
+    }
+
+    if (menuBtn) {
+        menuBtn.addEventListener('click', openMenu);
+    }
+
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMenuFn);
+    }
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenuFn);
+    }
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+
+        link.addEventListener('click', closeMenuFn);
+
+    });
+
+
+    /* =========================
+       NAVBAR SHADOW ON SCROLL
+    ========================= */
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+
+        if (window.scrollY > 20) {
+
+            navbar.classList.add(
+                'shadow-lg'
+            );
+
+        } else {
+
+            navbar.classList.remove(
+                'shadow-lg'
+            );
+        }
+
+    });
+
+
+    /* =========================
+       ACTIVE MENU HIGHLIGHT
+    ========================= */
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+
+        let current = '';
+
+        sections.forEach(section => {
+
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.clientHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
+            ) {
+                current = section.getAttribute('id');
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove('active');
+
+            if (
+                link.getAttribute('href') === '#' + current
+            ) {
+                link.classList.add('active');
+            }
+
+        });
+
+    });
+
+
+    /* =========================
+       CONTACT FORM
+    ========================= */
+    const projectForm = document.getElementById('projectForm');
+
+    if (projectForm) {
+
+        projectForm.addEventListener('submit', function (e) {
+
+            e.preventDefault();
+
+            const btn = this.querySelector('button');
+
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML =
+                '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            btn.style.opacity = '0.8';
+
+            setTimeout(() => {
+
+                alert(
+                    'Thank you! Your inquiry has been successfully submitted to ZHUOJIA Engineering & Consultants. Our team will review your requirements and respond shortly.'
+                );
+
+                this.reset();
+
+                btn.innerHTML = originalText;
+
+                btn.style.opacity = '1';
+
+            }, 1500);
+
+        });
+
+    }
+
+</script>
+
+
+</body>
+</html>
