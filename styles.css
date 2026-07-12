@@ -1,0 +1,56 @@
+:root {
+            --primary: #004C99;
+            --secondary: #0066CC;
+            --accent: #00A3FF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #e5e7eb; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #004C99; border-radius: 999px; }
+        ::selection { background: #004C99; color: white; }
+
+        section { scroll-margin-top: 90px; }
+
+        .glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* Navbar Styles */
+        .nav-link {
+            position: relative;
+            color: rgb(55 65 81);
+            transition: .3s;
+        }
+        .dark .nav-link { color: #e5e7eb; }
+        .nav-link:hover { color: #004C99; }
+        
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: #004C99;
+            transition: .3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .nav-link.active { color: #004C99; }
+        .nav-link.active::after { width: 100%; }
+
+        .mobile-link {
+            display: block;
+            font-weight: 600;
+            transition: .3s;
+        }
+        .mobile-link:hover {
+            color: #004C99;
+            padding-left: 8px;
+        }
