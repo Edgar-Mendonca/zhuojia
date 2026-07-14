@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- ==========================================
+                    BASIC META
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services ZHUOJIA Engineering & Consultants</title>
+    
+    <!-- =========================================
+                    FAVICON
+    =========================================== -->
+    <link rel="icon" type="image/png" href="images/logo/ZHUOJIA-NEW-NO-BG.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">   
+
+    <!-- Translation data -->
+    <script src="translations.js"></script>
+    <!-- Language switching logic -->
+    <script src="language.js"></script>
+    <!-- Your main script -->
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="styles.css">   
+
+</head>
+
+<body class="bg-white dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Scroll Progress -->
+    <div id="progressBar" class="fixed top-0 left-0 z-[60] h-1 bg-primary w-0 transition-all duration-150"></div>
+
+    <!-- ==========================================================
+                        NAVBAR
+    ============================================================ -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 dark:bg-dark/80 glass border-b border-gray-200/70 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div id="navContainer" class="h-24 transition-all duration-300 flex items-center justify-between px-6 lg:px-8">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="images/logo/ZHUOJIA-NEW-NO_TEXT-NO-BG.png" alt="ZHUOJIA Logo" class="h-14 transition duration-300 group-hover:scale-105">
+                    <div>
+                        <h1 class="text-[24px] font-extrabold tracking-wide text-primary leading-none">ZHUOJIA 卓嘉</h1>
+                        <p class="text-[8px] uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400" data-en="Engineering & Consultants" data-zh="工程与咨询">Engineering & Consultants</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8 font-medium">
+                    <a href="index.html" class="nav-link" data-en="Home" data-zh="首页">Home</a>
+                    <a href="index.html#about" class="nav-link" data-en="About" data-zh="关于我们">About</a>
+                    <a href="index.html#services" class="nav-link" data-en="Services" data-zh="服务">Services</a>
+                    <a href="index.html#industries" class="nav-link" data-en="Industries" data-zh="行业">Industries</a>
+                    <a href="index.html#projects" class="nav-link" data-en="Projects" data-zh="项目">Projects</a>
+                    <a href="index.html#contact" class="nav-link" data-en="Contact" data-zh="联系我们">Contact</a>
+                </div>
+
+                <!-- Right Side (Desktop) -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <button id="themeToggle" class="h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <i id="themeIcon" class="bi bi-moon-stars text-lg"></i>
+                    </button>
+                    
+                    <!-- Language Selector -->
+                    <div class="relative">
+                        <button class="lang-toggle h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition font-bold text-sm">
+                            <span class="lang-icon">EN</span>
+                        </button>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="lang-dropdown hidden absolute right-0 mt-2 w-32 bg-white dark:bg-dark rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
+                            <button onclick="changeLanguage('en')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">English</button>
+                            <button onclick="changeLanguage('zh')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">中文</button>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="px-6 py-3 rounded-full bg-primary hover:bg-secondary text-white font-semibold transition duration-300 hover:-translate-y-0.5" data-en="Get Started" data-zh="开始合作">Get Started</a>
+                </div>
+
+                <!-- Mobile Button -->
+                <button id="mobileButton" class="lg:hidden text-3xl">
+                    <i id="mobileIcon" class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-dark border-t border-gray-200 dark:border-gray-800">
+            <div class="px-6 py-6 space-y-5">
+                <a class="mobile-link" href="index.html" data-en="Home" data-zh="首页">Home</a>
+                <a class="mobile-link" href="index.html#about" data-en="About" data-zh="关于我们">About</a>
+                <a class="mobile-link" href="index.html#services" data-en="Services" data-zh="服务">Services</a>
+                <a class="mobile-link" href="index.html#industries" data-en="Industries" data-zh="行业">Industries</a>
+                <a class="mobile-link" href="index.html#projects" data-en="Projects" data-zh="项目">Projects</a>
+                <a class="mobile-link" href="index.html#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+                <a class="mobile-link inline-block px-6 py-2.5 rounded-full bg-primary hover:bg-secondary text-white font-semibold transition duration-300" href="contact.html" data-en="Get Started" data-zh="开始合作">Get Started</a>
+
+                <!-- Mobile Bottom Actions -->
+                <div class="flex items-center gap-3 pt-4">
+
+                    <!-- Theme Toggle (Now Round) -->
+                    <button id="themeToggleMobile" class="h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <i class="bi bi-moon-stars text-lg"></i>
+                    </button>
+                    
+                    <!-- Language Selector (Added for Mobile) -->
+                    <div class="relative">
+                        <button class="lang-toggle h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition font-bold text-sm">
+                            <span class="lang-icon">EN</span>
+                        </button>
+                        
+                        <!-- Dropdown Menu (Opens to the left to prevent screen overflow) -->
+                        <div class="lang-dropdown hidden absolute left-0 mt-2 w-32 bg-white dark:bg-dark rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
+                            <button onclick="changeLanguage('en')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">English</button>
+                            <button onclick="changeLanguage('zh')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">中文</button>
+                        </div>
+                    </div>  
+                
+                </div>  
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Spacer for Fixed Navbar -->
+    <div class="h-20"></div>
+
+
+    <!-- ========================================== -->
+    <!-- SERVICES PAGE HERO                         -->
+    <!-- ========================================== -->
+    <section id="services-hero" class="relative pt-32 pb-20 overflow-hidden bg-white dark:bg-slate-900">
+        <!-- Subtle Technical Background Pattern (Blueprint feel) -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#004C9908_1px,transparent_1px),linear-gradient(to_bottom,#004C9908_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <!-- Soft ambient glow -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#004C99]/5 to-transparent dark:from-[#004C99]/10 pointer-events-none"></div>
+
+        <div class="container relative mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="800">
+            
+            <!-- Breadcrumb -->
+            <nav class="flex justify-center items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="index.html" class="hover:text-[#004C99] transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <!-- Replaced Bootstrap icon with inline SVG for consistency -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="text-[#004C99] font-semibold" data-en="Services" data-zh="服务">Services</span>
+            </nav>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
+                <span data-en="End-to-End" data-zh="全方位">End-to-End</span> 
+                <span class="text-[#004C99]" data-en="Engineering" data-zh="工程">Engineering</span> 
+                <span data-en="& Industrial Solutions" data-zh="与工业解决方案">& Industrial Solutions</span>
+            </h1>
+
+            <!-- Compelling Description (Replaces "DESCRIPTION") -->
+            <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed" 
+            data-en="From advanced R&D and precision design to global sourcing and manufacturing support, we deliver tailored solutions that drive efficiency, innovation, and success for your most complex industrial projects." 
+            data-zh="从先进的研发与精密设计，到全球采购与制造支持，我们为复杂的工业项目提供量身定制的解决方案，助力提升效率、推动创新并取得成功。">
+                From advanced R&D and precision design to global sourcing and manufacturing support, we deliver tailored solutions that drive efficiency, innovation, and success for your most complex industrial projects.
+            </p>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#004C99] rounded-xl hover:bg-[#003d7a] transition-all duration-300 shadow-lg shadow-[#004C99]/20 hover:shadow-[#004C99]/40 hover:-translate-y-1"
+                data-en="Discuss Your Idea!" data-zh="讨论您的想法！">
+                    Got an Idea?/有主意吗？
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+                <a href="#services-list" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#004C99] bg-[#004C99]/10 dark:bg-[#004C99]/20 rounded-xl hover:bg-[#004C99]/20 dark:hover:bg-[#004C99]/30 transition-all duration-300 hover:-translate-y-1"
+                data-en="View All Capabilities" data-zh="查看所有能力">
+                    View All Capabilities
+                </a>
+            </div>
+
+            <!-- Trust Indicators / Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-10 border-t border-gray-200 dark:border-gray-800">
+                <div class="text-center">
+                    <div class="text-3xl font-black text-[#004C99] mb-1">20+</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400" data-en="Projects Delivered" data-zh="交付项目">Projects Delivered</div>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-3xl font-black text-[#004C99] mb-1">100%</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400" data-en="Quality Assured" data-zh="质量保证">Quality Assured</div>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-3xl font-black text-[#004C99] mb-1">6+</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400" data-en="Years Experience" data-zh="年经验">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Services Detail Section -->
+    <section id="services-list" class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Our <span class="text-[#004C99]" data-en="Services" data-zh="服务">Services</span>
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto" 
+                data-en="Comprehensive engineering and industrial solutions tailored to your project needs"
+                data-zh="为您的项目需求量身定制的全面工程和工业解决方案">
+                    Comprehensive engineering and industrial solutions tailored to your project needs
+                </p>
+            </div>
+
+            <!-- Service 1: Engineering & Design -->
+            <div class="mb-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-[#004C99] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">01</div>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white" 
+                                data-en="Engineering & Design" 
+                                data-zh="工程与设计">Engineering & Design</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-6"
+                        data-en="Multidisciplinary engineering support covering the full spectrum of mechanical, electrical, and structural design requirements for complex industrial systems."
+                        data-zh="提供多学科工程支持，涵盖复杂工业系统的机械、电气和结构设计的全部需求。">
+                            Multidisciplinary engineering support covering the full spectrum of mechanical, electrical, and structural design requirements for complex industrial systems.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Mechanical design & CAD modeling" data-zh="机械设计与CAD建模">Mechanical design & CAD modeling</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="FEA validation & stress analysis" data-zh="有限元分析(FEA)验证与应力分析">FEA validation & stress analysis</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Technical documentation & specifications" data-zh="技术文档与规范">Technical documentation & specifications</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Reverse engineering & optimization" data-zh="逆向工程与优化">Reverse engineering & optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#004C99]/10 to-[#00A3FF]/10 rounded-3xl p-8">
+                        <div class="aspect-video bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <svg class="w-24 h-24 text-[#004C99]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Project Management -->
+            <div class="mb-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:order-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-[#004C99] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">02</div>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white" 
+                                data-en="Project Management" 
+                                data-zh="项目管理">Project Management</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-6"
+                        data-en="End-to-end EPC support ensuring seamless project execution from conception through delivery, with comprehensive scheduling and resource coordination."
+                        data-zh="提供端到端EPC支持，确保项目从构思到交付的无缝执行，并提供全面的进度安排和资源协调。">
+                            End-to-end EPC support ensuring seamless project execution from conception through delivery, with comprehensive scheduling and resource coordination.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="EPC project coordination" data-zh="EPC项目协调">EPC project coordination</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Timeline & milestone management" data-zh="进度与里程碑管理">Timeline & milestone management</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Resource allocation & optimization" data-zh="资源分配与优化">Resource allocation & optimization</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="On-site execution management" data-zh="现场执行管理">On-site execution management</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:order-1 bg-gradient-to-br from-[#004C99]/10 to-[#00A3FF]/10 rounded-3xl p-8">
+                        <div class="aspect-video bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <svg class="w-24 h-24 text-[#004C99]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: R&D and Prototyping -->
+            <div class="mb-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-[#004C99] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">03</div>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white" 
+                                data-en="R&D and Prototyping" 
+                                data-zh="研发与原型制作">R&D and Prototyping</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-6"
+                        data-en="Research & development capabilities combined with rapid prototyping to accelerate product innovation and validate designs before full-scale production."
+                        data-zh="结合研发能力与快速原型制作，以加速产品创新并在全面投产前验证设计。">
+                            Research & development capabilities combined with rapid prototyping to accelerate product innovation and validate designs before full-scale production.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Rapid prototyping & 3D printing" data-zh="快速原型制作与3D打印">Rapid prototyping & 3D printing</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Material testing & validation" data-zh="材料测试与验证">Material testing & validation</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Product innovation & development" data-zh="产品创新与开发">Product innovation & development</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Design iteration & optimization" data-zh="设计迭代与优化">Design iteration & optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#004C99]/10 to-[#00A3FF]/10 rounded-3xl p-8">
+                        <div class="aspect-video bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <svg class="w-24 h-24 text-[#004C99]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Specialised Projects -->
+            <div class="mb-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:order-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-[#004C99] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">04</div>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white" 
+                                data-en="Specialised Projects" 
+                                data-zh="定制化工程项目">Specialised Projects</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-6"
+                        data-en="Custom engineering solutions designed for complex industrial challenges and niche applications that require specialized expertise and innovative approaches."
+                        data-zh="专为复杂的工业挑战和需要专业专业知识及创新方法的特定应用场景而设计的定制工程解决方案。">
+                            Custom engineering solutions designed for complex industrial challenges and niche applications that require specialized expertise and innovative approaches.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Complex system integration" data-zh="复杂系统集成">Complex system integration</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Niche application engineering" data-zh="特定应用场景工程">Niche application engineering</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Custom solution development" data-zh="定制解决方案开发">Custom solution development</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Technical problem-solving" data-zh="技术问题排查与解决">Technical problem-solving</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:order-1 bg-gradient-to-br from-[#004C99]/10 to-[#00A3FF]/10 rounded-3xl p-8">
+                        <div class="aspect-video bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <svg class="w-24 h-24 text-[#004C99]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5: Manufacturing Support -->
+            <div class="mb-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-[#004C99] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">05</div>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white" 
+                                data-en="Manufacturing Support" 
+                                data-zh="制造支持">Manufacturing Support</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-6"
+                        data-en="Comprehensive manufacturing oversight including factory audits, production monitoring, and quality control to ensure consistent output and supply chain optimization."
+                        data-zh="全面的制造监督，包括工厂审核、生产监控和质量控制，以确保持续产出和供应链优化。">
+                            Comprehensive manufacturing oversight including factory audits, production monitoring, and quality control to ensure consistent output and supply chain optimization.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Factory audits & assessments" data-zh="工厂审核与评估">Factory audits & assessments</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Production monitoring & oversight" data-zh="生产监控与监督">Production monitoring & oversight</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Quality control & inspection" data-zh="质量控制与检验">Quality control & inspection</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Supply chain optimization" data-zh="供应链优化">Supply chain optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#004C99]/10 to-[#00A3FF]/10 rounded-3xl p-8">
+                        <div class="aspect-video bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <svg class="w-24 h-24 text-[#004C99]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6: Industrial Supply & Sourcing -->
+            <div class="mb-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:order-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-[#004C99] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">06</div>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white" 
+                                data-en="Industrial Supply & Sourcing" 
+                                data-zh="工业供应与采购">Industrial Supply & Sourcing</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-6"
+                        data-en="Strategic procurement and global sourcing networks connecting you with qualified vendors worldwide, ensuring optimal supply chain management and cost efficiency."
+                        data-zh="战略采购和全球采购网络，将您与全球合格的供应商联系起来，确保最佳的供应链管理和成本效益。">
+                            Strategic procurement and global sourcing networks connecting you with qualified vendors worldwide, ensuring optimal supply chain management and cost efficiency.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Strategic procurement planning" data-zh="战略采购规划">Strategic procurement planning</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Vendor identification & qualification" data-zh="供应商识别与资质审核">Vendor identification & qualification</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Global sourcing network access" data-zh="全球采购网络接入">Global sourcing network access</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-[#004C99] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-700 dark:text-gray-300" data-en="Supply chain management" data-zh="供应链管理">Supply chain management</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:order-1 bg-gradient-to-br from-[#004C99]/10 to-[#00A3FF]/10 rounded-3xl p-8">
+                        <div class="aspect-video bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <svg class="w-24 h-24 text-[#004C99]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="text-center mt-20 p-12 bg-gradient-to-r from-[#004C99] to-[#0066CC] rounded-3xl">
+                <h3 class="text-3xl font-bold text-white mb-4" 
+                    data-en="Ready to Start Your Project?" 
+                    data-zh="准备好开始您的项目了吗？">Ready to Start Your Project?</h3>
+                <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
+                data-en="Let's discuss how our comprehensive engineering services can support your next industrial project."
+                data-zh="让我们探讨我们的全面工程服务如何支持您的下一个工业项目。">
+                    Let's discuss how our comprehensive engineering services can support your next industrial project.
+                </p>
+                <a href="contact.html" class="inline-block px-8 py-4 bg-white text-[#004C99] font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+                data-en="Get in Touch" 
+                data-zh="联系我们">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- ==========================================================
+                                FOOTER
+    =========================================================== -->
+    <footer class="bg-dark text-gray-400">
+
+        <div class="max-w-7xl mx-auto px-6 pt-20 pb-10">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <!-- ================= Company ================= -->
+                <div>
+                    <h3 class="text-3xl font-bold text-white">
+                        ZHUOJIA 卓嘉
+                    </h3>
+                    <p class="text-primary font-medium mt-1" data-en="Engineering & Consultants" data-zh="工程与咨询">
+                        Engineering & Consultants
+                    </p>
+                    <p class="mt-6 leading-relaxed text-sm" data-en="Delivering multidisciplinary engineering, manufacturing, procurement and industrial solutions for clients across the globe." data-zh="为全球客户提供多学科工程、制造、采购和工业解决方案。">
+                        Delivering multidisciplinary engineering,
+                        manufacturing, procurement and industrial
+                        solutions for clients across the globe.
+                    </p>
+
+                    <div class="mt-6 inline-flex items-center gap-2 text-primary text-sm font-medium">
+                        <i class="bi bi-award-fill"></i>
+                        <span data-en="Engineering • Precision • Execution" data-zh="工程 • 精密 • 执行">Engineering • Precision • Execution</span>
+                    </div>
+                </div>
+
+                <!-- ================= Company Links ================= -->
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Company" data-zh="公司">
+                        Company
+                    </h4>
+
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#home" class="hover:text-primary transition" data-en="Home" data-zh="首页">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition" data-en="About Us" data-zh="关于我们">About Us</a></li>
+                        <li><a href="#services" class="hover:text-primary transition" data-en="Services" data-zh="服务">Services</a></li>
+                        <li><a href="#industries" class="hover:text-primary transition" data-en="Industries" data-zh="行业">Industries</a></li>
+                        <li><a href="#projects" class="hover:text-primary transition" data-en="Projects" data-zh="项目">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition" data-en="Contact" data-zh="联系我们">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- ================= Services ================= -->
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Services" data-zh="服务">
+                        Services
+                    </h4>
+
+                    <ul class="space-y-3 text-sm">
+                        <li data-en="Engineering Design" data-zh="工程设计">Engineering Design</li>
+                        <li data-en="Manufacturing Support" data-zh="制造支持">Manufacturing Support</li>
+                        <li data-en="Industrial Sourcing" data-zh="工业采购">Industrial Sourcing</li>
+                        <li data-en="Procurement" data-zh="采购">Procurement</li>
+                        <li data-en="Project Management" data-zh="项目管理">Project Management</li>
+                        <li data-en="Quality Inspection" data-zh="质量检验">Quality Inspection</li>
+                    </ul>
+                </div>
+
+                <!-- ================= Connect ================= -->
+                <div>
+
+                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Connect" data-zh="联系">
+                        Connect
+                    </h4>
+
+                    <p class="text-sm" data-en="Email" data-zh="电子邮件">
+                        Email
+                    </p>
+
+                    <a href="mailto:contact@zhuojia.com"
+                    class="text-primary hover:underline">
+                        contact@zhuojia.com
+                    </a>
+
+                    <p class="mt-6 text-sm" data-en="Follow our latest engineering updates." data-zh="关注我们最新的工程更新。">
+                        Follow our latest engineering updates.
+                    </p>
+
+                    <div class="flex gap-3 mt-6">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/company/your-company"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/6591234567"
+                        target="_blank"
+                        aria-label="WhatsApp"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                        <!-- WeChat -->
+                        <a href="#"
+                        aria-label="WeChat"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-wechat"></i>
+                        </a>
+
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@yourcompany"
+                        target="_blank"
+                        aria-label="TikTok"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= Bottom Bar ================= -->
+            <div class="border-t border-white/10 mt-16 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm">
+                        © <span id="footerYear"></span> <span data-en="ZHUOJIA Engineering & Consultants. All Rights Reserved." data-zh="卓嘉工程与咨询。保留所有权利。">ZHUOJIA Engineering & Consultants. All Rights Reserved.</span>
+                    </p>
+
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="hover:text-primary transition" data-en="Privacy Policy" data-zh="隐私政策">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="hover:text-primary transition" data-en="Terms & Conditions" data-zh="条款与条件">
+                            Terms & Conditions
+                        </a>
+
+                        <a href="#" class="hover:text-primary transition" data-en="Sitemap" data-zh="网站地图">
+                            Sitemap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Script -->
+    <script>
+        document.getElementById("footerYear").textContent =
+        new Date().getFullYear();
+    </script>
+
+
+    <!-- ==========================================
+                SCRIPTS (Placed at the end for performance)
+    =========================================== -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        /* ==========================================
+                Initialize AOS
+        ========================================== */
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+
+        /* ==========================================
+                Mobile Menu
+        ========================================== */
+        const mobileButton = document.getElementById('mobileButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileIcon = document.getElementById('mobileIcon');
+
+        mobileButton.onclick = () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileIcon.classList.toggle('bi-list');
+            mobileIcon.classList.toggle('bi-x-lg');
+        };
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileIcon.classList.add('bi-list');
+                mobileIcon.classList.remove('bi-x-lg');
+            });
+        });
+
+        /* ==========================================
+                Dark Mode
+        ========================================== */
+        const html = document.documentElement;
+        const icon = document.getElementById("themeIcon");
+
+        function updateTheme() {
+            if (html.classList.contains("dark")) {
+                icon.className = "bi bi-sun";
+            } else {
+                icon.className = "bi bi-moon-stars";
+            }
+        }
+
+        if (localStorage.getItem("theme") === "dark") {
+            html.classList.add("dark");
+        }
+        updateTheme();
+
+        function toggleTheme() {
+            html.classList.toggle("dark");
+            localStorage.setItem(
+                "theme",
+                html.classList.contains("dark") ? "dark" : "light"
+            );
+            updateTheme();
+        }
+
+        document.getElementById("themeToggle").onclick = toggleTheme;
+        document.getElementById("themeToggleMobile").onclick = toggleTheme;
+
+        /* ==========================================
+                Shrink Navbar & Active Link Highlight
+        ========================================== */
+        const navbar = document.getElementById("navbar");
+        const navContainer = document.getElementById("navContainer");
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener("scroll", () => {
+            // Shrink Navbar
+            if (window.scrollY > 40) {
+                navContainer.classList.remove("h-24");
+                navContainer.classList.add("h-20");
+                navbar.classList.add("shadow-navbar");
+            } else {
+                navContainer.classList.remove("h-20");
+                navContainer.classList.add("h-24");
+                navbar.classList.remove("shadow-navbar");
+            }
+
+            // Highlight Active Link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        /* ==========================================
+                Scroll Progress
+        ========================================== */
+        window.addEventListener("scroll", () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        });
+    </script>
+
+
+
+</body>
+
+</html>
