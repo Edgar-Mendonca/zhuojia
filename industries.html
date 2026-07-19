@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- ==========================================
+                    BASIC META
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries ZHUOJIA Engineering & Consultants</title>
+    
+    <!-- =========================================
+                    FAVICON
+    =========================================== -->
+    <link rel="icon" type="image/png" href="images/logo/ZHUOJIA-NEW-NO-BG.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">   
+
+    <!-- Translation data -->
+    <script src="translations.js"></script>
+    <!-- Language switching logic -->
+    <script src="language.js"></script>
+    <!-- Your main script -->
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="styles.css">   
+
+</head>
+
+<body class="bg-white dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Scroll Progress -->
+    <div id="progressBar" class="fixed top-0 left-0 z-[60] h-1 bg-primary w-0 transition-all duration-150"></div>
+
+    <!-- ==========================================================
+                        NAVBAR
+    ============================================================ -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 dark:bg-dark/80 glass border-b border-gray-200/70 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div id="navContainer" class="h-24 transition-all duration-300 flex items-center justify-between px-6 lg:px-8">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="images/logo/ZHUOJIA-NEW-NO_TEXT-NO-BG.png" alt="ZHUOJIA Logo" class="h-14 transition duration-300 group-hover:scale-105">
+                    <div>
+                        <h1 class="text-[24px] font-extrabold tracking-wide text-primary leading-none">ZHUOJIA 卓嘉</h1>
+                        <p class="text-[8px] uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400" data-en="Engineering & Consultants" data-zh="工程与咨询">Engineering & Consultants</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8 font-medium">
+                    <a href="index.html" class="nav-link" data-en="Home" data-zh="首页">Home</a>
+                    <a href="index.html#about" class="nav-link" data-en="About" data-zh="关于我们">About</a>
+                    <a href="index.html#services" class="nav-link" data-en="Services" data-zh="服务">Services</a>
+                    <a href="index.html#industries" class="nav-link" data-en="Industries" data-zh="行业">Industries</a>
+                    <a href="index.html#projects" class="nav-link" data-en="Projects" data-zh="项目">Projects</a>
+                    <a href="index.html#contact" class="nav-link" data-en="Contact" data-zh="联系我们">Contact</a>
+                </div>
+
+                <!-- Right Side (Desktop) -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <button id="themeToggle" class="h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <i id="themeIcon" class="bi bi-moon-stars text-lg"></i>
+                    </button>
+                    
+                    <!-- Language Selector -->
+                    <div class="relative">
+                        <button class="lang-toggle h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition font-bold text-sm">
+                            <span class="lang-icon">EN</span>
+                        </button>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="lang-dropdown hidden absolute right-0 mt-2 w-32 bg-white dark:bg-dark rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
+                            <button onclick="changeLanguage('en')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">English</button>
+                            <button onclick="changeLanguage('zh')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">中文</button>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="px-6 py-3 rounded-full bg-primary hover:bg-secondary text-white font-semibold transition duration-300 hover:-translate-y-0.5" data-en="Get Started" data-zh="开始合作">Get Started</a>
+                </div>
+
+                <!-- Mobile Button -->
+                <button id="mobileButton" class="lg:hidden text-3xl">
+                    <i id="mobileIcon" class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-dark border-t border-gray-200 dark:border-gray-800">
+            <div class="px-6 py-6 space-y-5">
+                <a class="mobile-link" href="index.html" data-en="Home" data-zh="首页">Home</a>
+                <a class="mobile-link" href="index.html#about" data-en="About" data-zh="关于我们">About</a>
+                <a class="mobile-link" href="index.html#services" data-en="Services" data-zh="服务">Services</a>
+                <a class="mobile-link" href="index.html#industries" data-en="Industries" data-zh="行业">Industries</a>
+                <a class="mobile-link" href="index.html#projects" data-en="Projects" data-zh="项目">Projects</a>
+                <a class="mobile-link" href="index.html#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+                <a class="mobile-link inline-block px-6 py-2.5 rounded-full bg-primary hover:bg-secondary text-white font-semibold transition duration-300" href="contact.html" data-en="Get Started" data-zh="开始合作">Get Started</a>
+
+                <!-- Mobile Bottom Actions -->
+                <div class="flex items-center gap-3 pt-4">
+
+                    <!-- Theme Toggle (Now Round) -->
+                    <button id="themeToggleMobile" class="h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <i class="bi bi-moon-stars text-lg"></i>
+                    </button>
+                    
+                    <!-- Language Selector (Added for Mobile) -->
+                    <div class="relative">
+                        <button class="lang-toggle h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition font-bold text-sm">
+                            <span class="lang-icon">EN</span>
+                        </button>
+                        
+                        <!-- Dropdown Menu (Opens to the left to prevent screen overflow) -->
+                        <div class="lang-dropdown hidden absolute left-0 mt-2 w-32 bg-white dark:bg-dark rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
+                            <button onclick="changeLanguage('en')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">English</button>
+                            <button onclick="changeLanguage('zh')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">中文</button>
+                        </div>
+                    </div>  
+                
+                </div>  
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Spacer for Fixed Navbar -->
+    <div class="h-20"></div>
+
+
+
+    <!-- ========================================== -->
+    <!-- INDUSTRIES PAGE HERO                         -->
+    <!-- ========================================== -->
+    <section id="industries-hero" class="relative pt-32 pb-20 overflow-hidden bg-white dark:bg-slate-900">
+        <!-- Subtle Technical Background Pattern (Blueprint feel) -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#004C9908_1px,transparent_1px),linear-gradient(to_bottom,#004C9908_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <!-- Soft ambient glow -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#004C99]/5 to-transparent dark:from-[#004C99]/10 pointer-events-none"></div>
+
+        <div class="container relative mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="800">
+            
+            <!-- Breadcrumb -->
+            <nav class="flex justify-center items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="index.html" class="hover:text-[#004C99] transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="text-[#004C99] font-semibold" data-en="Industries" data-zh="行业">Industries</span>
+            </nav>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
+                <span data-en="Engineering Excellence Across" data-zh="卓越工程遍布">Engineering Excellence Across</span> 
+                <span class="text-[#004C99]" data-en="Global Industries" data-zh="全球行业">Global Industries</span>
+            </h1>
+
+            <!-- Compelling Description -->
+            <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed" 
+            data-en="From deep-sea offshore rigs to cutting-edge automation, we deliver tailored multidisciplinary engineering, manufacturing, and sourcing solutions for the world's most demanding sectors." 
+            data-zh="从深海钻井平台到尖端自动化系统，我们为世界上最严苛的行业提供量身定制的多学科工程、制造和采购解决方案。">
+                From deep-sea offshore rigs to cutting-edge automation, we deliver tailored multidisciplinary engineering, manufacturing, and sourcing solutions for the world's most demanding sectors.
+            </p>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#004C99] rounded-xl hover:bg-[#003d7a] transition-all duration-300 shadow-lg shadow-[#004C99]/20 hover:shadow-[#004C99]/40 hover:-translate-y-1"
+                data-en="Discuss Your Project" data-zh="讨论您的项目">
+                    Discuss Your Project
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+                <a href="#industries-list" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#004C99] bg-[#004C99]/10 dark:bg-[#004C99]/20 rounded-xl hover:bg-[#004C99]/20 dark:hover:bg-[#004C99]/30 transition-all duration-300 hover:-translate-y-1"
+                data-en="Explore Our Capabilities" data-zh="探索我们的能力">
+                    Explore Our Capabilities
+                </a>
+            </div>
+
+            <!-- Trust Indicators / Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-10 border-t border-gray-200 dark:border-gray-800">
+                <div class="text-center">
+                    <div class="text-3xl font-black text-[#004C99] mb-1">8+</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400" data-en="Industries Served" data-zh="服务行业">Industries Served</div>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-3xl font-black text-[#004C99] mb-1">20+</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400" data-en="Projects Delivered" data-zh="交付项目">Projects Delivered</div>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-3xl font-black text-[#004C99] mb-1">100%</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400" data-en="Quality Assured" data-zh="质量保证">Quality Assured</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- ========================================== -->
+<!-- INDUSTRIES LIST SECTION -->
+<!-- ========================================== -->
+<section id="industries-list" class="py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4" 
+                data-en="Industries We Power" 
+                data-zh="我们服务的行业">Industries We Power</h2>
+            <p class="text-lg text-slate-600 dark:text-slate-300" 
+               data-en="Delivering specialized, project-driven solutions across complex and demanding industrial sectors worldwide." 
+               data-zh="在全球复杂且要求严苛的工业领域，提供专业的项目驱动解决方案。">
+                Delivering specialized, project-driven solutions across complex and demanding industrial sectors worldwide.
+            </p>
+        </div>
+
+        <!-- 2-Column Grid for Industries -->
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- 01 Oil & Gas -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">01</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="Oil & Gas" 
+                            data-zh="石油与天然气">Oil & Gas</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="Comprehensive upstream, midstream, and downstream engineering solutions for energy extraction and processing." 
+                           data-zh="为能源开采与加工提供全面的上下游及中游工程解决方案。">Comprehensive upstream, midstream, and downstream engineering solutions for energy extraction and processing.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Upstream & Downstream Engineering" data-zh="上游与下游工程"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Upstream & Downstream Engineering</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="API Compressor & Valve Systems" data-zh="API压缩机与阀门系统"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>API Compressor & Valve Systems</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Exotic Alloy & Precision Components" data-zh="特种合金与精密部件"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Exotic Alloy & Precision Components</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Midstream Processing Facilities" data-zh="中游加工设施"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Midstream Processing Facilities</li>
+                </ul>
+            </div>
+
+            <!-- 02 Industrial Manufacturing -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">02</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="Industrial Manufacturing" 
+                            data-zh="工业制造">Industrial Manufacturing</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="End-to-end machinery design, heavy fabrication, and precision manufacturing support for global producers." 
+                           data-zh="为全球生产商提供端到端的机械设计、重型制造和精密制造支持。">End-to-end machinery design, heavy fabrication, and precision manufacturing support for global producers.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Heavy Machinery & Equipment Design" data-zh="重型机械与设备设计"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Heavy Machinery & Equipment Design</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Precision Fabrication & Welding" data-zh="精密制造与焊接"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Precision Fabrication & Welding</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="CNC Machining & Tooling" data-zh="CNC加工与工装"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>CNC Machining & Tooling</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Production Line Optimization" data-zh="生产线优化"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Production Line Optimization</li>
+                </ul>
+            </div>
+
+            <!-- 03 Energy & Utilities -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">03</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="Energy & Utilities" 
+                            data-zh="能源与公用事业">Energy & Utilities</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="Engineering and procurement support for traditional power generation, renewable energy, and utility networks." 
+                           data-zh="为传统发电、可再生能源和公用事业网络提供工程与采购支持。">Engineering and procurement support for traditional power generation, renewable energy, and utility networks.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Power Generation Systems" data-zh="发电系统"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Power Generation Systems</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Renewable Energy Integration" data-zh="可再生能源整合"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Renewable Energy Integration</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Utility Infrastructure Development" data-zh="公用事业基础设施建设"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Utility Infrastructure Development</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Grid & Distribution Support" data-zh="电网与配电支持"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Grid & Distribution Support</li>
+                </ul>
+            </div>
+
+            <!-- 04 Automation & Electronics -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">04</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="Automation & Electronics" 
+                            data-zh="自动化与电子">Automation & Electronics</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="Industrial automation, custom PCB design, PLC programming, and advanced control systems integration." 
+                           data-zh="工业自动化、定制PCB设计、PLC编程及先进控制系统集成。">Industrial automation, custom PCB design, PLC programming, and advanced control systems integration.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="PLC, SCADA & Control Systems" data-zh="PLC、SCADA与控制系统"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>PLC, SCADA & Control Systems</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Industrial IoT (IIoT) & PCB Design" data-zh="工业物联网(IIoT)与PCB设计"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Industrial IoT (IIoT) & PCB Design</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="SMT Assembly & Testing" data-zh="SMT组装与测试"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>SMT Assembly & Testing</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Sensor & Real-time Monitoring" data-zh="传感器与实时监控"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Sensor & Real-time Monitoring</li>
+                </ul>
+            </div>
+
+            <!-- 05 R&D & Startups -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">05</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="R&D & Startups" 
+                            data-zh="研发与初创企业">R&D & Startups</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="Accelerating product innovation from concept to market with rapid prototyping, testing, and design iteration." 
+                           data-zh="通过快速原型、测试和设计迭代，加速产品从概念到市场的创新。">Accelerating product innovation from concept to market with rapid prototyping, testing, and design iteration.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Rapid Prototyping & 3D Printing" data-zh="快速原型与3D打印"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Rapid Prototyping & 3D Printing</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Material Testing & Validation" data-zh="材料测试与验证"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Material Testing & Validation</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Design for Manufacturing (DFM)" data-zh="面向制造的设计(DFM)"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Design for Manufacturing (DFM)</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Product Innovation & Iteration" data-zh="产品创新与迭代"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Product Innovation & Iteration</li>
+                </ul>
+            </div>
+
+            <!-- 06 Infrastructure -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">06</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="Infrastructure" 
+                            data-zh="基础设施">Infrastructure</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="Civil, structural, and industrial infrastructure development backed by rigorous project management and EPC support." 
+                           data-zh="由严格的项目管理和EPC支持支撑的土木、结构和工业基础设施开发。">Civil, structural, and industrial infrastructure development backed by rigorous project management and EPC support.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Civil & Structural Engineering" data-zh="土木与结构工程"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Civil & Structural Engineering</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Industrial Facility Development" data-zh="工业设施建设"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Industrial Facility Development</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="EPC Project Coordination" data-zh="EPC项目协调"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>EPC Project Coordination</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Resource & Logistics Management" data-zh="资源与物流管理"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Resource & Logistics Management</li>
+                </ul>
+            </div>
+
+            <!-- 07 Marine & Offshore -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">07</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="Marine & Offshore" 
+                            data-zh="船舶与海洋工程">Marine & Offshore</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="Specialized engineering for shipbuilding, offshore structures, and subsea systems requiring extreme durability." 
+                           data-zh="为需要极高耐久性的造船、海洋结构和海底系统提供专业工程服务。">Specialized engineering for shipbuilding, offshore structures, and subsea systems requiring extreme durability.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Offshore Platform Structures" data-zh="海洋平台结构"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Offshore Platform Structures</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Marine Engineering & Shipbuilding" data-zh="船舶工程与造船"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Marine Engineering & Shipbuilding</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Corrosion-Resistant Investment Casting" data-zh="耐腐蚀熔模铸造"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Corrosion-Resistant Investment Casting</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Subsea Pump & Valve Systems" data-zh="海底泵与阀门系统"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Subsea Pump & Valve Systems</li>
+                </ul>
+            </div>
+
+            <!-- 08 Electrical -->
+            <div class="group p-8 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-[#004C99]/50 dark:hover:border-[#00A3FF]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#004C99]/5 dark:hover:shadow-[#00A3FF]/5 hover:-translate-y-1">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="text-4xl font-bold text-[#004C99]/20 dark:text-[#00A3FF]/20 group-hover:text-[#004C99]/40 dark:group-hover:text-[#00A3FF]/40 transition-colors">08</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#004C99] dark:group-hover:text-[#00A3FF] transition-colors" 
+                            data-en="Electrical" 
+                            data-zh="电气工程">Electrical</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm leading-relaxed" 
+                           data-en="Design, procurement, and installation support for complex electrical systems and industrial power distribution." 
+                           data-zh="为复杂电气系统和工业配电提供设计、采购和安装支持。">Design, procurement, and installation support for complex electrical systems and industrial power distribution.</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-4 pl-14">
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Power Distribution Networks" data-zh="配电网络"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Power Distribution Networks</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Industrial Electrical Installations" data-zh="工业电气安装"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Industrial Electrical Installations</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="High-Voltage Systems & Switchgear" data-zh="高压系统与开关设备"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>High-Voltage Systems & Switchgear</li>
+                    <li class="flex items-center text-sm text-slate-700 dark:text-slate-300" data-en="Electrical Load & Safety Analysis" data-zh="电气负荷与安全分析"><span class="w-1.5 h-1.5 bg-[#004C99] dark:bg-[#00A3FF] rounded-full mr-3 flex-shrink-0"></span>Electrical Load & Safety Analysis</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+    <!-- ==========================================================
+                                FOOTER
+    =========================================================== -->
+    <footer class="bg-dark text-gray-400">
+
+        <div class="max-w-7xl mx-auto px-6 pt-20 pb-10">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <!-- ================= Company ================= -->
+                <div>
+                    <h3 class="text-3xl font-bold text-white">
+                        ZHUOJIA 卓嘉
+                    </h3>
+                    <p class="text-primary font-medium mt-1" data-en="Engineering & Consultants" data-zh="工程与咨询">
+                        Engineering & Consultants
+                    </p>
+                    <p class="mt-6 leading-relaxed text-sm" data-en="Delivering multidisciplinary engineering, manufacturing, procurement and industrial solutions for clients across the globe." data-zh="为全球客户提供多学科工程、制造、采购和工业解决方案。">
+                        Delivering multidisciplinary engineering,
+                        manufacturing, procurement and industrial
+                        solutions for clients across the globe.
+                    </p>
+
+                    <div class="mt-6 inline-flex items-center gap-2 text-primary text-sm font-medium">
+                        <i class="bi bi-award-fill"></i>
+                        <span data-en="Engineering • Precision • Execution" data-zh="工程 • 精密 • 执行">Engineering • Precision • Execution</span>
+                    </div>
+                </div>
+
+                <!-- ================= Company Links ================= -->
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Company" data-zh="公司">
+                        Company
+                    </h4>
+
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#home" class="hover:text-primary transition" data-en="Home" data-zh="首页">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition" data-en="About Us" data-zh="关于我们">About Us</a></li>
+                        <li><a href="#services" class="hover:text-primary transition" data-en="Services" data-zh="服务">Services</a></li>
+                        <li><a href="#industries" class="hover:text-primary transition" data-en="Industries" data-zh="行业">Industries</a></li>
+                        <li><a href="#projects" class="hover:text-primary transition" data-en="Projects" data-zh="项目">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition" data-en="Contact" data-zh="联系我们">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- ================= Services ================= -->
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Services" data-zh="服务">
+                        Services
+                    </h4>
+
+                    <ul class="space-y-3 text-sm">
+                        <li data-en="Engineering Design" data-zh="工程设计">Engineering Design</li>
+                        <li data-en="Manufacturing Support" data-zh="制造支持">Manufacturing Support</li>
+                        <li data-en="Industrial Sourcing" data-zh="工业采购">Industrial Sourcing</li>
+                        <li data-en="Procurement" data-zh="采购">Procurement</li>
+                        <li data-en="Project Management" data-zh="项目管理">Project Management</li>
+                        <li data-en="Quality Inspection" data-zh="质量检验">Quality Inspection</li>
+                    </ul>
+                </div>
+
+                <!-- ================= Connect ================= -->
+                <div>
+
+                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Connect" data-zh="联系">
+                        Connect
+                    </h4>
+
+                    <p class="text-sm" data-en="Email" data-zh="电子邮件">
+                        Email
+                    </p>
+
+                    <a href="mailto:contact@zhuojia.com"
+                    class="text-primary hover:underline">
+                        contact@zhuojia.com
+                    </a>
+
+                    <p class="mt-6 text-sm" data-en="Follow our latest engineering updates." data-zh="关注我们最新的工程更新。">
+                        Follow our latest engineering updates.
+                    </p>
+
+                    <div class="flex gap-3 mt-6">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/company/your-company"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/6591234567"
+                        target="_blank"
+                        aria-label="WhatsApp"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                        <!-- WeChat -->
+                        <a href="#"
+                        aria-label="WeChat"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-wechat"></i>
+                        </a>
+
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@yourcompany"
+                        target="_blank"
+                        aria-label="TikTok"
+                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
+                                hover:bg-primary hover:border-primary hover:text-white
+                                transition-all duration-300 hover:-translate-y-1">
+
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= Bottom Bar ================= -->
+            <div class="border-t border-white/10 mt-16 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm">
+                        © <span id="footerYear"></span> <span data-en="ZHUOJIA Engineering & Consultants. All Rights Reserved." data-zh="卓嘉工程与咨询。保留所有权利。">ZHUOJIA Engineering & Consultants. All Rights Reserved.</span>
+                    </p>
+
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="hover:text-primary transition" data-en="Privacy Policy" data-zh="隐私政策">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="hover:text-primary transition" data-en="Terms & Conditions" data-zh="条款与条件">
+                            Terms & Conditions
+                        </a>
+
+                        <a href="#" class="hover:text-primary transition" data-en="Sitemap" data-zh="网站地图">
+                            Sitemap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Script -->
+    <script>
+        document.getElementById("footerYear").textContent =
+        new Date().getFullYear();
+    </script>
+
+
+    <!-- ==========================================
+                SCRIPTS (Placed at the end for performance)
+    =========================================== -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        /* ==========================================
+                Initialize AOS
+        ========================================== */
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+
+        /* ==========================================
+                Mobile Menu
+        ========================================== */
+        const mobileButton = document.getElementById('mobileButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileIcon = document.getElementById('mobileIcon');
+
+        mobileButton.onclick = () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileIcon.classList.toggle('bi-list');
+            mobileIcon.classList.toggle('bi-x-lg');
+        };
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileIcon.classList.add('bi-list');
+                mobileIcon.classList.remove('bi-x-lg');
+            });
+        });
+
+        /* ==========================================
+                Dark Mode
+        ========================================== */
+        const html = document.documentElement;
+        const icon = document.getElementById("themeIcon");
+
+        function updateTheme() {
+            if (html.classList.contains("dark")) {
+                icon.className = "bi bi-sun";
+            } else {
+                icon.className = "bi bi-moon-stars";
+            }
+        }
+
+        if (localStorage.getItem("theme") === "dark") {
+            html.classList.add("dark");
+        }
+        updateTheme();
+
+        function toggleTheme() {
+            html.classList.toggle("dark");
+            localStorage.setItem(
+                "theme",
+                html.classList.contains("dark") ? "dark" : "light"
+            );
+            updateTheme();
+        }
+
+        document.getElementById("themeToggle").onclick = toggleTheme;
+        document.getElementById("themeToggleMobile").onclick = toggleTheme;
+
+        /* ==========================================
+                Shrink Navbar & Active Link Highlight
+        ========================================== */
+        const navbar = document.getElementById("navbar");
+        const navContainer = document.getElementById("navContainer");
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener("scroll", () => {
+            // Shrink Navbar
+            if (window.scrollY > 40) {
+                navContainer.classList.remove("h-24");
+                navContainer.classList.add("h-20");
+                navbar.classList.add("shadow-navbar");
+            } else {
+                navContainer.classList.remove("h-20");
+                navContainer.classList.add("h-24");
+                navbar.classList.remove("shadow-navbar");
+            }
+
+            // Highlight Active Link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        /* ==========================================
+                Scroll Progress
+        ========================================== */
+        window.addEventListener("scroll", () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        });
+    </script>
+
+
+
+</body>
+
+</html>

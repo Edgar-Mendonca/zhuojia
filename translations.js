@@ -151,6 +151,7 @@ const translations = {
     footerPrivacy: { en: 'Privacy Policy', zh: '隐私政策' },
     footerTerms: { en: 'Terms & Conditions', zh: '条款与条件' },
     footerSitemap: { en: 'Sitemap', zh: '网站地图' }
+    
 
 
 };
