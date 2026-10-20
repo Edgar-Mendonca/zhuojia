@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edgar-mendonca.github.io/zhuojia/sitemap.xml

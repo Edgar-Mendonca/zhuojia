@@ -1,1079 +1,454 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <!-- ==========================================
-                    BASIC META
-    =========================================== -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZHUOJIA 卓嘉 Engineering & Consultants</title>
-    <meta name="description" content="ZHUOJIA Engineering & Consultants provides multidisciplinary engineering, manufacturing, industrial sourcing, project management and global supply chain solutions for energy, oil & gas, manufacturing and infrastructure industries.">
-    <meta name="keywords" content="Engineering, Mechanical Engineering, Industrial Consulting, Manufacturing, Procurement, Global Sourcing, EPC, Project Management">
-    <meta name="author" content="ZHUOJIA Engineering & Consultants">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#004C99">
-    <meta name="color-scheme" content="light dark">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-en="ZHUOJIA 卓嘉 — Engineering, Manufacturing &amp; Global Sourcing" data-zh="卓嘉 — 工程、制造与全球采购">ZHUOJIA 卓嘉 — Engineering, Manufacturing &amp; Global Sourcing</title>
+  <meta name="description" content="ZHUOJIA 卓嘉 delivers multidisciplinary engineering, procurement, manufacturing coordination and project execution support for global industrial clients.">
+  <link rel="canonical" href="https://edgar-mendonca.github.io/zhuojia/">
+  <meta name="theme-color" content="#050B16">
+  <meta name="color-scheme" content="light dark">
 
-    <!-- ==========================================
-                    OPEN GRAPH
-    =========================================== -->
-    <meta property="og:title" content="ZHUOJIA Engineering & Consultants">
-    <meta property="og:description" content="Engineering • Manufacturing • Industrial Sourcing • Project Management">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/logo/ZHUOJIA-NEW-NO_TEXT-NO-BG.png">
-    <meta property="og:url" content="https://edgar-mendonca.github.io/zhuojia/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZHUOJIA 卓嘉 Engineering &amp; Consultants">
+  <meta property="og:title" content="ZHUOJIA 卓嘉 — Engineering, Manufacturing &amp; Global Sourcing">
+  <meta property="og:description" content="ZHUOJIA 卓嘉 delivers multidisciplinary engineering, procurement, manufacturing coordination and project execution support for global industrial clients.">
+  <meta property="og:url" content="https://edgar-mendonca.github.io/zhuojia/">
+  <meta property="og:image" content="https://edgar-mendonca.github.io/zhuojia/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-    <!-- ==========================================
-                    TWITTER
-    =========================================== -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZHUOJIA Engineering & Consultants">
-    <meta name="twitter:description" content="Engineering • Manufacturing • Industrial Sourcing">
-    <meta name="twitter:image" content="images/logo/ZHUOJIA-NEW-NO_TEXT-NO-BG.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
-    <!-- =========================================
-                    FAVICON
-    =========================================== -->
-    <link rel="icon" type="image/png" href="images/logo/ZHUOJIA-NEW-NO-BG.png">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-
-    <!-- Translation data -->
-    <script src="translations.js"></script>
-    <!-- Language switching logic -->
-    <script src="language.js"></script>
-    <!-- Your main script -->
-    <script src="main.js"></script>
-
-    <link rel="stylesheet" href="styles.css">   
-
-
-</head>
-
-<body class="bg-white dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
-
-    <!-- Scroll Progress -->
-    <div id="progressBar" class="fixed top-0 left-0 z-[60] h-1 bg-primary w-0 transition-all duration-150"></div>
-
-    <!-- ==========================================================
-                        NAVBAR
-    ============================================================ -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 dark:bg-dark/80 glass border-b border-gray-200/70 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <div id="navContainer" class="h-24 transition-all duration-300 flex items-center justify-between px-6 lg:px-8">
-                
-                <!-- Logo -->
-                <a href="#home" class="flex items-center gap-3 group">
-                    <img src="images/logo/ZHUOJIA-NEW-NO_TEXT-NO-BG.png" alt="ZHUOJIA Logo" class="h-14 transition duration-300 group-hover:scale-105">
-                    <div>
-                        <h1 class="text-[24px] font-extrabold tracking-wide text-primary leading-none">ZHUOJIA 卓嘉</h1>
-                        <p class="text-[8px] uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400" data-en="Engineering & Consultants" data-zh="工程与咨询">Engineering & Consultants</p>
-                    </div>
-                </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center gap-8 font-medium">
-                    <a href="#home" class="nav-link" data-en="Home" data-zh="首页">Home</a>
-                    <a href="#about" class="nav-link" data-en="About" data-zh="关于我们">About</a>
-                    <a href="#services" class="nav-link" data-en="Services" data-zh="服务">Services</a>
-                    <a href="#industries" class="nav-link" data-en="Industries" data-zh="行业">Industries</a>
-                    <a href="#projects" class="nav-link" data-en="Projects" data-zh="项目">Projects</a>
-                    <a href="#contact" class="nav-link" data-en="Contact" data-zh="联系我们">Contact</a>
-                </div>
-
-                <!-- Right Side (Desktop) -->
-                <div class="hidden lg:flex items-center gap-3">
-                    <button id="themeToggle" class="h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-                        <i id="themeIcon" class="bi bi-moon-stars text-lg"></i>
-                    </button>
-                    
-                    <!-- Language Selector -->
-                    <div class="relative">
-                        <button class="lang-toggle h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition font-bold text-sm">
-                            <span class="lang-icon">EN</span>
-                        </button>
-                        
-                        <!-- Dropdown Menu -->
-                        <div class="lang-dropdown hidden absolute right-0 mt-2 w-32 bg-white dark:bg-dark rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
-                            <button onclick="changeLanguage('en')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">English</button>
-                            <button onclick="changeLanguage('zh')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">中文</button>
-                        </div>
-                    </div>
-
-                    <a href="contact.html" class="px-6 py-3 rounded-full bg-primary hover:bg-secondary text-white font-semibold transition duration-300 hover:-translate-y-0.5" data-en="Get Started" data-zh="开始合作">Get Started</a>
-                </div>
-
-                <!-- Mobile Button -->
-                <button id="mobileButton" class="lg:hidden text-3xl">
-                    <i id="mobileIcon" class="bi bi-list"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-dark border-t border-gray-200 dark:border-gray-800">
-            <div class="px-6 py-6 space-y-5">
-                <a class="mobile-link" href="#home" data-en="Home" data-zh="首页">Home</a>
-                <a class="mobile-link" href="#about" data-en="About" data-zh="关于我们">About</a>
-                <a class="mobile-link" href="#services" data-en="Services" data-zh="服务">Services</a>
-                <a class="mobile-link" href="#industries" data-en="Industries" data-zh="行业">Industries</a>
-                <a class="mobile-link" href="#projects" data-en="Projects" data-zh="项目">Projects</a>
-                <a class="mobile-link" href="#contact" data-en="Contact" data-zh="联系我们">Contact</a>
-                <a class="mobile-link inline-block px-6 py-2.5 rounded-full bg-primary hover:bg-secondary text-white font-semibold transition duration-300" href="contact.html" data-en="Get Started" data-zh="开始合作">Get Started</a>
-
-                <!-- Mobile Bottom Actions -->
-                <div class="flex items-center gap-3 pt-4">
-
-                    <!-- Theme Toggle (Now Round) -->
-                    <button id="themeToggleMobile" class="h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-                        <i class="bi bi-moon-stars text-lg"></i>
-                    </button>
-                    
-                    <!-- Language Selector (Added for Mobile) -->
-                    <div class="relative">
-                        <button class="lang-toggle h-11 w-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition font-bold text-sm">
-                            <span class="lang-icon">EN</span>
-                        </button>
-                        
-                        <!-- Dropdown Menu (Opens to the left to prevent screen overflow) -->
-                        <div class="lang-dropdown hidden absolute left-0 mt-2 w-32 bg-white dark:bg-dark rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
-                            <button onclick="changeLanguage('en')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">English</button>
-                            <button onclick="changeLanguage('zh')" class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-dark dark:text-white font-medium">中文</button>
-                        </div>
-                    </div>  
-                
-                </div>                
-            </div>
-        </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="preload" as="image" href="assets/img/refinery-night-lg.webp" imagesrcset="assets/img/refinery-night.webp 960w, assets/img/refinery-night-lg.webp 1920w" imagesizes="100vw">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ZHUOJIA 卓嘉 Engineering & Consultants", "alternateName": "ZHUOJIA", "url": "https://edgar-mendonca.github.io/zhuojia/", "logo": "https://edgar-mendonca.github.io/zhuojia/assets/img/icon-512.png", "email": "info@zhuojia.com", "description": "Multidisciplinary engineering, procurement, manufacturing coordination and project execution support for global industrial clients.", "contactPoint": [{"@type": "ContactPoint", "email": "rfq@zhuojia.com", "contactType": "sales"}, {"@type": "ContactPoint", "email": "projects@zhuojia.com", "contactType": "customer support"}]}</script>
+  <script>
+    /* Set theme + language before first paint to avoid flashes */
+    (function () {
+      var d = document.documentElement, t = null, l = null;
+      try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+      if (l === 'zh') { d.lang = 'zh-CN'; d.classList.add('i18n-pending'); setTimeout(function () { d.classList.remove('i18n-pending'); }, 1500); }
+    })();
+  </script>
+  <script src="assets/js/site.js" defer></script>
+</head><body>
+<a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳到主要内容">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="site-header" data-header>
+  <div class="nav-shell">
+    <a class="brand" href="index.html" aria-label="ZHUOJIA 卓嘉 — Home">
+      <img src="assets/img/logo-mark.webp" width="30" height="35" alt="">
+      <span class="brand-name" translate="no"><strong>ZHUOJIA<span>卓嘉</span></strong><small data-en="Engineering &amp; Consultants" data-zh="工程与咨询">Engineering &amp; Consultants</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" aria-current="page"><span data-en="Home" data-zh="首页">Home</span></a>
+        <a href="about.html"><span data-en="About" data-zh="关于我们">About</span></a>
+        <a href="services.html"><span data-en="Services" data-zh="服务">Services</span></a>
+        <a href="industries.html"><span data-en="Industries" data-zh="行业">Industries</span></a>
+        <a href="projects.html"><span data-en="Projects" data-zh="项目">Projects</span></a>
+        <a href="contact.html"><span data-en="Contact" data-zh="联系我们">Contact</span></a>
     </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" type="button" data-lang-toggle aria-label="切换到中文"><svg class="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg><span data-lang-label>中文</span></button>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle data-en-aria="Toggle dark mode" data-zh-aria="切换深色模式" aria-label="Toggle dark mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <a class="btn btn-primary btn-sm" href="contact.html"><span data-en="Start a project" data-zh="开始合作">Start a project</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" data-en-aria="Menu" data-zh-aria="菜单" aria-label="Menu"><svg class="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+        <a class="m-link" href="index.html" aria-current="page"><span data-en="Home" data-zh="首页">Home</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="m-link" href="about.html"><span data-en="About" data-zh="关于我们">About</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="m-link" href="services.html"><span data-en="Services" data-zh="服务">Services</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="m-link" href="industries.html"><span data-en="Industries" data-zh="行业">Industries</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="m-link" href="projects.html"><span data-en="Projects" data-zh="项目">Projects</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="m-link" href="contact.html"><span data-en="Contact" data-zh="联系我们">Contact</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </nav>
+    <a class="btn btn-primary" href="contact.html"><span data-en="Start a project" data-zh="开始合作">Start a project</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </div>
+</header>
 
-
-    <!-- Spacer for Fixed Navbar -->
-    <div class="h-24"></div>
-
-    <!-- ==========================================================
-                        HERO SECTION
-    ============================================================ -->
-    <section id="home" class="relative min-h-[90vh] flex items-center bg-light dark:bg-darker overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="images/herobg.avif" class="w-full h-full object-cover opacity-40 dark:opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/60 to-transparent"></div>
+<main id="main">
+  <section class="hero dark-band" aria-labelledby="hero-title">
+    <div class="hero-media"><img src="assets/img/refinery-night-lg.webp" srcset="assets/img/refinery-night.webp 960w, assets/img/refinery-night-lg.webp 1920w" sizes="100vw" width="1920" height="1282" alt="" fetchpriority="high"></div>
+    <div class="blueprint" aria-hidden="true"></div>
+    <div class="hero-inner container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-reveal data-en="Global Engineering · Manufacturing · Sourcing" data-zh="全球工程 · 制造 · 采购">Global Engineering · Manufacturing · Sourcing</p>
+          <h1 class="display" id="hero-title" data-reveal style="--d:.08s" data-en="Engineering solutions for &lt;em&gt;complex industrial&lt;/em&gt; systems." data-zh="为&lt;em&gt;复杂工业系统&lt;/em&gt;提供工程解决方案。" data-html>Engineering solutions for <em>complex industrial</em> systems.</h1>
+          <p class="lead" data-reveal style="--d:.16s" data-en="We deliver multidisciplinary engineering, procurement, manufacturing coordination, and project execution support for global industrial clients." data-zh="我们为全球工业客户提供多学科工程、采购、制造协调和项目执行支持。">We deliver multidisciplinary engineering, procurement, manufacturing coordination, and project execution support for global industrial clients.</p>
+          <div class="hero-ctas" data-reveal style="--d:.24s">
+            <a class="btn btn-primary" href="contact.html"><span data-en="Submit a query" data-zh="提交咨询">Submit a query</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <a class="btn btn-ghost" href="services.html"><span data-en="Explore services" data-zh="探索服务">Explore services</span></a>
+          </div>
         </div>
+        <aside class="spec-card" data-reveal style="--d:.32s" aria-label="Delivery model">
+          <header><span class="mono" data-en="Delivery model" data-zh="交付模式">Delivery model</span><span class="live-dot" data-en="Accepting RFQs" data-zh="接受询价">Accepting RFQs</span></header>
+          <ol class="flow">
+            <li><span class="n">01</span><span data-en="Validation &amp; feasibility" data-zh="验证与可行性">Validation &amp; feasibility</span><span class="bar"><i style="--w:100%"></i></span></li>
+            <li><span class="n">02</span><span data-en="Design &amp; FEA" data-zh="设计与FEA">Design &amp; FEA</span><span class="bar"><i style="--w:100%"></i></span></li>
+            <li><span class="n">03</span><span data-en="Prototype fabrication" data-zh="原型制造">Prototype fabrication</span><span class="bar"><i style="--w:72%"></i></span></li>
+            <li><span class="n">04</span><span data-en="Full-scale production" data-zh="全面量产">Full-scale production</span><span class="bar"><i style="--w:44%"></i></span></li>
+          </ol>
+        </aside>
+      </div>
+      <div class="hero-stats" data-reveal style="--d:.4s">
+        <div><span class="stat-num"><span data-count="3">3</span></span><span class="stat-label" data-en="Global hubs" data-zh="全球中心">Global hubs</span></div>
+        <div><span class="stat-num"><span data-count="6">6</span></span><span class="stat-label" data-en="Core disciplines" data-zh="核心领域">Core disciplines</span></div>
+        <div><span class="stat-num"><span data-count="20">20</span><sup>+</sup></span><span class="stat-label" data-en="Industrial projects" data-zh="工业项目">Industrial projects</span></div>
+        <div><span class="stat-num"><span data-count="8">8</span></span><span class="stat-label" data-en="Industries served" data-zh="服务行业">Industries served</span></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+  <div class="marquee" aria-label="Capabilities" role="region">
+    <div class="marquee-track">
+      <ul><li>CNC Machining</li><li>Exotic Alloys</li><li>Investment Casting</li><li>FEA Validation</li><li>PCB Design</li><li>SMT Assembly</li><li>PLC / SCADA</li><li>NDT Testing</li><li>Reverse Engineering</li><li>Rapid Prototyping</li><li>Factory Audits</li><li>Global Sourcing</li><li>API 6A</li><li>ASME</li><li>DNV</li><li>ISO</li></ul>
+      <ul aria-hidden="true"><li>CNC Machining</li><li>Exotic Alloys</li><li>Investment Casting</li><li>FEA Validation</li><li>PCB Design</li><li>SMT Assembly</li><li>PLC / SCADA</li><li>NDT Testing</li><li>Reverse Engineering</li><li>Rapid Prototyping</li><li>Factory Audits</li><li>Global Sourcing</li><li>API 6A</li><li>ASME</li><li>DNV</li><li>ISO</li></ul>
+    </div>
+  </div>
 
-        <div class="relative max-w-7xl mx-auto px-6 w-full">
-            <div class="max-w-3xl text-white">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 mb-6" data-aos="fade-up">
-                    <i class="bi bi-globe2 text-accent"></i> 
-                    <span data-en="Global Engineering • Manufacturing • Sourcing" data-zh="全球工程 • 制造 • 采购">Global Engineering • Manufacturing • Sourcing</span>
-                </div>
+  <section class="section" aria-labelledby="about-title">
+    <div class="container intro-grid">
+      <div>
+        <p class="eyebrow" data-reveal><span class="idx">01</span><span data-en="About ZHUOJIA 卓嘉" data-zh="关于卓嘉">About ZHUOJIA 卓嘉</span></p>
+        <h2 class="statement" id="about-title" data-reveal style="--d:.08s" data-en="A project-driven engineering company solving complex industrial challenges through &lt;em&gt;innovation&lt;/em&gt;, precision manufacturing and global supply-chain integration." data-zh="一家以项目为驱动的工程公司，通过&lt;em&gt;创新&lt;/em&gt;、精密制造和全球供应链整合解决复杂的工业挑战。" data-html>A project-driven engineering company solving complex industrial challenges through <em>innovation</em>, precision manufacturing and global supply-chain integration.</h2>
+      </div>
+      <div class="intro-side" data-reveal style="--d:.16s">
+        <p><span data-en="Very few companies bridge engineering design, manufacturing capability, material science and international sourcing under one roof." data-zh="很少有公司能在一个屋檐下整合工程设计、制造能力、材料科学和国际采购。">Very few companies bridge engineering design, manufacturing capability, material science and international sourcing under one roof.</span> <strong><span data-en="ZHUOJIA does." data-zh="卓嘉做到了。">ZHUOJIA does.</span></strong></p>
+        <p data-en="We operate as a hybrid of engineering consultancy, advanced manufacturing firm and industrial product-development partner — managing projects from validation to prototype fabrication and full-scale production." data-zh="我们作为工程咨询公司、先进制造企业和工业产品开发合作伙伴的混合体运营——管理从验证到原型制造和全面生产的项目。">We operate as a hybrid of engineering consultancy, advanced manufacturing firm and industrial product-development partner — managing projects from validation to prototype fabrication and full-scale production.</p>
+        <div class="chips"><span class="chip"><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Custom Engineering" data-zh="定制工程">Custom Engineering</span></span><span class="chip"><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Precision Manufacturing" data-zh="精密制造">Precision Manufacturing</span></span><span class="chip"><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Global Sourcing" data-zh="全球采购">Global Sourcing</span></span><span class="chip"><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span data-en="R&amp;D Prototyping" data-zh="研发原型">R&amp;D Prototyping</span></span><span class="chip"><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Industrial Electronics" data-zh="工业电子">Industrial Electronics</span></span><span class="chip"><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Project Management" data-zh="项目管理">Project Management</span></span></div>
+        <a class="link-arrow" href="about.html"><span data-en="Learn more about us" data-zh="了解更多关于我们">Learn more about us</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </section>
 
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight" data-aos="fade-up" data-aos-delay="100">
-                    <span data-en="Engineering Solutions for " data-zh="为">Engineering Solutions for </span><span class="text-accent" data-en="Complex Industrial Systems" data-zh="复杂工业系统提供工程解决方案">Complex Industrial Systems</span>
-                </h1>
-
-                <p class="mt-6 text-gray-200 text-lg" data-aos="fade-up" data-aos-delay="200" data-en="We deliver multidisciplinary engineering, procurement, manufacturing coordination, and project execution support for global industrial clients." data-zh="我们为全球工业客户提供多学科工程、采购、制造协调和项目执行支持。">
-                    We deliver multidisciplinary engineering, procurement, manufacturing coordination, and project execution support for global industrial clients.
-                </p>
-
-                <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#contact" class="px-8 py-4 bg-primary hover:bg-secondary text-white rounded-full font-semibold transition hover:-translate-y-1 text-center" data-en="Submit Query" data-zh="提交咨询">Submit Query</a>
-                    <a href="#services" class="px-8 py-4 border border-white/40 hover:bg-white hover:text-dark rounded-full font-semibold transition text-center" data-en="Explore Services" data-zh="探索服务">Explore Services</a>
-                </div>
-            </div>
+  <section class="section section-alt" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal><span class="idx">02</span><span data-en="Services" data-zh="服务">Services</span></p>
+          <h2 class="title" id="services-title" data-reveal style="--d:.08s" data-en="Six disciplines. &lt;em&gt;One&lt;/em&gt; accountable partner." data-zh="六大领域，&lt;em&gt;一个&lt;/em&gt;可靠伙伴。" data-html>Six disciplines. <em>One</em> accountable partner.</h2>
         </div>
-    </section>
-
-
-
-
-    <!-- ==========================================================
-                            ABOUT SECTION
-    ============================================================ -->
-    <section id="about" class="py-24 bg-gradient-to-b from-white via-light to-white dark:from-dark dark:via-darker dark:to-dark">
-
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white relative inline-block">
-                    <span data-en="ABOUT" data-zh="关于">ABOUT</span> <span class="text-primary" data-en="ZHUOJIA 卓嘉" data-zh="ZHUOJIA 卓嘉">ZHUOJIA 卓嘉</span>
-                    <span class="absolute bottom-[-12px] left-1/2 -translate-x-1/2 w-16 h-1 bg-accent rounded-full"></span>
-                </h2>
-                <p class="mt-8 text-gray-600 dark:text-gray-300 text-lg leading-relaxed" data-en="A project-driven engineering company solving complex industrial challenges through innovation, precision manufacturing, and global supply chain integration." data-zh="一家以项目为驱动的工程公司，通过创新、精密制造和全球供应链整合解决复杂的工业挑战。">
-                    A project-driven engineering company solving complex industrial challenges through innovation,
-                    precision manufacturing, and global supply chain integration.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-14 items-center">
-
-                <!-- LEFT CONTENT -->
-                <div data-aos="fade-right">
-                    <div class="bg-white dark:bg-darker border border-gray-100 dark:border-gray-800 rounded-2xl shadow-soft p-8 hover:shadow-card transition-all duration-300">
-
-                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-5" data-en="Engineering, Manufacturing & Global Sourcing" data-zh="工程、制造与全球采购">
-                            Engineering, Manufacturing & Global Sourcing
-                        </h3>
-
-                        <p class="mb-4 text-gray-600 dark:text-gray-300 leading-relaxed" data-en="Very few companies bridge engineering design, manufacturing capabilities, material science, and international sourcing under one roof. ZHUOJIA does." data-zh="很少有公司能在一个屋檐下整合工程设计、制造能力、材料科学和国际采购。卓嘉做到了。">
-                            Very few companies bridge engineering design, manufacturing capabilities, material science,
-                            and international sourcing under one roof. ZHUOJIA does.
-                        </p>
-
-                        <p class="mb-4 text-gray-600 dark:text-gray-300 leading-relaxed" data-en="We operate as a hybrid of engineering consultancy, advanced manufacturing firm, and industrial product development partner. This allows us to manage projects from validation to prototype fabrication and full-scale production." data-zh="我们作为工程咨询公司、先进制造企业和工业产品开发合作伙伴的混合体运营。这使我们能够管理从验证到原型制造和全面生产的项目。">
-                            We operate as a hybrid of engineering consultancy, advanced manufacturing firm, and industrial
-                            product development partner. This allows us to manage projects from validation to prototype
-                            fabrication and full-scale production.
-                        </p>
-
-                        <p class="mb-6 text-dark dark:text-white font-semibold">
-                            <span data-en="Core Identity:" data-zh="核心身份：">Core Identity:</span>
-                            <span class="text-gray-600 dark:text-gray-300 font-normal" data-en="Project-driven. Solution-focused. Globally positioned." data-zh="项目驱动。解决方案导向。全球定位。">
-                                Project-driven. Solution-focused. Globally positioned.
-                            </span>
-                        </p>
-
-                        <!-- Tags -->
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium border border-primary/20" data-en="Custom Engineering" data-zh="定制工程">
-                                Custom Engineering
-                            </span>
-                            <span class="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium border border-primary/20" data-en="Precision Manufacturing" data-zh="精密制造">
-                                Precision Manufacturing
-                            </span>
-                            <span class="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium border border-primary/20" data-en="Global Sourcing" data-zh="全球采购">
-                                Global Sourcing
-                            </span>
-                            <span class="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium border border-primary/20" data-en="R&D Prototyping" data-zh="研发原型">
-                                R&D Prototyping
-                            </span>
-                            <span class="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium border border-primary/20" data-en="Industrial Electronics" data-zh="工业电子">
-                                Industrial Electronics
-                            </span>
-                            <span class="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium border border-primary/20" data-en="Project Management" data-zh="项目管理">
-                                Project Management
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- RIGHT STATS -->
-                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
-
-                    <!-- Card 1 -->
-                    <div class="group bg-white dark:bg-darker border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-soft hover:shadow-[0_0_25px_rgba(0,76,153,0.15)] dark:hover:shadow-[0_0_25px_rgba(0,163,255,0.2)] hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                            <i class="bi bi-globe-americas text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-extrabold text-dark dark:text-white leading-none">3</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-en="Global Hubs" data-zh="全球中心">Global Hubs</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="group bg-white dark:bg-darker border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-soft hover:shadow-[0_0_25px_rgba(0,76,153,0.15)] dark:hover:shadow-[0_0_25px_rgba(0,163,255,0.2)] hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                            <i class="bi bi-layers-fill text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-extrabold text-dark dark:text-white leading-none">6</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-en="Core Disciplines" data-zh="核心学科">Core Disciplines</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="group bg-white dark:bg-darker border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-soft hover:shadow-[0_0_25px_rgba(0,76,153,0.15)] dark:hover:shadow-[0_0_25px_rgba(0,163,255,0.2)] hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                            <i class="bi bi-boxes text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-extrabold text-dark dark:text-white leading-none">100%</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-en="On-Demand Projects" data-zh="按需项目">On-Demand Projects</p>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="group bg-white dark:bg-darker border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-soft hover:shadow-[0_0_25px_rgba(0,76,153,0.15)] dark:hover:shadow-[0_0_25px_rgba(0,163,255,0.2)] hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                            <i class="bi bi-building-gear text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-extrabold text-dark dark:text-white leading-none">20+</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-en="Industrial Projects" data-zh="工业项目">Industrial Projects</p>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="group bg-white dark:bg-darker border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-soft hover:shadow-[0_0_25px_rgba(0,76,153,0.15)] dark:hover:shadow-[0_0_25px_rgba(0,163,255,0.2)] hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                            <i class="bi bi-person-gear text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-extrabold text-dark dark:text-white leading-none">5</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-en="Engineering Experts" data-zh="工程专家">Engineering Experts</p>
-                    </div>
-
-                    <!-- Card 6 -->
-                    <div class="group bg-white dark:bg-darker border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-soft hover:shadow-[0_0_25px_rgba(0,76,153,0.15)] dark:hover:shadow-[0_0_25px_rgba(0,163,255,0.2)] hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                            <i class="bi bi-patch-check-fill text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-extrabold text-dark dark:text-white leading-none" data-en="Quality" data-zh="质量">Quality</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1" data-en="International Standards" data-zh="国际标准">International Standards</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Explore Button - Now properly spaced -->
-            <div class="text-center mt-20" data-aos="fade-up" data-aos-delay="700">
-                <a href="about.html" class="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-secondary text-white rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <span data-en="Learn more about us" data-zh="了解更多关于我们">Learn more about us</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
+        <div data-reveal style="--d:.16s">
+          <p class="lead" data-en="Comprehensive engineering and industrial solutions tailored to your project — from first sketch to delivered part." data-zh="为您的项目量身定制的综合工程和工业解决方案——从第一张草图到交付的零件。">Comprehensive engineering and industrial solutions tailored to your project — from first sketch to delivered part.</p>
+          <div class="actions"><a class="link-arrow" href="services.html"><span data-en="Explore all services" data-zh="探索所有服务">Explore all services</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
         </div>
+      </div>
+      <div class="bento">
+        <a class="tile" href="services.html#engineering-design" data-reveal style="--d:0.08s">
+          <img src="assets/img/engineering-design.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+          <div class="tile-top"><span class="tile-num">01 / 06</span><span class="tile-go"><svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></div>
+          <div class="tile-icon"><svg class="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div>
+          <h3 data-en="Engineering &amp; Design" data-zh="工程与设计">Engineering &amp; Design</h3>
+          <p data-en="Multidisciplinary engineering support, mechanical design, CAD/FEA validation, and technical documentation." data-zh="多学科工程支持、机械设计、CAD/FEA验证和技术文档。">Multidisciplinary engineering support, mechanical design, CAD/FEA validation, and technical documentation.</p>
+        </a>
+        <a class="tile" href="services.html#project-management" data-reveal style="--d:0.00s">
+          <img src="assets/img/automation-lab.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+          <div class="tile-top"><span class="tile-num">02 / 06</span><span class="tile-go"><svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></div>
+          <div class="tile-icon"><svg class="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
+          <h3 data-en="Project Management" data-zh="项目管理">Project Management</h3>
+          <p data-en="End-to-end EPC support, scheduling, resource coordination, and on-site execution management." data-zh="端到端EPC支持、调度、资源协调和现场执行管理。">End-to-end EPC support, scheduling, resource coordination, and on-site execution management.</p>
+        </a>
+        <a class="tile" href="services.html#rd-prototyping" data-reveal style="--d:0.08s">
+          <img src="assets/img/industrial-electronics.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+          <div class="tile-top"><span class="tile-num">03 / 06</span><span class="tile-go"><svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></div>
+          <div class="tile-icon"><svg class="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7 15h10"/></svg></div>
+          <h3 data-en="R&amp;D and Prototyping" data-zh="研发与原型">R&amp;D and Prototyping</h3>
+          <p data-en="Research &amp; development, rapid prototyping, material testing, and product innovation." data-zh="研究与开发、快速原型、材料测试和产品创新。">Research &amp; development, rapid prototyping, material testing, and product innovation.</p>
+        </a>
+        <a class="tile" href="services.html#specialised-projects" data-reveal style="--d:0.00s">
+          <img src="assets/img/specialised-projects.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+          <div class="tile-top"><span class="tile-num">04 / 06</span><span class="tile-go"><svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></div>
+          <div class="tile-icon"><svg class="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3 data-en="Specialised Projects" data-zh="专业项目">Specialised Projects</h3>
+          <p data-en="Custom engineering solutions for complex industrial challenges and niche applications." data-zh="针对复杂工业挑战和利基应用的定制工程解决方案。">Custom engineering solutions for complex industrial challenges and niche applications.</p>
+        </a>
+        <a class="tile" href="services.html#manufacturing-support" data-reveal style="--d:0.08s">
+          <img src="assets/img/industrial-casting.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+          <div class="tile-top"><span class="tile-num">05 / 06</span><span class="tile-go"><svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></div>
+          <div class="tile-icon"><svg class="i-factory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 20V9l6 4V9l6 4V4h8v16Z"/><path d="M7 16h1M12 16h1M17 16h1"/></svg></div>
+          <h3 data-en="Manufacturing Support" data-zh="制造支持">Manufacturing Support</h3>
+          <p data-en="Factory audits, production monitoring, quality control, and supply chain optimisation." data-zh="工厂审计、生产监控、质量控制和供应链优化。">Factory audits, production monitoring, quality control, and supply chain optimisation.</p>
+        </a>
+        <a class="tile" href="services.html#supply-sourcing" data-reveal style="--d:0.00s">
+          <img src="assets/img/supply-chain.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+          <div class="tile-top"><span class="tile-num">06 / 06</span><span class="tile-go"><svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></div>
+          <div class="tile-icon"><svg class="i-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
+          <h3 data-en="Industrial Supply &amp; Sourcing" data-zh="工业供应与采购">Industrial Supply &amp; Sourcing</h3>
+          <p data-en="Strategic procurement, vendor identification, global sourcing networks, and supply chain management." data-zh="战略采购、供应商识别、全球采购网络和供应链管理。">Strategic procurement, vendor identification, global sourcing networks, and supply chain management.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    </section>
-
-
- 
-    <!-- ==========================================================
-                            SERVICES SECTION
-    ============================================================ -->
-    <section id="services" class="py-20 bg-light dark:bg-darker">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white relative inline-block">
-                    <span data-en="Our" data-zh="我们的">Our</span> <span class="text-primary" data-en="Services" data-zh="服务">Services</span>
-                </h2>
-                <p class="mt-4 text-gray-600 dark:text-gray-300" data-en="Comprehensive engineering and industrial solutions tailored to your project needs." data-zh="为您的项目需求量身定制的综合工程和工业解决方案。">Comprehensive engineering and industrial solutions tailored to your project needs.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-
-                <!-- Engineering & Design -->
-                <div class="group relative bg-white dark:bg-dark rounded-2xl shadow-soft hover:shadow-[0_0_30px_rgba(0,76,153,0.2)] dark:hover:shadow-[0_0_30px_rgba(0,163,255,0.25)] border border-transparent hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                                    
-                    <div class="p-8">
-                        <!-- Icon Container -->
-                        <div class="relative mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary group-hover:to-accent flex items-center justify-center text-primary group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110">
-                                <i class="bi bi-gear-wide-connected text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <!-- Number Badge -->
-                        <div class="absolute top-6 right-6 text-5xl font-black text-gray-100 dark:text-gray-800 group-hover:text-primary/10 transition-colors duration-500">01</div>
-
-                        <!-- Content -->
-                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3 group-hover:text-primary transition-colors duration-300" data-en="Engineering & Design" data-zh="工程与设计">Engineering & Design</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Multidisciplinary engineering support, mechanical design, CAD/FEA validation, and technical documentation." data-zh="多学科工程支持、机械设计、CAD/FEA验证和技术文档。">Multidisciplinary engineering support, mechanical design, CAD/FEA validation, and technical documentation.</p>
-                    </div>
-                </div>
-
-                <!-- Project Management -->
-                <div class="group relative bg-white dark:bg-dark rounded-2xl shadow-soft hover:shadow-[0_0_30px_rgba(0,76,153,0.2)] dark:hover:shadow-[0_0_30px_rgba(0,163,255,0.25)] border border-transparent hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    
-                    <div class="p-8">
-                        <div class="relative mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary group-hover:to-accent flex items-center justify-center text-primary group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110">
-                                <i class="bi bi-clipboard2-data text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <div class="absolute top-6 right-6 text-5xl font-black text-gray-100 dark:text-gray-800 group-hover:text-primary/10 transition-colors duration-500">02</div>
-
-                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3 group-hover:text-primary transition-colors duration-300" data-en="Project Management" data-zh="项目管理">Project Management</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="End-to-end EPC support, scheduling, resource coordination, and on-site execution management." data-zh="端到端EPC支持、调度、资源协调和现场执行管理。">End-to-end EPC support, scheduling, resource coordination, and on-site execution management.</p>
-                    </div>
-                </div>
-
-                <!-- R&D and Prototyping -->
-                <div class="group relative bg-white dark:bg-dark rounded-2xl shadow-soft hover:shadow-[0_0_30px_rgba(0,76,153,0.2)] dark:hover:shadow-[0_0_30px_rgba(0,163,255,0.25)] border border-transparent hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    
-                    <div class="p-8">
-                        <div class="relative mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary group-hover:to-accent flex items-center justify-center text-primary group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110">
-                                <i class="bi bi-lightbulb text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <div class="absolute top-6 right-6 text-5xl font-black text-gray-100 dark:text-gray-800 group-hover:text-primary/10 transition-colors duration-500">03</div>
-
-                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3 group-hover:text-primary transition-colors duration-300" data-en="R&D and Prototyping" data-zh="研发与原型">R&D and Prototyping</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Research & development, rapid prototyping, material testing, and product innovation." data-zh="研究与开发、快速原型、材料测试和产品创新。">Research & development, rapid prototyping, material testing, and product innovation.</p>
-                    </div>
-                </div>
-
-                <!-- Specialised Projects -->
-                <div class="group relative bg-white dark:bg-dark rounded-2xl shadow-soft hover:shadow-[0_0_30px_rgba(0,76,153,0.2)] dark:hover:shadow-[0_0_30px_rgba(0,163,255,0.25)] border border-transparent hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    
-                    <div class="p-8">
-                        <div class="relative mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary group-hover:to-accent flex items-center justify-center text-primary group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110">
-                                <i class="bi bi-stars text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <div class="absolute top-6 right-6 text-5xl font-black text-gray-100 dark:text-gray-800 group-hover:text-primary/10 transition-colors duration-500">04</div>
-
-                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3 group-hover:text-primary transition-colors duration-300" data-en="Specialised Projects" data-zh="专业项目">Specialised Projects</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Custom engineering solutions for complex industrial challenges and niche applications." data-zh="针对复杂工业挑战和利基应用的定制工程解决方案。">Custom engineering solutions for complex industrial challenges and niche applications.</p>
-                    </div>
-                </div>
-
-                <!-- Manufacturing Support -->
-                <div class="group relative bg-white dark:bg-dark rounded-2xl shadow-soft hover:shadow-[0_0_30px_rgba(0,76,153,0.2)] dark:hover:shadow-[0_0_30px_rgba(0,163,255,0.25)] border border-transparent hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="500">
-                    
-                    <div class="p-8">
-                        <div class="relative mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary group-hover:to-accent flex items-center justify-center text-primary group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110">
-                                <i class="bi bi-building-gear text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <div class="absolute top-6 right-6 text-5xl font-black text-gray-100 dark:text-gray-800 group-hover:text-primary/10 transition-colors duration-500">05</div>
-
-                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3 group-hover:text-primary transition-colors duration-300" data-en="Manufacturing Support" data-zh="制造支持">Manufacturing Support</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Factory audits, production monitoring, quality control, and supply chain optimization." data-zh="工厂审计、生产监控、质量控制和供应链优化。">Factory audits, production monitoring, quality control, and supply chain optimization.</p>
-                    </div>
-                </div>
-
-                <!-- Industrial Supply & Sourcing -->
-                <div class="group relative bg-white dark:bg-dark rounded-2xl shadow-soft hover:shadow-[0_0_30px_rgba(0,76,153,0.2)] dark:hover:shadow-[0_0_30px_rgba(0,163,255,0.25)] border border-transparent hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="600">
-                    
-                    <div class="p-8">
-                        <div class="relative mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary group-hover:to-accent flex items-center justify-center text-primary group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110">
-                                <i class="bi bi-box-seam text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <div class="absolute top-6 right-6 text-5xl font-black text-gray-100 dark:text-gray-800 group-hover:text-primary/10 transition-colors duration-500">06</div>
-
-                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3 group-hover:text-primary transition-colors duration-300" data-en="Industrial Supply & Sourcing" data-zh="工业供应与采购">Industrial Supply & Sourcing</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Strategic procurement, vendor identification, global sourcing networks, and supply chain management." data-zh="战略采购、供应商识别、全球采购网络和供应链管理。">Strategic procurement, vendor identification, global sourcing networks, and supply chain management.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Explore Button -->
-            <div class="text-center" data-aos="fade-up" data-aos-delay="700">
-                <a href="services.html" class="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-secondary text-white rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <span data-en="Explore All Services" data-zh="探索所有服务">Explore All Services</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
+  <section class="section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal><span class="idx">03</span><span data-en="How we work" data-zh="工作方式">How we work</span></p>
+          <h2 class="title" id="process-title" data-reveal style="--d:.08s" data-en="From validation to &lt;em&gt;full-scale&lt;/em&gt; production." data-zh="从验证到&lt;em&gt;全面&lt;/em&gt;量产。" data-html>From validation to <em>full-scale</em> production.</h2>
         </div>
-    </section>
-
-
-    <!-- ==========================================================
-                            INDUSTRIES SECTION
-    ============================================================ -->
-    <section id="industries" class="py-20 bg-white dark:bg-dark">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
-                    <span data-en="Industries" data-zh="我们服务的">Industries</span> <span class="text-primary" data-en="We Serve" data-zh="行业">We Serve</span>
-                </h2>
-                <p class="mt-4 text-gray-600 dark:text-gray-300" data-en="Delivering specialized solutions across complex and demanding industrial sectors." data-zh="在复杂和苛刻的工业领域提供专业解决方案。">Delivering specialized solutions across complex and demanding industrial sectors.</p>
-            </div>
-
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
-
-                <!-- Oil & Gas -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-droplet-fill text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="Oil & Gas" data-zh="石油与天然气">Oil & Gas</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Upstream, midstream and downstream engineering solutions." data-zh="上游、中游和下游工程解决方案。">
-                            Upstream, midstream and downstream engineering solutions.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Industrial Manufacturing -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-house-gear-fill text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="Industrial Manufacturing" data-zh="工业制造">Industrial Manufacturing</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Machinery, fabrication and precision manufacturing support." data-zh="机械、制造和精密制造支持。">
-                            Machinery, fabrication and precision manufacturing support.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Energy & Utilities -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-lightning-charge-fill text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="Energy & Utilities" data-zh="能源与公用事业">Energy & Utilities</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Power generation, renewable energy and utility projects." data-zh="发电、可再生能源和公用事业项目。">
-                            Power generation, renewable energy and utility projects.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Automation & Electronics -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="250">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-cpu-fill text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="Automation & Electronics" data-zh="自动化与电子">Automation & Electronics</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Industrial automation, PLC and control systems." data-zh="工业自动化、PLC和控制系统。">
-                            Industrial automation, PLC and control systems.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- R&D -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-rocket-takeoff-fill text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="R&D & Startups" data-zh="研发与初创企业">R&amp;D & Startups</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Product development, prototyping and innovation support." data-zh="产品开发、原型制作和创新支持。">
-                            Product development, prototyping and innovation support.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Infrastructure -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="350">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-buildings-fill text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="Infrastructure" data-zh="基础设施">Infrastructure</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Civil, industrial and infrastructure development projects." data-zh="民用、工业和基础设施开发项目。">
-                            Civil, industrial and infrastructure development projects.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Marine -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-water text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="Marine & Offshore" data-zh="海洋与近海">Marine & Offshore</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Shipbuilding, offshore structures and marine engineering." data-zh="造船、近海结构和海洋工程。">
-                            Shipbuilding, offshore structures and marine engineering.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Electrical -->
-                <div class="group" data-aos="zoom-in" data-aos-delay="450">
-                    <div class="relative bg-light dark:bg-darker/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 h-full transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_30px_rgba(0,76,153,0.15)]">
-
-                        <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-primary transition">
-                            <i class="bi bi-lightbulb-fill text-2xl text-primary group-hover:text-white"></i>
-                        </div>
-
-                        <h4 class="font-bold text-lg mb-2" data-en="Electrical" data-zh="电气">Electrical</h4>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Electrical systems, power distribution and industrial installations." data-zh="电气系统、配电和工业安装。">
-                            Electrical systems, power distribution and industrial installations.
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Button -->
-            <div class="mt-14 text-center" data-aos="fade-up">
-
-                <a href="industries.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold hover:bg-secondary transition duration-300 hover:-translate-y-1">
-
-                    <span data-en="View All Industries" data-zh="查看所有行业">View All Industries</span>
-
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
+        <p class="lead" data-reveal style="--d:.16s" data-en="One team owns the whole chain, so nothing gets lost between the design office, the factory floor and your site." data-zh="一个团队负责整个链条，设计室、工厂车间和您的现场之间不会有任何遗漏。">One team owns the whole chain, so nothing gets lost between the design office, the factory floor and your site.</p>
+      </div>
+      <div class="process">
+        <div class="step" style="--d:0.00s">
+          <span class="n"><span data-en="Step" data-zh="步骤">Step</span> 01</span>
+          <div class="icon-box"><svg class="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div>
+          <h3 data-en="Validate" data-zh="验证">Validate</h3>
+          <p data-en="Requirements, standards and feasibility are reviewed with your team before a single drawing is made." data-zh="在绘制第一张图纸之前，我们与您的团队一起审查需求、标准和可行性。">Requirements, standards and feasibility are reviewed with your team before a single drawing is made.</p>
         </div>
-    </section>
-
-
-    <!-- ==========================================================
-                        FEATURED PROJECTS
-    =========================================================== -->
-    <section id="projects" class="py-24 bg-light dark:bg-darker">
-        <div class="max-w-7xl mx-auto px-6">
-
-            <!-- Heading -->
-            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
-                    <span data-en="Featured" data-zh="精选">Featured</span>
-                    <span class="text-primary" data-en="Projects" data-zh="项目">Projects</span>
-                </h2>
-
-                <p class="mt-4 text-gray-600 dark:text-gray-300" data-en="A glimpse into our multidisciplinary engineering, manufacturing and industrial project capabilities." data-zh="一窥我们的多学科工程、制造和工业项目能力。">
-                    A glimpse into our multidisciplinary engineering, manufacturing and industrial project capabilities.
-                </p>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-
-                <!-- ================= Project 1 ================= -->
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up"
-                    data-aos-delay="100">
-
-                    <div class="relative overflow-hidden h-60">
-                        <img src="images/projects/Compressor Package.jpg"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                        <span class="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary text-white text-xs font-semibold uppercase" data-en="Oil & Gas" data-zh="石油与天然气">
-                            Oil & Gas
-                        </span>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3 text-dark dark:text-white group-hover:text-primary transition" data-en="Compressor Package Components" data-zh="压缩机套件组件">
-                            Compressor Package Components
-                        </h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Reverse-engineered and manufactured high-precision valve bodies and instrumentation assemblies for API compressor package applications." data-zh="为API压缩机套件应用逆向工程并制造高精度阀体和仪表组件。">
-                            Reverse-engineered and manufactured high-precision valve bodies and instrumentation assemblies for API compressor package applications.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2 mt-5">
-                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium" data-en="CNC Machining" data-zh="数控加工">
-                                CNC Machining
-                            </span>
-                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium" data-en="Exotic Alloys" data-zh="特种合金">
-                                Exotic Alloys
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ================= Project 2 ================= -->
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200">
-
-                    <div class="relative overflow-hidden h-60">
-                        <img src="images/projects/IoT Control PCB.avif"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                        <span class="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary text-white text-xs font-semibold uppercase" data-en="Industrial Electronics" data-zh="工业电子">
-                            Industrial Electronics
-                        </span>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3 text-dark dark:text-white group-hover:text-primary transition" data-en="Multi-layer IoT Control PCB" data-zh="多层物联网控制PCB">
-                            Multi-layer IoT Control PCB
-                        </h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Designed and assembled an industrial-grade multilayer PCB with embedded sensing and real-time monitoring capabilities." data-zh="设计并组装了具有嵌入式传感和实时监控功能的工业级多层PCB。">
-                            Designed and assembled an industrial-grade multilayer PCB with embedded sensing and real-time monitoring capabilities.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2 mt-5">
-                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium" data-en="PCB Design" data-zh="PCB设计">
-                                PCB Design
-                            </span>
-                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium" data-en="SMT Assembly" data-zh="SMT贴片">
-                                SMT Assembly
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ================= Project 3 ================= -->
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up"
-                    data-aos-delay="300">
-
-                    <div class="relative overflow-hidden h-60">
-                        <img src="images/projects/Alloy Casting.jpg"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                        <span class="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary text-white text-xs font-semibold uppercase" data-en="Manufacturing" data-zh="制造">
-                            Manufacturing
-                        </span>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3 text-dark dark:text-white group-hover:text-primary transition" data-en="Exotic Alloy Casting Components" data-zh="异种合金铸造组件">
-                            Exotic Alloy Casting Components
-                        </h3>
-
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-en="Produced precision investment cast components for offshore pump systems requiring exceptional corrosion resistance." data-zh="为需要卓越耐腐蚀性的近海泵系统生产精密熔模铸造组件。">
-                            Produced precision investment cast components for offshore pump systems requiring exceptional corrosion resistance.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2 mt-5">
-                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium" data-en="Investment Casting" data-zh="熔模铸造">
-                                Investment Casting
-                            </span>
-                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium" data-en="NDT Testing" data-zh="无损检测">
-                                NDT Testing
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Button -->
-            <div class="mt-14 text-center" data-aos="fade-up">
-                <a href="projects.html"
-                class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-secondary text-white font-semibold transition-all duration-300 hover:-translate-y-1">
-                    <span data-en="View All Projects" data-zh="查看所有项目">View All Projects</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
-
+        <div class="step" style="--d:0.15s">
+          <span class="n"><span data-en="Step" data-zh="步骤">Step</span> 02</span>
+          <div class="icon-box"><svg class="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3 data-en="Engineer" data-zh="设计">Engineer</h3>
+          <p data-en="CAD modelling, FEA validation and complete technical documentation — built to API, ASME and ISO." data-zh="CAD建模、FEA验证和完整的技术文档——符合API、ASME和ISO标准。">CAD modelling, FEA validation and complete technical documentation — built to API, ASME and ISO.</p>
         </div>
-    </section>
-
-
-
-    <!-- CTA Banner -->
-    <section id="contact" class="py-24 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 dark:from-primary/10 dark:to-accent/10 border-y border-primary/10 relative overflow-hidden">
-        <!-- Background Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-        
-        <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-black text-dark dark:text-white mb-6" data-en="Let's Build Something Together" data-zh="让我们一起创造">Let's Build Something Together</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-10" data-en="Whether you require engineering support, manufacturing solutions, industrial sourcing, or project execution, our global team is ready to discuss your requirements." data-zh="无论您需要工程支持、制造解决方案、工业采购还是项目执行，我们的全球团队都准备讨论您的需求。">
-                Whether you require engineering support, manufacturing solutions, industrial sourcing, or project execution, our global team is ready to discuss your requirements.
-            </p>
-            <a href="contact.html" class="inline-flex items-center gap-3 px-10 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg hover:shadow-[0_0_30px_rgba(0,76,153,0.4)] transition-all duration-300 hover:-translate-y-1">
-                <span data-en="Go to Contact Page" data-zh="前往联系页面">Go to Contact Page</span>
-                <i class="bi bi-arrow-right text-xl"></i>
-            </a>
+        <div class="step" style="--d:0.30s">
+          <span class="n"><span data-en="Step" data-zh="步骤">Step</span> 03</span>
+          <div class="icon-box"><svg class="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7 15h10"/></svg></div>
+          <h3 data-en="Prototype" data-zh="原型">Prototype</h3>
+          <p data-en="Rapid prototyping, material testing and design iteration de-risk the build before you commit." data-zh="快速原型、材料测试和设计迭代，在您投入量产前降低风险。">Rapid prototyping, material testing and design iteration de-risk the build before you commit.</p>
         </div>
-    </section>
-
-
-    <!-- ==========================================================
-                                FOOTER
-    =========================================================== -->
-    <footer class="bg-dark text-gray-400">
-
-        <div class="max-w-7xl mx-auto px-6 pt-20 pb-10">
-            <div class="grid lg:grid-cols-4 gap-12">
-                <!-- ================= Company ================= -->
-                <div>
-                    <h3 class="text-3xl font-bold text-white">
-                        ZHUOJIA 卓嘉
-                    </h3>
-                    <p class="text-primary font-medium mt-1" data-en="Engineering & Consultants" data-zh="工程与咨询">
-                        Engineering & Consultants
-                    </p>
-                    <p class="mt-6 leading-relaxed text-sm" data-en="Delivering multidisciplinary engineering, manufacturing, procurement and industrial solutions for clients across the globe." data-zh="为全球客户提供多学科工程、制造、采购和工业解决方案。">
-                        Delivering multidisciplinary engineering,
-                        manufacturing, procurement and industrial
-                        solutions for clients across the globe.
-                    </p>
-
-                    <div class="mt-6 inline-flex items-center gap-2 text-primary text-sm font-medium">
-                        <i class="bi bi-award-fill"></i>
-                        <span data-en="Engineering • Precision • Execution" data-zh="工程 • 精密 • 执行">Engineering • Precision • Execution</span>
-                    </div>
-                </div>
-
-                <!-- ================= Company Links ================= -->
-                <div>
-                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Company" data-zh="公司">
-                        Company
-                    </h4>
-
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#home" class="hover:text-primary transition" data-en="Home" data-zh="首页">Home</a></li>
-                        <li><a href="#about" class="hover:text-primary transition" data-en="About Us" data-zh="关于我们">About Us</a></li>
-                        <li><a href="#services" class="hover:text-primary transition" data-en="Services" data-zh="服务">Services</a></li>
-                        <li><a href="#industries" class="hover:text-primary transition" data-en="Industries" data-zh="行业">Industries</a></li>
-                        <li><a href="#projects" class="hover:text-primary transition" data-en="Projects" data-zh="项目">Projects</a></li>
-                        <li><a href="#contact" class="hover:text-primary transition" data-en="Contact" data-zh="联系我们">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- ================= Services ================= -->
-                <div>
-                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Services" data-zh="服务">
-                        Services
-                    </h4>
-
-                    <ul class="space-y-3 text-sm">
-                        <li data-en="Engineering Design" data-zh="工程设计">Engineering Design</li>
-                        <li data-en="Manufacturing Support" data-zh="制造支持">Manufacturing Support</li>
-                        <li data-en="Industrial Sourcing" data-zh="工业采购">Industrial Sourcing</li>
-                        <li data-en="Procurement" data-zh="采购">Procurement</li>
-                        <li data-en="Project Management" data-zh="项目管理">Project Management</li>
-                        <li data-en="Quality Inspection" data-zh="质量检验">Quality Inspection</li>
-                    </ul>
-                </div>
-
-                <!-- ================= Connect ================= -->
-                <div>
-
-                    <h4 class="text-white text-lg font-semibold mb-6" data-en="Connect" data-zh="联系">
-                        Connect
-                    </h4>
-
-                    <p class="text-sm" data-en="Email" data-zh="电子邮件">
-                        Email
-                    </p>
-
-                    <a href="mailto:contact@zhuojia.com"
-                    class="text-primary hover:underline">
-                        contact@zhuojia.com
-                    </a>
-
-                    <p class="mt-6 text-sm" data-en="Follow our latest engineering updates." data-zh="关注我们最新的工程更新。">
-                        Follow our latest engineering updates.
-                    </p>
-
-                    <div class="flex gap-3 mt-6">
-                        <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/company/your-company"
-                        target="_blank"
-                        aria-label="LinkedIn"
-                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
-                                hover:bg-primary hover:border-primary hover:text-white
-                                transition-all duration-300 hover:-translate-y-1">
-
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/6591234567"
-                        target="_blank"
-                        aria-label="WhatsApp"
-                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
-                                hover:bg-primary hover:border-primary hover:text-white
-                                transition-all duration-300 hover:-translate-y-1">
-
-                            <i class="bi bi-whatsapp"></i>
-                        </a>
-
-                        <!-- WeChat -->
-                        <a href="#"
-                        aria-label="WeChat"
-                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
-                                hover:bg-primary hover:border-primary hover:text-white
-                                transition-all duration-300 hover:-translate-y-1">
-
-                            <i class="bi bi-wechat"></i>
-                        </a>
-
-                        <!-- TikTok -->
-                        <a href="https://www.tiktok.com/@yourcompany"
-                        target="_blank"
-                        aria-label="TikTok"
-                        class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center
-                                hover:bg-primary hover:border-primary hover:text-white
-                                transition-all duration-300 hover:-translate-y-1">
-
-                            <i class="bi bi-tiktok"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= Bottom Bar ================= -->
-            <div class="border-t border-white/10 mt-16 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-sm">
-                        © <span id="footerYear"></span> <span data-en="ZHUOJIA Engineering & Consultants. All Rights Reserved." data-zh="卓嘉工程与咨询。保留所有权利。">ZHUOJIA Engineering & Consultants. All Rights Reserved.</span>
-                    </p>
-
-                    <div class="flex gap-6 text-sm">
-                        <a href="#" class="hover:text-primary transition" data-en="Privacy Policy" data-zh="隐私政策">
-                            Privacy Policy
-                        </a>
-                        <a href="#" class="hover:text-primary transition" data-en="Terms & Conditions" data-zh="条款与条件">
-                            Terms & Conditions
-                        </a>
-
-                        <a href="#" class="hover:text-primary transition" data-en="Sitemap" data-zh="网站地图">
-                            Sitemap
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="step" style="--d:0.45s">
+          <span class="n"><span data-en="Step" data-zh="步骤">Step</span> 04</span>
+          <div class="icon-box"><svg class="i-factory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 20V9l6 4V9l6 4V4h8v16Z"/><path d="M7 16h1M12 16h1M17 16h1"/></svg></div>
+          <h3 data-en="Produce" data-zh="生产">Produce</h3>
+          <p data-en="Qualified manufacturing partners, factory audits, inspection and on-time delivery at scale." data-zh="合格的制造合作伙伴、工厂审核、质量检验，按时规模化交付。">Qualified manufacturing partners, factory audits, inspection and on-time delivery at scale.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer Script -->
-    <script>
-        document.getElementById("footerYear").textContent =
-        new Date().getFullYear();
-    </script>
+  <section class="section dark-band" aria-labelledby="industries-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal><span class="idx">04</span><span data-en="Industries" data-zh="行业">Industries</span></p>
+          <h2 class="title" id="industries-title" data-reveal style="--d:.08s" data-en="Built for &lt;em&gt;demanding&lt;/em&gt; sectors." data-zh="为&lt;em&gt;严苛&lt;/em&gt;行业而生。" data-html>Built for <em>demanding</em> sectors.</h2>
+        </div>
+        <div data-reveal style="--d:.16s">
+          <p class="lead" data-en="Delivering specialised solutions across complex and demanding industrial sectors." data-zh="在复杂和苛刻的工业领域提供专业解决方案。">Delivering specialised solutions across complex and demanding industrial sectors.</p>
+          <div class="actions"><a class="link-arrow" href="industries.html"><span data-en="View all industries" data-zh="查看所有行业">View all industries</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+        </div>
+      </div>
+      <div class="ind-list">
+        <a class="ind-row" href="industries.html#oil-gas" data-reveal style="--d:0.00s">
+          <span class="n">01</span>
+          <span class="icon-box"><svg class="i-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
+          <span><h3 data-en="Oil &amp; Gas" data-zh="石油与天然气">Oil &amp; Gas</h3><p data-en="Upstream, midstream and downstream engineering solutions." data-zh="上游、中游和下游工程解决方案。">Upstream, midstream and downstream engineering solutions.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a class="ind-row" href="industries.html#manufacturing" data-reveal style="--d:0.06s">
+          <span class="n">02</span>
+          <span class="icon-box"><svg class="i-factory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 20V9l6 4V9l6 4V4h8v16Z"/><path d="M7 16h1M12 16h1M17 16h1"/></svg></span>
+          <span><h3 data-en="Industrial Manufacturing" data-zh="工业制造">Industrial Manufacturing</h3><p data-en="Machinery, fabrication and precision manufacturing support." data-zh="机械、制造和精密制造支持。">Machinery, fabrication and precision manufacturing support.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a class="ind-row" href="industries.html#energy" data-reveal style="--d:0.00s">
+          <span class="n">03</span>
+          <span class="icon-box"><svg class="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+          <span><h3 data-en="Energy &amp; Utilities" data-zh="能源与公用事业">Energy &amp; Utilities</h3><p data-en="Power generation, renewable energy and utility projects." data-zh="发电、可再生能源和公用事业项目。">Power generation, renewable energy and utility projects.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a class="ind-row" href="industries.html#automation" data-reveal style="--d:0.06s">
+          <span class="n">04</span>
+          <span class="icon-box"><svg class="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg></span>
+          <span><h3 data-en="Automation &amp; Electronics" data-zh="自动化与电子">Automation &amp; Electronics</h3><p data-en="Industrial automation, PLC and control systems." data-zh="工业自动化、PLC和控制系统。">Industrial automation, PLC and control systems.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a class="ind-row" href="industries.html#rd-startups" data-reveal style="--d:0.00s">
+          <span class="n">05</span>
+          <span class="icon-box"><svg class="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+          <span><h3 data-en="R&amp;D &amp; Startups" data-zh="研发与初创企业">R&amp;D &amp; Startups</h3><p data-en="Product development, prototyping and innovation support." data-zh="产品开发、原型制作和创新支持。">Product development, prototyping and innovation support.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a class="ind-row" href="industries.html#infrastructure" data-reveal style="--d:0.06s">
+          <span class="n">06</span>
+          <span class="icon-box"><svg class="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></span>
+          <span><h3 data-en="Infrastructure" data-zh="基础设施">Infrastructure</h3><p data-en="Civil, industrial and infrastructure development projects." data-zh="土木、工业和基础设施开发项目。">Civil, industrial and infrastructure development projects.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a class="ind-row" href="industries.html#marine" data-reveal style="--d:0.00s">
+          <span class="n">07</span>
+          <span class="icon-box"><svg class="i-anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg></span>
+          <span><h3 data-en="Marine &amp; Offshore" data-zh="船舶与海洋工程">Marine &amp; Offshore</h3><p data-en="Shipbuilding, offshore structures and marine engineering." data-zh="造船、海洋结构和海洋工程。">Shipbuilding, offshore structures and marine engineering.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a class="ind-row" href="industries.html#electrical" data-reveal style="--d:0.06s">
+          <span class="n">08</span>
+          <span class="icon-box"><svg class="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>
+          <span><h3 data-en="Electrical" data-zh="电气工程">Electrical</h3><p data-en="Electrical systems, power distribution and industrial installations." data-zh="电气系统、配电和工业安装。">Electrical systems, power distribution and industrial installations.</p></span>
+          <svg class="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <section class="section" aria-labelledby="work-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal><span class="idx">05</span><span data-en="Selected work" data-zh="精选项目">Selected work</span></p>
+          <h2 class="title" id="work-title" data-reveal style="--d:.08s" data-en="Featured &lt;em&gt;projects&lt;/em&gt;." data-zh="精选&lt;em&gt;项目&lt;/em&gt;。" data-html>Featured <em>projects</em>.</h2>
+        </div>
+        <div data-reveal style="--d:.16s">
+          <p class="lead" data-en="A glimpse into our multidisciplinary engineering, manufacturing and industrial project capabilities." data-zh="一窥我们在多学科工程、制造和工业项目方面的能力。">A glimpse into our multidisciplinary engineering, manufacturing and industrial project capabilities.</p>
+          <div class="actions"><a class="link-arrow" href="projects.html"><span data-en="View all projects" data-zh="查看所有项目">View all projects</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+        </div>
+      </div>
+      <div class="cards-3">
+        <a class="proj-card" href="projects.html#oil-gas" data-reveal style="--d:0.00s">
+          <div class="proj-media">
+            <img src="assets/img/refinery-night.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+            <span class="proj-tag" data-en="Oil &amp; Gas" data-zh="石油天然气">Oil &amp; Gas</span>
+          </div>
+          <div class="proj-body">
+            <h3 data-en="Compressor Package Components" data-zh="压缩机包组件">Compressor Package Components</h3>
+            <p data-en="Reverse-engineered and manufactured high-precision valve bodies and instrumentation assemblies for API compressor package applications, meeting strict international oil &amp; gas standards." data-zh="针对API压缩机包应用，逆向工程并制造高精度阀体和仪表组件，符合严格的国际石油天然气标准。">Reverse-engineered and manufactured high-precision valve bodies and instrumentation assemblies for API compressor package applications, meeting strict international oil &amp; gas standards.</p>
+            <div class="chips"><span class="chip chip-mono" data-en="CNC Machining" data-zh="CNC加工">CNC Machining</span><span class="chip chip-mono" data-en="Exotic Alloys" data-zh="特种合金">Exotic Alloys</span></div>
+          </div>
+        </a>
+        <a class="proj-card" href="projects.html#electronics" data-reveal style="--d:0.08s">
+          <div class="proj-media">
+            <img src="assets/img/industrial-electronics.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+            <span class="proj-tag" data-en="Industrial Electronics" data-zh="工业电子">Industrial Electronics</span>
+          </div>
+          <div class="proj-body">
+            <h3 data-en="Multi-layer IoT Control PCB" data-zh="多层IoT控制PCB">Multi-layer IoT Control PCB</h3>
+            <p data-en="Designed and assembled an industrial-grade multilayer PCB with embedded sensing and real-time monitoring capabilities for a smart manufacturing client." data-zh="为智能制造客户设计并组装了具有嵌入式传感和实时监控功能的工业级多层PCB。">Designed and assembled an industrial-grade multilayer PCB with embedded sensing and real-time monitoring capabilities for a smart manufacturing client.</p>
+            <div class="chips"><span class="chip chip-mono" data-en="PCB Design" data-zh="PCB设计">PCB Design</span><span class="chip chip-mono" data-en="SMT Assembly" data-zh="SMT组装">SMT Assembly</span></div>
+          </div>
+        </a>
+        <a class="proj-card" href="projects.html#manufacturing" data-reveal style="--d:0.16s">
+          <div class="proj-media">
+            <img src="assets/img/alloy-casting.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+            <span class="proj-tag" data-en="Manufacturing" data-zh="制造业">Manufacturing</span>
+          </div>
+          <div class="proj-body">
+            <h3 data-en="Exotic Alloy Casting Components" data-zh="特种合金铸造组件">Exotic Alloy Casting Components</h3>
+            <p data-en="Produced precision investment-cast components for offshore pump systems requiring exceptional corrosion resistance in harsh marine environments." data-zh="为需要在恶劣海洋环境中具有优异耐腐蚀性的海上泵系统生产精密熔模铸造组件。">Produced precision investment-cast components for offshore pump systems requiring exceptional corrosion resistance in harsh marine environments.</p>
+            <div class="chips"><span class="chip chip-mono" data-en="Investment Casting" data-zh="熔模铸造">Investment Casting</span><span class="chip chip-mono" data-en="NDT Testing" data-zh="NDT测试">NDT Testing</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==========================================
-                SCRIPTS (Placed at the end for performance)
-    =========================================== -->
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    
-    <script>
-        /* ==========================================
-                Initialize AOS
-        ========================================== */
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true
-        });
+  <section class="section section-alt" aria-labelledby="hubs-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal><span class="idx">06</span><span data-en="Global operations" data-zh="全球运营">Global operations</span></p>
+          <h2 class="title" id="hubs-title" data-reveal style="--d:.08s" data-en="Local expertise. &lt;em&gt;Global&lt;/em&gt; standards." data-zh="本地专长，&lt;em&gt;全球&lt;/em&gt;标准。" data-html>Local expertise. <em>Global</em> standards.</h2>
+        </div>
+        <p class="lead" data-reveal style="--d:.16s" data-en="Our engineering team supports clients across multiple time zones. For urgent RFQs, email us any time." data-zh="我们的工程团队为多个时区的客户提供支持。如有紧急询价，请随时发送电子邮件。">Our engineering team supports clients across multiple time zones. For urgent RFQs, email us any time.</p>
+      </div>
+      <div class="hubs">
+        <div class="hub" data-reveal style="--d:0.00s">
+          <div class="hub-top"><span class="mono">UTC+8</span><svg class="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 data-en="Hong Kong" data-zh="香港">Hong Kong</h3>
+          <p data-en="Regional Office" data-zh="区域办事处">Regional Office</p>
+          <time data-tz="Asia/Hong_Kong">--:--</time>
+        </div>
+        <div class="hub" data-reveal style="--d:0.06s">
+          <div class="hub-top"><span class="mono">UTC+8</span><svg class="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 data-en="China" data-zh="中国内地">China</h3>
+          <p data-en="Manufacturing Hub" data-zh="制造中心">Manufacturing Hub</p>
+          <time data-tz="Asia/Shanghai">--:--</time>
+        </div>
+        <div class="hub" data-reveal style="--d:0.12s">
+          <div class="hub-top"><span class="mono">UTC+4</span><svg class="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 data-en="UAE" data-zh="阿联酋">UAE</h3>
+          <p data-en="EPC Support" data-zh="EPC支持">EPC Support</p>
+          <time data-tz="Asia/Dubai">--:--</time>
+        </div>
+        <div class="hub" data-reveal style="--d:0.18s">
+          <div class="hub-top"><span class="mono">UTC+5:30</span><svg class="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 data-en="India" data-zh="印度">India</h3>
+          <p data-en="Engineering Services" data-zh="工程服务">Engineering Services</p>
+          <time data-tz="Asia/Kolkata">--:--</time>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        /* ==========================================
-                Mobile Menu
-        ========================================== */
-        const mobileButton = document.getElementById('mobileButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileIcon = document.getElementById('mobileIcon');
+  <section class="section-tight" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta" data-reveal>
+        <div class="cta-grid">
+          <div>
+            <p class="eyebrow" data-en="Let’s build something together" data-zh="让我们携手共建">Let’s build something together</p>
+            <h2 class="title" id="cta-title" data-en="Have a project in &lt;em&gt;mind&lt;/em&gt;?" data-zh="有项目&lt;em&gt;想法&lt;/em&gt;吗？" data-html>Have a project in <em>mind</em>?</h2>
+            <p data-en="Whether you need engineering support, manufacturing, industrial sourcing or project execution, our global team is ready to discuss your requirements." data-zh="无论您需要工程支持、制造解决方案、工业采购还是项目执行，我们的全球团队随时准备与您讨论需求。">Whether you need engineering support, manufacturing, industrial sourcing or project execution, our global team is ready to discuss your requirements.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-light" href="contact.html"><span data-en="Start your project" data-zh="开始您的项目">Start your project</span><svg class="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <a class="btn btn-ghost" href="mailto:info@zhuojia.com"><svg class="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>info@zhuojia.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        mobileButton.onclick = () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileIcon.classList.toggle('bi-list');
-            mobileIcon.classList.toggle('bi-x-lg');
-        };
+</main>
 
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileIcon.classList.add('bi-list');
-                mobileIcon.classList.remove('bi-x-lg');
-            });
-        });
-
-        /* ==========================================
-                Dark Mode
-        ========================================== */
-        const html = document.documentElement;
-        const icon = document.getElementById("themeIcon");
-
-        function updateTheme() {
-            if (html.classList.contains("dark")) {
-                icon.className = "bi bi-sun";
-            } else {
-                icon.className = "bi bi-moon-stars";
-            }
-        }
-
-        if (localStorage.getItem("theme") === "dark") {
-            html.classList.add("dark");
-        }
-        updateTheme();
-
-        function toggleTheme() {
-            html.classList.toggle("dark");
-            localStorage.setItem(
-                "theme",
-                html.classList.contains("dark") ? "dark" : "light"
-            );
-            updateTheme();
-        }
-
-        document.getElementById("themeToggle").onclick = toggleTheme;
-        document.getElementById("themeToggleMobile").onclick = toggleTheme;
-
-        /* ==========================================
-                Shrink Navbar & Active Link Highlight
-        ========================================== */
-        const navbar = document.getElementById("navbar");
-        const navContainer = document.getElementById("navContainer");
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section');
-
-        window.addEventListener("scroll", () => {
-            // Shrink Navbar
-            if (window.scrollY > 40) {
-                navContainer.classList.remove("h-24");
-                navContainer.classList.add("h-20");
-                navbar.classList.add("shadow-navbar");
-            } else {
-                navContainer.classList.remove("h-20");
-                navContainer.classList.add("h-24");
-                navbar.classList.remove("shadow-navbar");
-            }
-
-            // Highlight Active Link
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        /* ==========================================
-                Scroll Progress
-        ========================================== */
-        window.addEventListener("scroll", () => {
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        });
-    </script>
-
+<footer class="site-footer dark-band">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="ZHUOJIA 卓嘉 — Home">
+          <img src="assets/img/logo-mark.webp" width="40" height="46" alt="" loading="lazy">
+          <span class="brand-name" translate="no"><strong>ZHUOJIA<span>卓嘉</span></strong><small data-en="Engineering &amp; Consultants" data-zh="工程与咨询">Engineering &amp; Consultants</small></span>
+        </a>
+        <p data-en="Delivering multidisciplinary engineering, manufacturing, procurement and industrial solutions for clients across the globe." data-zh="为全球客户提供多学科工程、制造、采购和工业解决方案。">Delivering multidisciplinary engineering, manufacturing, procurement and industrial solutions for clients across the globe.</p>
+      </div>
+      <nav class="footer-col" aria-label="Company">
+        <h4 data-en="Company" data-zh="公司">Company</h4>
+        <ul>
+            <li><a href="index.html"><span data-en="Home" data-zh="首页">Home</span></a></li>
+            <li><a href="about.html"><span data-en="About" data-zh="关于我们">About</span></a></li>
+            <li><a href="services.html"><span data-en="Services" data-zh="服务">Services</span></a></li>
+            <li><a href="industries.html"><span data-en="Industries" data-zh="行业">Industries</span></a></li>
+            <li><a href="projects.html"><span data-en="Projects" data-zh="项目">Projects</span></a></li>
+            <li><a href="contact.html"><span data-en="Contact" data-zh="联系我们">Contact</span></a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Services">
+        <h4 data-en="Services" data-zh="服务">Services</h4>
+        <ul>
+            <li><a href="services.html#engineering-design"><span data-en="Engineering &amp; Design" data-zh="工程与设计">Engineering &amp; Design</span></a></li>
+            <li><a href="services.html#project-management"><span data-en="Project Management" data-zh="项目管理">Project Management</span></a></li>
+            <li><a href="services.html#rd-prototyping"><span data-en="R&amp;D and Prototyping" data-zh="研发与原型">R&amp;D and Prototyping</span></a></li>
+            <li><a href="services.html#manufacturing-support"><span data-en="Manufacturing Support" data-zh="制造支持">Manufacturing Support</span></a></li>
+            <li><a href="services.html#supply-sourcing"><span data-en="Industrial Supply &amp; Sourcing" data-zh="工业供应与采购">Industrial Supply &amp; Sourcing</span></a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h4 data-en="Contact" data-zh="联系">Contact</h4>
+        <ul>
+          <li><a class="footer-mail" href="mailto:info@zhuojia.com"><svg class="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>info@zhuojia.com</a></li>
+          <li><a class="footer-mail" href="mailto:projects@zhuojia.com"><svg class="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>projects@zhuojia.com</a></li>
+          <li><a class="footer-mail" href="mailto:rfq@zhuojia.com"><svg class="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>rfq@zhuojia.com</a></li>
+          <li class="muted"><span data-en="Hong Kong · China · UAE · India" data-zh="香港 · 中国内地 · 阿联酋 · 印度">Hong Kong · China · UAE · India</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> ZHUOJIA 卓嘉 <span data-en="Engineering &amp; Consultants. All rights reserved." data-zh="工程与咨询。保留所有权利。">Engineering &amp; Consultants. All rights reserved.</span></span>
+      <span class="mono" data-en="Engineering · Precision · Execution" data-zh="工程 · 精密 · 执行">Engineering · Precision · Execution</span>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true" translate="no">ZHUOJIA</div>
+</footer>
 </body>
-
 </html>
