@@ -19,10 +19,11 @@ npm run preview   # serve the production build
 src/site/content.ts     ALL text: services, industries, projects, clients, principles (EN + 中文)
 src/site/pages/         page templates (home.ts, sub.ts)
 src/site/components.ts  orbit hero (home), page headers, client wall, call-to-action, cards
+src/site/art.ts         vector illustrations (one SVG scene per service, industry and project)
 src/site/layout.ts      <head>, navigation, section index/ruler, footer
 src/styles/main.css     design system: colours, type, layout, components, dark mode
 src/client/             browser code: orbit hero, smooth scroll + scroll animations, forms
-public/img, public/logos  images and client logos (served as-is)
+public/img, public/logos  logo, icons and client logos (served as-is)
 ```
 
 ### Editing text

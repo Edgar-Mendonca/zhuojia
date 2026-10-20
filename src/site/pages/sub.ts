@@ -1,7 +1,8 @@
 import { INDUSTRIES, PRINCIPLES, PROJECTS, SERVICES, SITE, STANDARDS, type L, type Lang } from '../content'
+import { art } from '../art'
 import { color, getStarted, iconGrid, pageHeader } from '../components'
 import { page } from '../layout'
-import { bar, button, checks, esc, href, icon, img, rich, tr } from '../ui'
+import { bar, button, checks, esc, href, icon, rich, tr } from '../ui'
 
 const contactBtn = (lang: Lang, label: L) => button(tr(lang)(label), href(lang, 'contact'), 'solid', 'arrow-right')
 
@@ -69,7 +70,7 @@ export function services(lang: Lang) {
   <div class="frame">
     ${bar('02', t({ en: 'Disciplines', zh: '领域' }), '06')}
     <div class="svc-list">${SERVICES.map((s, i) => `<article class="svc" id="${s.slug}" data-reveal>
-      <div class="svc-media"><img src="${img(s.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"><span class="svc-num">0${i + 1}</span></div>
+      <div class="svc-media">${art(s.slug, `FIG. 0${i + 1} — ${esc(t(s.title))}`)}<span class="svc-num">0${i + 1}</span></div>
       <div class="svc-body">
         <p class="mono feat-label"><span>${esc(t(s.tag))}</span><span>0${i + 1} / 06</span></p>
         <h2 class="h3">${esc(t(s.title))}</h2><p>${esc(t(s.long))}</p>${checks(s.items.map(t))}
@@ -130,14 +131,14 @@ export function projects(lang: Lang) {
     num: '01', label: t({ en: 'Projects', zh: '项目' }), note: `${PROJECTS.length} ${t({ en: 'case studies', zh: '个案例' })}`,
     title: t({ en: 'Delivered, *certified, documented.*', zh: '已交付，*已认证，有据可查。*' }),
     lead: t({ en: 'Valve bodies in Inconel, offshore castings in duplex steel, IoT control boards and full PLC retrofits — each with the scope, deliverables and results.', zh: 'Inconel阀体、双相钢海上铸件、物联网控制板和完整PLC改造——每个案例都列出范围、交付物与成果。' }),
-    visual: `<div class="thumbs">${PROJECTS.map((p) => `<a href="#project-${p.num}" data-reveal><img src="${img(p.img)}" alt="" width="960" height="640" decoding="async"><span class="mono">${p.num} · ${esc(t(p.catLabel))}</span></a>`).join('')}</div>`,
+    visual: `<div class="thumbs">${PROJECTS.map((p) => `<a href="#project-${p.num}" data-reveal>${art('project-' + p.num)}<span class="mono">${p.num} · ${esc(t(p.catLabel))}</span></a>`).join('')}</div>`,
   }) + `
 <section class="section" id="cases">
   <div class="frame">
     ${bar('02', t({ en: 'Case studies', zh: '案例研究' }))}
     <div class="filters mono" role="group" aria-label="${esc(t({ en: 'Filter projects', zh: '筛选项目' }))}">${cats.map(([c, l]) => `<button type="button" data-filter="${c}" aria-pressed="${c === 'all'}">${esc(l)}<span>${count(c)}</span></button>`).join('')}</div>
     <div class="cases">${PROJECTS.map((p) => `<article class="case" id="project-${p.num}" data-category="${p.cat}">
-      <div class="case-media"><img src="${img(p.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"><p class="mono case-badge"><span>#${p.num}</span><span>${esc(t(p.kicker))}</span></p></div>
+      <div class="case-media">${art('project-' + p.num, `DWG. ${p.num} — ${p.tech.slice(0, 2).join(' · ')}`)}<p class="mono case-badge"><span>#${p.num}</span><span>${esc(t(p.kicker))}</span></p></div>
       <div class="case-body">
         <p class="mono feat-label"><span>${esc(t(p.catLabel))}</span><span>${p.num}</span></p>
         <h2 class="h3">${esc(t(p.title))}</h2><p>${esc(t(p.desc))}</p>

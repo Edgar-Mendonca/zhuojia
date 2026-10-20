@@ -30,8 +30,6 @@ export const NAV: { key: PageKey; label: L }[] = [
 export interface Service {
   slug: string
   icon: string
-  img: string
-  pos?: string
   tag: L
   title: L
   short: L
@@ -41,7 +39,7 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    slug: 'engineering-design', icon: 'compass', img: 'engineering-design', tag: { en: 'CAD / FEA', zh: 'CAD / FEA' },
+    slug: 'engineering-design', icon: 'compass', tag: { en: 'CAD / FEA', zh: 'CAD / FEA' },
     title: { en: 'Engineering & Design', zh: '工程与设计' },
     short: { en: 'Mechanical, electrical and structural design with CAD modelling, FEA validation and complete technical documentation.', zh: '机械、电气与结构设计，涵盖CAD建模、FEA验证和完整技术文档。' },
     long: { en: 'Multidisciplinary engineering support covering the full spectrum of mechanical, electrical and structural design requirements for complex industrial systems.', zh: '提供多学科工程支持，涵盖复杂工业系统的机械、电气和结构设计的全部需求。' },
@@ -53,7 +51,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'project-management', icon: 'calendar', img: 'automation-lab', tag: { en: 'EPC', zh: 'EPC' },
+    slug: 'project-management', icon: 'calendar', tag: { en: 'EPC', zh: 'EPC' },
     title: { en: 'Project Management', zh: '项目管理' },
     short: { en: 'End-to-end EPC support — scheduling, resource coordination and on-site execution, owned by one accountable team.', zh: '端到端EPC支持——进度、资源协调与现场执行，由一个团队全程负责。' },
     long: { en: 'End-to-end EPC support ensuring seamless project execution from conception through delivery, with comprehensive scheduling and resource coordination.', zh: '提供端到端EPC支持，确保项目从构思到交付的无缝执行，并提供全面的进度安排和资源协调。' },
@@ -65,7 +63,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'rd-prototyping', icon: 'flask', img: 'industrial-electronics', tag: { en: 'R&D', zh: '研发' },
+    slug: 'rd-prototyping', icon: 'flask', tag: { en: 'R&D', zh: '研发' },
     title: { en: 'R&D and Prototyping', zh: '研发与原型' },
     short: { en: 'Rapid prototyping, material testing and design iteration that validate a product before it reaches full production.', zh: '快速原型、材料测试与设计迭代，在全面量产前完成产品验证。' },
     long: { en: 'Research & development capabilities combined with rapid prototyping to accelerate product innovation and validate designs before full-scale production.', zh: '结合研发能力与快速原型制作，以加速产品创新并在全面投产前验证设计。' },
@@ -77,7 +75,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'specialised-projects', icon: 'target', img: 'specialised-projects', tag: { en: 'Custom', zh: '定制' },
+    slug: 'specialised-projects', icon: 'target', tag: { en: 'Custom', zh: '定制' },
     title: { en: 'Specialised Projects', zh: '专业项目' },
     short: { en: 'Custom engineering for complex challenges and niche applications that off-the-shelf suppliers cannot solve.', zh: '为现成供应商无法解决的复杂挑战与特定应用提供定制工程。' },
     long: { en: 'Custom engineering solutions designed for complex industrial challenges and niche applications that require specialised expertise and innovative approaches.', zh: '专为复杂的工业挑战和需要专业知识及创新方法的特定应用场景而设计的定制工程解决方案。' },
@@ -89,7 +87,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'manufacturing-support', icon: 'factory', img: 'industrial-casting', tag: { en: 'QA / QC', zh: '质量控制' },
+    slug: 'manufacturing-support', icon: 'factory', tag: { en: 'QA / QC', zh: '质量控制' },
     title: { en: 'Manufacturing Support', zh: '制造支持' },
     short: { en: 'Factory audits, production monitoring and quality control that keep output consistent and on specification.', zh: '工厂审核、生产监控与质量控制，确保产出稳定且符合规格。' },
     long: { en: 'Comprehensive manufacturing oversight including factory audits, production monitoring and quality control to ensure consistent output and supply-chain optimisation.', zh: '全面的制造监督，包括工厂审核、生产监控和质量控制，以确保持续产出和供应链优化。' },
@@ -101,7 +99,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'supply-sourcing', icon: 'package', img: 'supply-chain', tag: { en: 'Procurement', zh: '采购' },
+    slug: 'supply-sourcing', icon: 'package', tag: { en: 'Procurement', zh: '采购' },
     title: { en: 'Industrial Supply & Sourcing', zh: '工业供应与采购' },
     short: { en: 'Strategic procurement and qualified vendors worldwide, managed for cost, quality and on-time delivery.', zh: '战略采购与全球合格供应商，兼顾成本、质量与准时交付。' },
     long: { en: 'Strategic procurement and global sourcing networks connecting you with qualified vendors worldwide, ensuring optimal supply-chain management and cost efficiency.', zh: '战略采购和全球采购网络，将您与全球合格的供应商联系起来，确保最佳的供应链管理和成本效益。' },
@@ -208,13 +206,13 @@ export const INDUSTRIES: Industry[] = [
 ]
 
 export interface Project {
-  num: string; cat: string; catLabel: L; img: string; kicker: L; title: L; desc: L
+  num: string; cat: string; catLabel: L; kicker: L; title: L; desc: L
   client: string; date: L; location: L; duration: L; scope: L[]; deliverables: L[]; tech: string[]
 }
 
 export const PROJECTS: Project[] = [
   {
-    num: '01', cat: 'oil-gas', catLabel: { en: 'Oil & Gas', zh: '石油天然气' }, img: 'refinery-night',
+    num: '01', cat: 'oil-gas', catLabel: { en: 'Oil & Gas', zh: '石油天然气' },
     kicker: { en: 'API compressor package', zh: 'API压缩机包' },
     title: { en: 'High-precision compressor valve bodies', zh: '高精度压缩机阀体' },
     desc: { en: 'Reverse-engineered and manufactured high-precision valve bodies and instrumentation assemblies for API compressor packages, meeting strict international oil & gas standards.', zh: '针对API压缩机包应用，逆向工程并制造高精度阀体和仪表组件，符合严格的国际石油天然气标准。' },
@@ -232,7 +230,7 @@ export const PROJECTS: Project[] = [
     tech: ['5-Axis CNC', 'Inconel 718', 'Hastelloy C-276', 'NDT'],
   },
   {
-    num: '02', cat: 'electronics', catLabel: { en: 'Industrial Electronics', zh: '工业电子' }, img: 'industrial-electronics',
+    num: '02', cat: 'electronics', catLabel: { en: 'Industrial Electronics', zh: '工业电子' },
     kicker: { en: 'IoT control system', zh: 'IoT控制系统' },
     title: { en: 'Multi-layer IoT control PCB', zh: '多层IoT控制PCB' },
     desc: { en: 'Designed and assembled an industrial-grade multilayer PCB with embedded sensing and real-time monitoring for a smart-manufacturing client.', zh: '为智能制造客户设计并组装了具有嵌入式传感和实时监控功能的工业级多层PCB。' },
@@ -250,7 +248,7 @@ export const PROJECTS: Project[] = [
     tech: ['Altium Designer', 'ARM Cortex', 'SMT', 'MQTT'],
   },
   {
-    num: '03', cat: 'manufacturing', catLabel: { en: 'Manufacturing', zh: '制造' }, img: 'alloy-casting',
+    num: '03', cat: 'manufacturing', catLabel: { en: 'Manufacturing', zh: '制造' },
     kicker: { en: 'Offshore pump components', zh: '海上泵组件' },
     title: { en: 'Exotic alloy casting components', zh: '特种合金铸造组件' },
     desc: { en: 'Precision investment-cast components for offshore pump systems that need exceptional corrosion resistance in harsh marine environments.', zh: '为需要在恶劣海洋环境中具有优异耐腐蚀性的海上泵系统生产精密熔模铸造组件。' },
@@ -268,7 +266,7 @@ export const PROJECTS: Project[] = [
     tech: ['Duplex SS 2205', 'Investment cast', 'Ultrasonic NDT', 'CNC turning'],
   },
   {
-    num: '04', cat: 'infrastructure', catLabel: { en: 'Infrastructure', zh: '基础设施' }, img: 'automation-lab',
+    num: '04', cat: 'infrastructure', catLabel: { en: 'Infrastructure', zh: '基础设施' },
     kicker: { en: 'Industrial automation retrofit', zh: '工业自动化改造' },
     title: { en: 'Legacy PLC retrofit & SCADA integration', zh: '传统PLC改造与SCADA集成' },
     desc: { en: 'Modernised a 20-year-old production line by replacing obsolete PLCs with Siemens controllers and integrating a unified SCADA dashboard.', zh: '用现代西门子控制器替换过时的PLC系统并集成统一的SCADA仪表板，对20年的生产线进行了现代化改造。' },

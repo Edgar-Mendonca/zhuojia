@@ -1,7 +1,8 @@
-import { INDUSTRIES, PROCESS, SERVICES, STANDARDS, type Lang } from '../content'
+import { INDUSTRIES, PROCESS, SERVICES, type Lang } from '../content'
+import { art } from '../art'
 import { clientsWall, getStarted, HOME_TILES, orbitHero, projectCards, trustStrip } from '../components'
 import { page } from '../layout'
-import { bar, button, esc, href, icon, img, rich, tr } from '../ui'
+import { bar, button, esc, href, icon, rich, tr } from '../ui'
 
 /** Flange drawing that is drawn step by step as the process section scrolls. */
 export function drawing() {
@@ -55,7 +56,7 @@ export function home(lang: Lang) {
   <h1 class="hero-title"><span class="word" data-split>ZHUOJIA</span><span class="hero-sub" data-hero-in>${rich(t({ en: 'Engineering *for industry.*', zh: '为*工业*而生的工程。' }))}</span></h1>
   <p class="hero-lead" data-hero-in>${esc(t({ en: 'We design, prototype and manufacture the parts and systems that keep critical industries running — from first drawing to final inspection.', zh: '我们设计、打样并制造让关键行业持续运转的零部件与系统——从第一张图纸到最终检验。' }))}</p>
   <div class="hero-ctas" data-hero-in>${button(t({ en: 'Submit an RFQ', zh: '提交询价' }), href(lang, 'contact'), 'solid', 'send')}${button(t({ en: 'Explore services', zh: '探索服务' }), href(lang, 'services'), 'line')}</div>
-  <p class="hero-meta mono" data-hero-in>${esc(t({ en: 'Tap any tile to explore', zh: '点击任意图块进行浏览' }))}<i>·</i>API · ASME · ISO · DNV</p>`)
+  <p class="hero-meta mono" data-hero-in>${t({ en: 'Engineering<i>·</i>Precision<i>·</i>R&amp;D', zh: '工程<i>·</i>精密<i>·</i>研发' })}</p>`)
 
   const stats: [string, string, string][] = [
     ['6', '', t({ en: 'Core disciplines', zh: '核心领域' })],
@@ -80,7 +81,7 @@ export function home(lang: Lang) {
     </div>
     <div class="feats">${SERVICES.map((s, i) => `<a class="feat" href="${href(lang, 'services', s.slug)}" data-reveal>
       <p class="feat-label mono"><span>${esc(t(s.tag))}</span><span>0${i + 1}</span></p>
-      <div class="feat-media"><img src="${img(s.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"></div>
+      <div class="feat-media">${art(s.slug)}</div>
       <div class="feat-body"><h3>${esc(t(s.title))}</h3><p>${esc(t(s.short))}</p><span class="feat-go">${icon('arrow-up-right')}</span></div>
     </a>`).join('')}</div>
   </div>
@@ -125,13 +126,11 @@ export function home(lang: Lang) {
   </div>
 </section>`
 
-  const standards = `<div class="standards" aria-label="Standards"><div class="marquee"><ul class="marquee-track">${[...STANDARDS, ...STANDARDS, ...STANDARDS, ...STANDARDS].map((s, i) => `<li${i >= STANDARDS.length ? ' aria-hidden="true"' : ''}>${s}</li>`).join('')}</ul></div></div>`
-
   return page({
     lang, key: 'home',
     title: t({ en: 'ZHUOJIA 卓嘉 — Engineering, Manufacturing & Industrial Sourcing', zh: '卓嘉 — 工程、制造与工业采购' }),
     description: t({ en: 'ZHUOJIA 卓嘉 delivers multidisciplinary engineering, prototyping, manufacturing coordination and industrial sourcing for Oil & Gas, Energy, Marine, Aerospace and research clients.', zh: '卓嘉为石油天然气、能源、船舶、航空航天和科研客户提供多学科工程、原型、制造协调与工业采购。' }),
     index: [['top', 'ZHUOJIA'], ['capabilities', t({ en: 'Services', zh: '服务' })], ['process', t({ en: 'Process', zh: '流程' })], ['industries', t({ en: 'Industries', zh: '行业' })], ['projects', t({ en: 'Projects', zh: '项目' })], ['clients', t({ en: 'Clients', zh: '客户' })], ['start', t({ en: 'Get started', zh: '开始' })]],
-    body: hero + trustStrip(lang) + intro + features + process + industries + projects + standards + clientsWall(lang, '05') + getStarted(lang, '06'),
+    body: hero + trustStrip(lang) + intro + features + process + industries + projects + clientsWall(lang, '05') + getStarted(lang, '06'),
   })
 }

@@ -17,7 +17,6 @@ const SLUG: Record<PageKey, string> = {
 }
 export const href = (lang: Lang, page: PageKey, hash = '') =>
   `${BASE}${lang === 'zh' ? 'zh/' : ''}${SLUG[page]}${hash ? '#' + hash : ''}`
-export const img = (name: string) => `${BASE}img/${name}.webp`
 export const pagePath = (lang: Lang, page: PageKey) => `${lang === 'zh' ? 'zh/' : ''}${SLUG[page]}index.html`
 
 const ICONS: Record<string, string> = {

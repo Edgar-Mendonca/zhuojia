@@ -141,3 +141,11 @@ export const ART: Record<string, [Tone, string]> = {
     <path d="M140 86l14-12 12 6 14-18 14 8 14-12" stroke="${A}" stroke-width="2" fill="none"/><rect x="140" y="52" width="20" height="5" fill="${O}"/>
     <path d="M170 102v20M156 124h28" stroke="${S}" stroke-width="4"/>`],
 }
+
+/** Illustration panel: tone gradient + drafting grid + scene, optional figure caption. */
+export function art(key: string, fig?: string) {
+  const [tone, scene] = ART[key]
+  const [g1, g2] = TONES[tone]
+  return `<span class="art art-${tone}" style="--g1:${g1};--g2:${g2}"><svg viewBox="0 0 240 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${scene}</svg>${
+    fig ? `<span class="art-fig mono">${fig}</span>` : ''}</span>`
+}

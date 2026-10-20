@@ -2,7 +2,7 @@
  * Orbit hero: illustrated cards travel along concentric rings, tilted in 3D
  * so the field reads like the inside of a bowl. Hover (or tap on touch)
  * stops the orbit and expands a card to show what it links to.
- * On phones the rings become a flat dial under the hero copy.
+ * On phones eight cards circle the copy on an oval, half off-screen at the sides.
  */
 // Cards sit on drawn rings: radius = 64 × ring (see components.ts).
 const RING_UNIT = 64
@@ -21,26 +21,27 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
   const rings = hero.querySelector<SVGSVGElement>('.rings')!
   const copy = hero.querySelector<HTMLElement>('.hero-copy')
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches
-  let n = 0 // phones show one evenly spaced ring of the cards without .m-hide
-  const phone = hero.querySelectorAll('.tile:not(.m-hide)').length
+  let n = 0 // phones: the cards without .m-hide, evenly spaced on one oval around the copy
+  const count = hero.querySelectorAll('.tile:not(.m-hide)').length
   const tiles: TileState[] = [...hero.querySelectorAll<HTMLElement>('.tile')].map((el, i) => ({
-    aDial: el.classList.contains('m-hide') ? 0 : (n++ / phone) * Math.PI * 2 - Math.PI / 2,
+    aDial: el.classList.contains('m-hide') ? 0 : (n++ / count) * Math.PI * 2 - Math.PI / 2,
     el, info: el.querySelector<HTMLElement>('.tile-info')!, ring: Number(el.dataset.ring), a0: (Number(el.dataset.angle) * Math.PI) / 180,
     delay: 0.25 + i * 0.045, w: 0, h: 0, over: false, last: '',
   }))
 
-  let unit = 2, size = 2000, dial = false, openW = 360
+  let unit = 2, size = 2000, phone = false, openW = 360, ovalX = 0, ovalY = 0
   let cx = 0, cy = 0, W = 0, H = 0, top = 0
   const layout = () => {
     W = hero.clientWidth; H = hero.clientHeight
-    dial = W <= 700
-    size = dial ? W * 0.96 : Math.max(W * 1.08, H * 1.35, 760)
+    phone = W <= 700
+    size = phone ? H * 1.05 : Math.max(W * 1.08, H * 1.35, 760)
+    ovalX = W * 0.5; ovalY = (H - 52) * 0.42 // phone oval: side cards half off-screen, like the reference
     unit = size / 1000
     rings.style.setProperty('--S', `${size}px`)
-    const base = dial ? W * 0.24 : clamp(size / 2050, 0.55, 1.1) * 205
-    openW = dial ? Math.min(W - PAD * 2, 300) : base * 1.75
-    for (const t of tiles) t.w = base * (dial ? 1 : t.ring === 4 ? 0.9 : 1)
-    top = dial ? 0 : parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav')) || 52
+    const base = phone ? W * 0.29 : clamp(size / 2050, 0.55, 1.1) * 205
+    openW = phone ? Math.min(W - PAD * 2, 300) : base * 1.75
+    for (const t of tiles) t.w = base * (phone ? 1 : t.ring === 4 ? 0.9 : 1)
+    top = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav')) || 52
     cx = W / 2; cy = (H + top) / 2 // centre of .tiles within the hero (see CSS)
   }
   layout()
@@ -97,26 +98,26 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
     my += (ty - my) * 0.06
 
     const rect = hero.getBoundingClientRect()
-    const p = dial ? 0 : clamp(-rect.top / Math.max(rect.height, 1))
+    const p = clamp(-rect.top / Math.max(rect.height, 1))
     const spread = 1 + p * 0.55
     const half = size / 2
-    const tilt = dial ? 0 : 1
+    const tilt = phone ? 0.6 : 1
 
     for (const t of tiles) {
       const enter = reduce ? 1 : easeOut(clamp((time - t.delay) / 1.5))
-      const a = (dial ? t.aDial : t.a0) + (spin / PERIOD) * Math.PI * 2
-      const r = RING_UNIT * (dial ? 6 : t.ring) * unit * (0.35 + 0.65 * enter) * spread
+      const a = (phone ? t.aDial : t.a0) + (spin / PERIOD) * Math.PI * 2
+      const r = (phone ? 1 : RING_UNIT * t.ring * unit) * (0.35 + 0.65 * enter) * spread
       t.h += ((t.over ? 1 : 0) - t.h) * (reduce ? 1 : 1 - Math.exp(-dt * 9))
       // An open card lifts towards the viewer; divide out the perspective so it lands where we put it.
-      const z = dial ? 0 : t.h * LIFT
+      const z = t.h * LIFT
       const k = (PERSPECTIVE - z) / PERSPECTIVE
       const vw = t.w + (openW - t.w) * t.h
-      let x = Math.cos(a) * r + mx * t.ring * 9
-      let y = Math.sin(a) * r + my * t.ring * 6
+      let x = Math.cos(a) * r * (phone ? ovalX : 1) + mx * t.ring * 9
+      let y = Math.sin(a) * r * (phone ? ovalY : 1) + my * t.ring * 6
       // ...and slides inwards so the whole card and its info panel stay on screen.
-      const e = dial ? PAD : EDGE
+      const e = phone ? PAD : EDGE
       const ox = clamp(x, -cx + e + vw / 2, W - cx - e - vw / 2)
-      const oy = dial ? clamp(y, -size / 2 + vw / 3, size / 2 - vw * 1.25) : clamp(y, -cy + top + PAD + vw / 3, H - cy - PAD - vw * 1.25)
+      const oy = clamp(y, -cy + top + PAD + vw / 3, H - cy - PAD - vw * 1.25)
       x = (x + (ox - x) * t.h) * (1 - t.h + t.h * k)
       y = (y + (oy - y) * t.h) * (1 - t.h + t.h * k)
       const w = vw * (1 - t.h + t.h * k)
@@ -132,10 +133,10 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
       t.el.style.transform = `translate3d(${(x - w / 2).toFixed(1)}px, ${(y - w / 3).toFixed(1)}px, ${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) scale(${(0.7 + 0.3 * enter).toFixed(3)})`
       t.el.style.opacity = (Math.max(enter * (1 - p * 1.1), t.h)).toFixed(3)
     }
-    if (copy && !dial) {
+    if (copy) {
       copy.style.transform = `translate3d(0, ${(p * 90).toFixed(1)}px, 0)`
       copy.style.opacity = (1 - p * 1.3).toFixed(3)
-    } else if (copy) copy.style.cssText = ''
+    }
     if (!reduce && visible) raf = requestAnimationFrame(frame)
   }
 

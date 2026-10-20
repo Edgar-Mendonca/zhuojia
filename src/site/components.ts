@@ -1,6 +1,6 @@
 import { CLIENTS, INDUSTRIES, PROJECTS, SERVICES, type L, type Lang, type PageKey } from './content'
-import { ART, TONES } from './art'
-import { BASE, bar, button, esc, href, icon, img, rich, tr } from './ui'
+import { art } from './art'
+import { BASE, bar, button, esc, href, icon, rich, tr } from './ui'
 
 /* ------------------------------------------------------------------ */
 /* Orbit hero (home only) — illustrated cards that link to sub-pages   */
@@ -19,11 +19,9 @@ function rings() {
 
 function tile(lang: Lang, t: Tile) {
   const t_ = tr(lang)
-  const [tone, scene] = ART[t.art]
-  const [g1, g2] = TONES[tone]
   const kind = t_(t.kind), title = t_(t.title)
   return `<a class="tile${t.m ? '' : ' m-hide'}" href="${href(lang, t.to[0], t.to[1])}" data-ring="${t.ring}" data-angle="${t.angle}" tabindex="-1" aria-label="${esc(kind)}: ${esc(title)}">`
-    + `<span class="tile-in" style="--g1:${g1};--g2:${g2}"><svg class="tile-art" viewBox="0 0 240 160" aria-hidden="true">${scene}</svg>`
+    + `<span class="tile-in">${art(t.art)}`
     + `<span class="tile-chip"><i class="mono">${esc(kind)}</i><b>${esc(title)}</b></span></span>`
     + `<span class="tile-info"><span class="mono">${esc(kind)} · ${esc(t.tag)}</span><b>${esc(title)}</b><span class="tile-text">${esc(t_(t.text))}</span><span class="tile-go mono">${esc(t_({ en: 'Open', zh: '查看' }))} ↗</span></span>`
     + `<span class="tile-frame" aria-hidden="true"></span></a>`
@@ -31,8 +29,7 @@ function tile(lang: Lang, t: Tile) {
 
 export function orbitHero(lang: Lang, tiles: Tile[], copy: string) {
   return `<section class="hero" id="top" data-orbit>
-  <div class="orbit">${rings()}<span class="orbit-hub mono" aria-hidden="true">${esc(tr(lang)({ en: 'Tap a card to explore', zh: '点击卡片了解更多' }))}</span>
-  <div class="tiles">${tiles.map((t) => tile(lang, t)).join('')}</div></div>
+  <div class="orbit">${rings()}<div class="tiles">${tiles.map((t) => tile(lang, t)).join('')}</div></div>
   <div class="hero-copy">${copy}</div>
 </section>`
 }
@@ -134,7 +131,7 @@ export function getStarted(lang: Lang, num: string, title?: L, lead?: L) {
 
 /** Compact project cards used on the home page. */
 export const projectCards = (lang: Lang) => PROJECTS.map((p) => `<a class="pcard" href="${href(lang, 'projects', 'project-' + p.num)}" data-reveal>
-    <span class="pcard-media"><img src="${img(p.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"></span>
+    <span class="pcard-media">${art('project-' + p.num)}</span>
     <span class="mono pcard-meta"><span>${p.num}</span><span>${esc(tr(lang)(p.catLabel))}</span></span>
     <b>${esc(tr(lang)(p.title))}</b>
   </a>`).join('')
