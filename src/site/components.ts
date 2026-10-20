@@ -1,122 +1,53 @@
 import { CLIENTS, INDUSTRIES, PROJECTS, SERVICES, type L, type Lang, type PageKey } from './content'
+import { ART, TONES } from './art'
 import { BASE, bar, button, esc, href, icon, img, rich, tr } from './ui'
 
 /* ------------------------------------------------------------------ */
-/* Blueprint drawings used as hero tiles                               */
+/* Orbit hero (home only) — illustrated cards that link to sub-pages   */
 /* ------------------------------------------------------------------ */
 
-const polar = (r: number, a: number, cx = 100, cy = 65) =>
-  `${(cx + r * Math.cos(a)).toFixed(1)} ${(cy + r * Math.sin(a)).toFixed(1)}`
+type Card = { art: string; to: [PageKey, string]; kind: L; tag: string; title: L; text: L }
+export type Tile = Card & { ring: number; angle: number; m?: boolean }
 
-function gearPath(teeth: number, ro: number, ri: number) {
-  const pts: string[] = []
-  for (let i = 0; i < teeth; i++) {
-    const a = (i / teeth) * Math.PI * 2
-    const s = (Math.PI * 2) / teeth
-    pts.push(polar(ri, a), polar(ro, a + s * 0.15), polar(ro, a + s * 0.45), polar(ri, a + s * 0.6))
-  }
-  return `M${pts.join('L')}Z`
-}
-
-const BLUEPRINTS: Record<string, string> = {
-  flange: `<circle cx="100" cy="65" r="52"/><circle cx="100" cy="65" r="22"/><circle cx="100" cy="65" r="38" stroke-dasharray="3 3"/>${
-    Array.from({ length: 8 }, (_, i) => { const [x, y] = polar(38, (i / 8) * Math.PI * 2).split(' '); return `<circle cx="${x}" cy="${y}" r="4"/>` }).join('')
-  }<path d="M40 65h120M100 5v120" stroke-dasharray="8 3 2 3" opacity=".6"/><path d="M48 10h104M48 6v8M152 6v8"/><text x="100" y="8">Ø104</text>`,
-  gear: `<path d="${gearPath(18, 50, 42)}"/><circle cx="100" cy="65" r="14"/><path d="M96 51h8v-4h-8z"/><circle cx="100" cy="65" r="30" stroke-dasharray="2 3"/><path d="M30 65h140M100 0v130" stroke-dasharray="8 3 2 3" opacity=".6"/><text x="168" y="20">Z18</text>`,
-  pcb: `<rect x="22" y="14" width="156" height="102" rx="4"/><rect x="78" y="44" width="44" height="44"/>${
-    [0, 1, 2, 3, 4].map((i) => `<path d="M${84 + i * 8} 44V30h-${20 - i * 4}V18"/><path d="M${84 + i * 8} 88v14h${12 + i * 6}"/>`).join('')
-  }${[0, 1, 2, 3].map((i) => `<path d="M78 ${52 + i * 9}H48v${i % 2 ? 10 : -6}H30"/><circle cx="30" cy="${(52 + i * 9) + (i % 2 ? 10 : -6)}" r="2.5"/>`).join('')}<text x="100" y="70">MCU</text>`,
-  beam: `<path d="M60 20h80v12h-34v66h34v12H60v-12h34V32H60z"/><path d="M94 32l12 12M94 44l12 12M94 56l12 12M94 68l12 12M94 80l12 12" opacity=".5"/><path d="M60 12h80M60 8v8M140 8v8M150 20v100M146 20h8M146 120h8"/><text x="100" y="9">200</text><text x="168" y="72">HEB</text>`,
-  stress: `<path d="M20 110 C60 105 70 30 100 28 S150 100 180 104" /><path d="M20 115h160M20 20v95" opacity=".6"/>${
-    Array.from({ length: 9 }, (_, i) => `<rect x="${26 + i * 17}" y="${118 - [12, 22, 40, 62, 74, 60, 38, 20, 10][i]}" width="9" height="${[12, 22, 40, 62, 74, 60, 38, 20, 10][i]}" opacity=".35" fill="currentColor"/>`).join('')
-  }<text x="150" y="26">σ 212 MPa</text>`,
-}
-
-const blueprint = (name: string) =>
-  `<svg viewBox="0 0 200 130" fill="none" stroke="currentColor" stroke-width="1.1">${BLUEPRINTS[name]}</svg>`
-
-/* ------------------------------------------------------------------ */
-/* Orbit hero (home only) — every tile links to the relevant page      */
-/* ------------------------------------------------------------------ */
-
-type Link = [PageKey, string?]
-type TileBody = { to: Link; blur?: boolean } & ({ img: string; pos?: string } | { bp: string } | { spec: [string, string] })
-export type Tile = { ring: number; angle: number } & TileBody
-
-/** Evenly spaced rings (viewBox units, box is -500…500); tiles ride on rings 2–7 (see orbit.ts). */
+/** Evenly spaced rings (viewBox units, box is -500…500); cards ride on rings 4 and 6 (see orbit.ts). */
 const RINGS = [64, 128, 192, 256, 320, 384, 448, 512]
-
-const PAGE_LABEL: Record<PageKey, L> = {
-  home: { en: 'Home', zh: '首页' }, about: { en: 'About', zh: '关于' }, services: { en: 'Services', zh: '服务' },
-  industries: { en: 'Industries', zh: '行业' }, projects: { en: 'Projects', zh: '项目' }, contact: { en: 'Contact', zh: '联系' },
-}
 
 function rings() {
   return `<svg class="rings" viewBox="-500 -500 1000 1000" aria-hidden="true">${RINGS.map((r, i) => `<g class="ring r${i}"><circle r="${r}" pathLength="1000"/>${
     i === 2 || i === 6 ? `<circle class="ticks" r="${r}"/>` : ''}${i === 3 || i === 5 ? `<circle class="arc" r="${r}" pathLength="1000"/>` : ''}</g>`).join('')}</svg>`
 }
 
-/** Destination name for a tile's caption. */
-function linkTitle([page, hash]: Link): L {
-  const slug = hash ?? ''
-  if (page === 'services') return SERVICES.find((x) => x.slug === slug)?.title ?? PAGE_LABEL.services
-  if (page === 'industries') return INDUSTRIES.find((x) => x.slug === slug)?.title ?? PAGE_LABEL.industries
-  if (page === 'projects') return PROJECTS.find((x) => 'project-' + x.num === slug)?.title ?? { en: 'All case studies', zh: '全部案例' }
-  return { en: 'Quality & principles', zh: '质量与原则' }
-}
-
-function tile(lang: Lang, t: Tile, i: number) {
-  const inner = 'img' in t
-    ? `<img src="${img(t.img)}" alt="" width="480" height="320" decoding="async"${t.pos ? ` style="object-position:${t.pos}"` : ''}>`
-    : 'bp' in t ? blueprint(t.bp) : `<span>${esc(t.spec[0])}</span><b>${esc(t.spec[1])}</b>`
-  const kind = 'bp' in t ? ' tile-bp' : 'spec' in t ? ' tile-spec' : ''
+function tile(lang: Lang, t: Tile) {
   const t_ = tr(lang)
-  const label = t_(PAGE_LABEL[t.to[0]])
-  const title = t_(linkTitle(t.to))
-  return `<a class="tile${t.blur ? ' is-far' : ''}" href="${href(lang, t.to[0], t.to[1])}" data-ring="${t.ring}" data-angle="${t.angle}" style="--i:${i}" tabindex="-1" aria-label="${esc(label)}: ${esc(title)}">`
-    + `<span class="tile-in${kind}">${inner}<span class="tile-cap"><span class="mono">${esc(label)}</span><b>${esc(title)}</b></span></span>`
-    + `<span class="tile-frame" aria-hidden="true"></span><span class="tile-dim mono" aria-hidden="true">${esc(t_({ en: 'Open', zh: '查看' }))} ↗</span></a>`
+  const [tone, scene] = ART[t.art]
+  const [g1, g2] = TONES[tone]
+  const kind = t_(t.kind), title = t_(t.title)
+  return `<a class="tile${t.m ? '' : ' m-hide'}" href="${href(lang, t.to[0], t.to[1])}" data-ring="${t.ring}" data-angle="${t.angle}" tabindex="-1" aria-label="${esc(kind)}: ${esc(title)}">`
+    + `<span class="tile-in" style="--g1:${g1};--g2:${g2}"><svg class="tile-art" viewBox="0 0 240 160" aria-hidden="true">${scene}</svg>`
+    + `<span class="tile-chip"><i class="mono">${esc(kind)}</i><b>${esc(title)}</b></span></span>`
+    + `<span class="tile-info"><span class="mono">${esc(kind)} · ${esc(t.tag)}</span><b>${esc(title)}</b><span class="tile-text">${esc(t_(t.text))}</span><span class="tile-go mono">${esc(t_({ en: 'Open', zh: '查看' }))} ↗</span></span>`
+    + `<span class="tile-frame" aria-hidden="true"></span></a>`
 }
 
 export function orbitHero(lang: Lang, tiles: Tile[], copy: string) {
   return `<section class="hero" id="top" data-orbit>
-  <div class="orbit">${rings()}<div class="tiles">${tiles.map((t, i) => tile(lang, t, i)).join('')}</div></div>
+  <div class="orbit">${rings()}<span class="orbit-hub mono" aria-hidden="true">${esc(tr(lang)({ en: 'Tap a card to explore', zh: '点击卡片了解更多' }))}</span>
+  <div class="tiles">${tiles.map((t) => tile(lang, t)).join('')}</div></div>
   <div class="hero-copy">${copy}</div>
 </section>`
 }
 
-const S = 'services', I = 'industries', P = 'projects'
-/** Slots on drawn rings 2, 4 and 6 (radius = 64 × ring), leaving a clear ring between layers. */
-const SLOTS: [number, number][] = [
-  ...[150, 210, 330].map((a) => [2, a] as [number, number]),                                        // inner, blurred
-  ...[22, 67, 112, 157, 202, 247, 292, 337].map((a) => [4, a] as [number, number]),                 // middle
-  ...[0, 36, 72, 108, 144, 180, 216, 252, 288, 324].map((a) => [6, a] as [number, number]),         // outer
-]
-const BODIES: TileBody[] = [ // one per slot, in order
-  { img: 'precision-manufacturing', blur: true, to: [I, 'manufacturing'] },
-  { spec: ['TOL', '±0.02'], blur: true, to: [S, 'engineering-design'] },
-  { bp: 'gear', blur: true, to: [S, 'engineering-design'] },
-  { img: 'alloy-casting', to: [P, 'project-03'] },
-  { img: 'industrial-casting', to: [S, 'manufacturing-support'] },
-  { bp: 'flange', to: [I, 'oil-gas'] },
-  { spec: ['STD', 'API 6A'], to: [S, 'standards'] },
-  { img: 'refinery-night', pos: '50% 80%', to: [P, 'project-01'] },
-  { bp: 'stress', to: [S, 'rd-prototyping'] },
-  { img: 'automation-lab', to: [P, 'project-04'] },
-  { img: 'industrial-electronics', to: [P, 'project-02'] },
-  { img: 'engineering-design', to: [S, 'engineering-design'] },
-  { bp: 'pcb', to: [I, 'automation'] },
-  { img: 'supply-chain', to: [S, 'supply-sourcing'] },
-  { spec: ['QC', 'PASSED'], to: ['about'] },
-  { img: 'specialised-projects', to: [S, 'specialised-projects'] },
-  { bp: 'beam', to: [I, 'infrastructure'] },
-  { img: 'refinery-night', pos: '30% 40%', to: [I, 'energy'] },
-  { img: 'precision-manufacturing', pos: '80% 50%', to: [S, 'manufacturing-support'] },
-  { spec: ['DNV', 'CERT'], to: [I, 'marine'] },
-  { img: 'automation-lab', pos: '70% 50%', to: [I, 'automation'] },
-  { img: 'alloy-casting', pos: '30% 70%', to: [P] },
-]
-export const HOME_TILES: Tile[] = SLOTS.map(([ring, angle], i) => ({ ring, angle, ...BODIES[i] }))
+const KIND = { svc: { en: 'Service', zh: '服务' }, ind: { en: 'Industry', zh: '行业' }, prj: { en: 'Project', zh: '项目' } }
+const svc: Card[] = SERVICES.map((s) => ({ art: s.slug, to: ['services', s.slug], kind: KIND.svc, tag: s.tag.en, title: s.title, text: s.short }))
+const ind: Card[] = INDUSTRIES.map((s) => ({ art: s.slug, to: ['industries', s.slug], kind: KIND.ind, tag: s.tag, title: s.title, text: s.long }))
+const prj: Card[] = PROJECTS.map((p) => ({ art: 'project-' + p.num, to: ['projects', 'project-' + p.num], kind: KIND.prj, tag: p.catLabel.en, title: p.title, text: p.desc }))
+
+/** Ring 4: six services + two projects; ring 6: eight industries + two projects. */
+const PHONE = new Set([svc[0], svc[2], svc[4], prj[0], prj[2], ind[0], ind[2], ind[6]].map((c) => c.art)) // the eight cards on the phone dial
+export const HOME_TILES: Tile[] = [
+  ...[svc[0], prj[0], svc[1], svc[2], prj[2], svc[3], svc[4], svc[5]].map((c) => ({ ...c, ring: 4 })),
+  ...[ind[0], ind[1], prj[1], ind[2], ind[3], ind[4], ind[5], prj[3], ind[6], ind[7]].map((c) => ({ ...c, ring: 6 })),
+].map((c, i) => ({ ...c, angle: c.ring === 4 ? 22 + i * 45 : (i - 8) * 36, m: PHONE.has(c.art) }))
 
 /* ------------------------------------------------------------------ */
 /* Sub-page header (Artcraft "Crafting apps" style)                     */
