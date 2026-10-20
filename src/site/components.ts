@@ -1,4 +1,4 @@
-import { CLIENTS, PROJECTS, type Lang } from './content'
+import { CLIENTS, PROJECTS, type L, type Lang, type PageKey } from './content'
 import { BASE, bar, button, esc, href, icon, img, rich, tr } from './ui'
 
 /* ------------------------------------------------------------------ */
@@ -36,89 +36,98 @@ const blueprint = (name: string) =>
   `<svg viewBox="0 0 200 130" fill="none" stroke="currentColor" stroke-width="1.1">${BLUEPRINTS[name]}</svg>`
 
 /* ------------------------------------------------------------------ */
-/* Orbit hero                                                          */
+/* Orbit hero (home only) — every tile links to the relevant page      */
 /* ------------------------------------------------------------------ */
 
-export type Tile =
-  | { ring: number; angle: number; img: string; pos?: string; blur?: boolean }
-  | { ring: number; angle: number; bp: string; blur?: boolean }
-  | { ring: number; angle: number; spec: [string, string]; blur?: boolean }
+type Link = [PageKey, string?]
+export type Tile = { ring: number; angle: number; to: Link; blur?: boolean } & ({ img: string; pos?: string } | { bp: string } | { spec: [string, string] })
 
 /** Ring radii in viewBox units (box is -500…500). */
-export const RINGS = [96, 150, 205, 268, 340, 420, 500]
+const RINGS = [96, 150, 205, 268, 340, 420, 500]
+
+const PAGE_LABEL: Record<PageKey, L> = {
+  home: { en: 'Home', zh: '首页' }, about: { en: 'About', zh: '关于' }, services: { en: 'Services', zh: '服务' },
+  industries: { en: 'Industries', zh: '行业' }, projects: { en: 'Projects', zh: '项目' }, contact: { en: 'Contact', zh: '联系' },
+}
 
 function rings() {
-  return `<svg class="rings" viewBox="-500 -500 1000 1000" aria-hidden="true">
-  ${RINGS.map((r, i) => `<g class="ring r${i}"><circle r="${r}" pathLength="1000"/>${
-    i === 1 || i === 4 ? `<circle class="ticks" r="${r}"/>` : ''
-  }${i === 2 || i === 4 ? `<circle class="arc" r="${r}" pathLength="1000"/>` : ''}</g>`).join('')}
-</svg>`
+  return `<svg class="rings" viewBox="-500 -500 1000 1000" aria-hidden="true">${RINGS.map((r, i) => `<g class="ring r${i}"><circle r="${r}" pathLength="1000"/>${
+    i === 1 || i === 4 ? `<circle class="ticks" r="${r}"/>` : ''}${i === 2 || i === 4 ? `<circle class="arc" r="${r}" pathLength="1000"/>` : ''}</g>`).join('')}</svg>`
 }
 
-function tile(t: Tile, i: number) {
-  const attrs = `class="tile${'bp' in t ? ' tile-bp' : ''}${'spec' in t ? ' tile-spec' : ''}${t.blur ? ' is-far' : ''}" data-ring="${t.ring}" data-angle="${t.angle}" style="--i:${i}"`
-  if ('img' in t)
-    return `<figure ${attrs}><img src="${img(t.img)}" alt="" width="480" height="320" decoding="async"${t.pos ? ` style="object-position:${t.pos}"` : ''}></figure>`
-  if ('bp' in t) return `<figure ${attrs}>${blueprint(t.bp)}</figure>`
-  return `<figure ${attrs}><span>${esc(t.spec[0])}</span><b>${esc(t.spec[1])}</b></figure>`
+function tile(lang: Lang, t: Tile, i: number) {
+  const inner = 'img' in t
+    ? `<img src="${img(t.img)}" alt="" width="480" height="320" decoding="async"${t.pos ? ` style="object-position:${t.pos}"` : ''}>`
+    : 'bp' in t ? blueprint(t.bp) : `<span>${esc(t.spec[0])}</span><b>${esc(t.spec[1])}</b>`
+  const kind = 'bp' in t ? ' tile-bp' : 'spec' in t ? ' tile-spec' : ''
+  const label = tr(lang)(PAGE_LABEL[t.to[0]])
+  return `<a class="tile${t.blur ? ' is-far' : ''}" href="${href(lang, t.to[0], t.to[1])}" data-ring="${t.ring}" data-angle="${t.angle}" style="--i:${i}" tabindex="-1" aria-label="${esc(label)}"><span class="tile-in${kind}">${inner}</span><span class="tile-tag mono">${esc(label)} ↗</span></a>`
 }
 
-export function orbitHero(opts: { tiles: Tile[]; copy: string; compact?: boolean; id?: string }) {
-  return `<section class="hero${opts.compact ? ' hero-compact' : ''}" id="${opts.id ?? 'top'}" data-orbit>
-  <div class="orbit" aria-hidden="true">${rings()}<div class="tiles">${opts.tiles.map(tile).join('')}</div></div>
-  <div class="hero-copy">${opts.copy}</div>
+export function orbitHero(lang: Lang, tiles: Tile[], copy: string) {
+  return `<section class="hero" id="top" data-orbit>
+  <div class="orbit">${rings()}<div class="tiles">${tiles.map((t, i) => tile(lang, t, i)).join('')}</div></div>
+  <div class="hero-copy">${copy}</div>
 </section>`
 }
 
-/** A sensible default tile set for an orbit hero. */
+const S = 'services', I = 'industries', P = 'projects'
 export const HOME_TILES: Tile[] = [
-  { ring: 1, angle: 200, img: 'precision-manufacturing', blur: true },
-  { ring: 1, angle: 335, bp: 'gear', blur: true },
-  { ring: 1, angle: 95, spec: ['TOL', '±0.02'], blur: true },
-  { ring: 2, angle: 240, img: 'industrial-casting' },
-  { ring: 2, angle: 300, img: 'refinery-night', pos: '50% 80%' },
-  { ring: 2, angle: 30, bp: 'flange' },
-  { ring: 2, angle: 145, img: 'alloy-casting' },
-  { ring: 3, angle: 180, img: 'automation-lab' },
-  { ring: 3, angle: 268, spec: ['STD', 'API 6A'] },
-  { ring: 3, angle: 345, img: 'industrial-electronics' },
-  { ring: 3, angle: 60, img: 'supply-chain' },
-  { ring: 3, angle: 115, bp: 'stress' },
-  { ring: 4, angle: 215, bp: 'pcb' },
-  { ring: 4, angle: 250, img: 'engineering-design' },
-  { ring: 4, angle: 318, img: 'specialised-projects' },
-  { ring: 4, angle: 20, img: 'refinery-night', pos: '30% 40%' },
-  { ring: 4, angle: 88, img: 'precision-manufacturing', pos: '80% 50%' },
-  { ring: 4, angle: 150, bp: 'beam' },
-  { ring: 5, angle: 198, img: 'supply-chain', pos: '20% 60%' },
-  { ring: 5, angle: 232, spec: ['QC', 'PASSED'] },
-  { ring: 5, angle: 290, img: 'industrial-casting', pos: '70% 30%' },
-  { ring: 5, angle: 335, bp: 'flange' },
-  { ring: 5, angle: 10, img: 'automation-lab', pos: '70% 50%' },
-  { ring: 5, angle: 48, spec: ['DNV', 'CERT'] },
-  { ring: 5, angle: 128, img: 'engineering-design', pos: '20% 50%' },
-  { ring: 5, angle: 160, img: 'alloy-casting', pos: '30% 70%' },
+  { ring: 1, angle: 200, img: 'precision-manufacturing', blur: true, to: [I, 'manufacturing'] },
+  { ring: 1, angle: 335, bp: 'gear', blur: true, to: [S, 'engineering-design'] },
+  { ring: 1, angle: 95, spec: ['TOL', '±0.02'], blur: true, to: [S, 'engineering-design'] },
+  { ring: 2, angle: 240, img: 'industrial-casting', to: [S, 'manufacturing-support'] },
+  { ring: 2, angle: 300, img: 'refinery-night', pos: '50% 80%', to: [P, 'project-01'] },
+  { ring: 2, angle: 30, bp: 'flange', to: [I, 'oil-gas'] },
+  { ring: 2, angle: 145, img: 'alloy-casting', to: [P, 'project-03'] },
+  { ring: 3, angle: 180, img: 'automation-lab', to: [P, 'project-04'] },
+  { ring: 3, angle: 268, spec: ['STD', 'API 6A'], to: [S, 'standards'] },
+  { ring: 3, angle: 345, img: 'industrial-electronics', to: [P, 'project-02'] },
+  { ring: 3, angle: 60, img: 'supply-chain', to: [S, 'supply-sourcing'] },
+  { ring: 3, angle: 115, bp: 'stress', to: [S, 'rd-prototyping'] },
+  { ring: 4, angle: 215, bp: 'pcb', to: [I, 'automation'] },
+  { ring: 4, angle: 250, img: 'engineering-design', to: [S, 'engineering-design'] },
+  { ring: 4, angle: 318, img: 'specialised-projects', to: [S, 'specialised-projects'] },
+  { ring: 4, angle: 20, img: 'refinery-night', pos: '30% 40%', to: [I, 'energy'] },
+  { ring: 4, angle: 88, img: 'precision-manufacturing', pos: '80% 50%', to: [S, 'manufacturing-support'] },
+  { ring: 4, angle: 150, bp: 'beam', to: [I, 'infrastructure'] },
+  { ring: 5, angle: 198, img: 'supply-chain', pos: '20% 60%', to: [S, 'supply-sourcing'] },
+  { ring: 5, angle: 232, spec: ['QC', 'PASSED'], to: ['about'] },
+  { ring: 5, angle: 290, img: 'industrial-casting', pos: '70% 30%', to: [I, 'marine'] },
+  { ring: 5, angle: 335, bp: 'flange', to: [I, 'oil-gas'] },
+  { ring: 5, angle: 10, img: 'automation-lab', pos: '70% 50%', to: [I, 'automation'] },
+  { ring: 5, angle: 48, spec: ['DNV', 'CERT'], to: [I, 'marine'] },
+  { ring: 5, angle: 128, img: 'engineering-design', pos: '20% 50%', to: ['about'] },
+  { ring: 5, angle: 160, img: 'alloy-casting', pos: '30% 70%', to: [P] },
 ]
 
-export function pageTiles(images: string[], bps: string[] = ['flange', 'stress', 'pcb']): Tile[] {
-  const out: Tile[] = []
-  const slots: [number, number][] = [[2, 210], [2, 330], [3, 160], [3, 20], [3, 270], [4, 195], [4, 240], [4, 305], [4, 350], [4, 40], [4, 140], [5, 215], [5, 325], [5, 20], [5, 160]]
-  slots.forEach(([ring, angle], i) => {
-    if (i % 5 === 2) out.push({ ring, angle, bp: bps[(i / 5) | 0] ?? 'flange' })
-    else out.push({ ring, angle, img: images[i % images.length], pos: `${(i * 37) % 100}% 50%` })
-  })
-  return out
+/* ------------------------------------------------------------------ */
+/* Sub-page header (Artcraft "Crafting apps" style)                     */
+/* ------------------------------------------------------------------ */
+
+export function pageHeader(o: { num: string; label: string; note?: string; title: string; lead: string; ctas?: string; meta?: string; visual: string }) {
+  return `<section class="section page-head" id="top">
+  <div class="frame">
+    ${bar(o.num, o.label, o.note)}
+    <div class="ph-grid">
+      <div class="ph-copy">
+        <h1 class="ph-title" data-split-lines>${rich(o.title)}</h1>
+        <p class="lead" data-reveal>${esc(o.lead)}</p>
+        ${o.ctas ? `<div class="ph-ctas" data-reveal>${o.ctas}</div>` : ''}
+        ${o.meta ? `<p class="mono ph-meta" data-reveal>${o.meta}</p>` : ''}
+      </div>
+      <div class="ph-visual">${o.visual}</div>
+    </div>
+  </div>
+</section>`
 }
 
-/** Big wide display heading with the serif accent below. */
-export function heroCopy(lang: Lang, o: { crumb?: string; mark?: boolean; title: string; sub: string; lead: string; ctas?: string; meta?: string }) {
-  const t = tr(lang)
-  return `${o.crumb ? `<p class="crumb mono" data-hero-in><a href="${href(lang, 'home')}">${esc(t({ en: 'Home', zh: '首页' }))}</a> / <span>${esc(o.crumb)}</span></p>` : ''}
-  <h1 class="hero-title"><span class="word" data-split style="--len:${[...o.title].length + (o.mark ? 1 : 0)}">${o.mark ? `<img class="hero-mark" src="${BASE}img/logo-mark.webp" width="172" height="200" alt="">` : ''}${esc(o.title)}</span><span class="hero-sub" data-hero-in>${rich(o.sub)}</span></h1>
-  <p class="hero-lead" data-hero-in>${esc(o.lead)}</p>
-  ${o.ctas ? `<div class="hero-ctas" data-hero-in>${o.ctas}</div>` : ''}
-  ${o.meta ? `<p class="hero-meta mono" data-hero-in>${o.meta}</p>` : ''}`
-}
+const PALETTE = ['#1F6FEB', '#E5484D', '#7C3AED', '#F59E0B', '#0EA5A4', '#DB2777', '#16A34A', '#004C99']
+export const color = (i: number) => PALETTE[i % PALETTE.length]
+
+/** Launcher-style grid of coloured icons with labels. */
+export const iconGrid = (items: { icon: string; label: string; url: string }[]) =>
+  `<ul class="icons">${items.map((x, i) => `<li data-reveal style="--d:${(i % 5) * 0.05}s"><a href="${x.url}"><span class="app-icon" style="--c:${color(i)}">${icon(x.icon)}</span><span>${esc(x.label)}</span></a></li>`).join('')}</ul>`
 
 /* ------------------------------------------------------------------ */
 /* Clients                                                             */
@@ -132,13 +141,11 @@ function clientLogo(c: (typeof CLIENTS)[number]) {
 
 export function clientsWall(lang: Lang, num: string) {
   const t = tr(lang)
-  const cells = CLIENTS.map((c, i) => {
+  const cells = CLIENTS.map((c) => {
     const inner = `${clientLogo(c)}<span class="client-cap"><b>${esc(t(c.full))}</b><span class="mono">${esc(t(c.sector))}</span></span>${c.url ? icon('arrow-up-right', 'client-go') : ''}`
-    return c.url
-      ? `<a class="client" href="${c.url}" target="_blank" rel="noopener" data-reveal style="--d:${i * 0.06}s">${inner}</a>`
-      : `<div class="client" data-reveal style="--d:${i * 0.06}s">${inner}</div>`
+    return c.url ? `<a class="client" href="${c.url}" target="_blank" rel="noopener" data-reveal>${inner}</a>` : `<div class="client" data-reveal>${inner}</div>`
   }).join('')
-  return `<section class="section" id="clients" data-section>
+  return `<section class="section" id="clients">
   <div class="frame">
     ${bar(num, t({ en: 'Clients', zh: '客户' }), t({ en: 'Selected partners', zh: '部分合作伙伴' }))}
     <div class="sec-head">
@@ -151,27 +158,24 @@ export function clientsWall(lang: Lang, num: string) {
 }
 
 export function trustStrip(lang: Lang) {
-  const t = tr(lang)
   const items = CLIENTS.map((c) => `<li>${clientLogo(c)}</li>`).join('')
-  return `<div class="trust" aria-label="${esc(t({ en: 'Clients', zh: '客户' }))}">
-  <span class="trust-label mono">${esc(t({ en: 'Trusted by', zh: '合作客户' }))}</span>
-  <div class="marquee"><ul class="marquee-track">${items}${items.replace(/<li>/g, '<li aria-hidden="true">')}${items.replace(/<li>/g, '<li aria-hidden="true">')}${items.replace(/<li>/g, '<li aria-hidden="true">')}</ul></div>
-</div>`
+  const dup = items.replace(/<li>/g, '<li aria-hidden="true">')
+  return `<div class="trust"><span class="trust-label mono">${esc(tr(lang)({ en: 'Trusted by', zh: '合作客户' }))}</span><div class="marquee"><ul class="marquee-track">${items}${dup}${dup}${dup}</ul></div></div>`
 }
 
 /* ------------------------------------------------------------------ */
-/* Call to action (Artcraft "Get started")                             */
+/* Call to action                                                      */
 /* ------------------------------------------------------------------ */
 
-export function getStarted(lang: Lang, num: string) {
+export function getStarted(lang: Lang, num: string, title?: L, lead?: L) {
   const t = tr(lang)
-  return `<section class="section start" id="start" data-section>
+  return `<section class="section start" id="start">
   <div class="frame">
     ${bar(num, t({ en: 'Get started', zh: '开始合作' }), t({ en: 'Reply within one business day', zh: '一个工作日内回复' }))}
     <div class="start-body">
-      <h2 class="display" data-split>${esc(t({ en: 'Start your project', zh: '开启您的项目' }))}</h2>
-      <p class="lead" data-reveal>${esc(t({ en: 'Send us drawings, specifications or just the problem. Our engineers will come back with a plan, a timeline and a price.', zh: '发送图纸、规格或只是问题描述。我们的工程师将回复方案、时间表和报价。' }))}</p>
-      <div class="hero-ctas" data-reveal>
+      <h2 class="display" data-split>${esc(t(title ?? { en: 'Start your project', zh: '开启您的项目' }))}</h2>
+      <p class="lead" data-reveal>${esc(t(lead ?? { en: 'Send us drawings, specifications or just the problem. Our engineers will come back with a plan, a timeline and a price.', zh: '发送图纸、规格或只是问题描述。我们的工程师将回复方案、时间表和报价。' }))}</p>
+      <div class="ph-ctas center" data-reveal>
         ${button(t({ en: 'Submit an RFQ', zh: '提交询价' }), href(lang, 'contact'), 'solid', 'send')}
         ${button('info@zhuojia.com', 'mailto:info@zhuojia.com', 'line', 'mail')}
       </div>
@@ -180,19 +184,9 @@ export function getStarted(lang: Lang, num: string) {
 </section>`
 }
 
-/* ------------------------------------------------------------------ */
-/* Projects (horizontal gallery)                                       */
-/* ------------------------------------------------------------------ */
-
-export function projectSlides(lang: Lang) {
-  const t = tr(lang)
-  return PROJECTS.map((p) => `<article class="slide">
-    <a class="slide-media" href="${href(lang, 'projects', 'project-' + p.num)}" tabindex="-1" aria-hidden="true"><img src="${img(p.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"></a>
-    <div class="slide-body">
-      <p class="mono slide-meta"><span>${esc(t({ en: 'Project', zh: '项目' }))} ${p.num}</span><span>${esc(t(p.catLabel))}</span></p>
-      <h3><a href="${href(lang, 'projects', 'project-' + p.num)}">${esc(t(p.title))}</a></h3>
-      <p>${esc(t(p.desc))}</p>
-      <dl class="slide-dl"><div><dt>${esc(t({ en: 'Location', zh: '地点' }))}</dt><dd>${esc(t(p.location))}</dd></div><div><dt>${esc(t({ en: 'Duration', zh: '工期' }))}</dt><dd>${esc(t(p.duration))}</dd></div><div><dt>${esc(t({ en: 'Delivered', zh: '交付' }))}</dt><dd>${esc(t(p.deliverables[0]))}</dd></div></dl>
-    </div>
-  </article>`).join('')
-}
+/** Compact project cards used on the home page. */
+export const projectCards = (lang: Lang) => PROJECTS.map((p) => `<a class="pcard" href="${href(lang, 'projects', 'project-' + p.num)}" data-reveal>
+    <span class="pcard-media"><img src="${img(p.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"></span>
+    <span class="mono pcard-meta"><span>${p.num}</span><span>${esc(tr(lang)(p.catLabel))}</span></span>
+    <b>${esc(tr(lang)(p.title))}</b>
+  </a>`).join('')

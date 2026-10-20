@@ -1,5 +1,5 @@
 import { INDUSTRIES, PROCESS, SERVICES, STANDARDS, type Lang } from '../content'
-import { clientsWall, getStarted, heroCopy, HOME_TILES, orbitHero, projectSlides, trustStrip } from '../components'
+import { clientsWall, getStarted, HOME_TILES, orbitHero, projectCards, trustStrip } from '../components'
 import { page } from '../layout'
 import { bar, button, esc, href, icon, img, rich, tr } from '../ui'
 
@@ -51,16 +51,11 @@ export function drawing() {
 export function home(lang: Lang) {
   const t = tr(lang)
 
-  const hero = orbitHero({
-    tiles: HOME_TILES,
-    copy: heroCopy(lang, {
-      title: 'ZHUOJIA', mark: true,
-      sub: t({ en: 'Engineering *for industry.*', zh: '为*工业*而生的工程。' }),
-      lead: t({ en: 'We design, prototype and manufacture the parts and systems that keep critical industries running — from first drawing to final inspection.', zh: '我们设计、打样并制造让关键行业持续运转的零部件与系统——从第一张图纸到最终检验。' }),
-      ctas: button(t({ en: 'Submit an RFQ', zh: '提交询价' }), href(lang, 'contact'), 'solid', 'send') + button(t({ en: 'Explore services', zh: '探索服务' }), href(lang, 'services'), 'line'),
-      meta: ['Engineering', 'Manufacturing', 'Sourcing', 'API · ASME · ISO'].map((m) => `<span>${m}</span>`).join('<i>·</i>'),
-    }),
-  })
+  const hero = orbitHero(lang, HOME_TILES, `
+  <h1 class="hero-title"><span class="word" data-split>ZHUOJIA</span><span class="hero-sub" data-hero-in>${rich(t({ en: 'Engineering *for industry.*', zh: '为*工业*而生的工程。' }))}</span></h1>
+  <p class="hero-lead" data-hero-in>${esc(t({ en: 'We design, prototype and manufacture the parts and systems that keep critical industries running — from first drawing to final inspection.', zh: '我们设计、打样并制造让关键行业持续运转的零部件与系统——从第一张图纸到最终检验。' }))}</p>
+  <div class="hero-ctas" data-hero-in>${button(t({ en: 'Submit an RFQ', zh: '提交询价' }), href(lang, 'contact'), 'solid', 'send')}${button(t({ en: 'Explore services', zh: '探索服务' }), href(lang, 'services'), 'line')}</div>
+  <p class="hero-meta mono" data-hero-in>${esc(t({ en: 'Tap any tile to explore', zh: '点击任意图块进行浏览' }))}<i>·</i>API · ASME · ISO · DNV</p>`)
 
   const stats: [string, string, string][] = [
     ['6', '', t({ en: 'Core disciplines', zh: '核心领域' })],
@@ -119,15 +114,15 @@ export function home(lang: Lang) {
   </div>
 </section>`
 
-  const projects = `<section class="section projects" id="projects" data-section>
+  const projects = `<section class="section" id="projects" data-section>
   <div class="frame">
-    ${bar('04', t({ en: 'Projects', zh: '项目' }), t({ en: 'Selected case studies', zh: '精选案例' }))}
+    ${bar('04', t({ en: 'Projects', zh: '项目' }), t({ en: 'Selected work', zh: '精选案例' }))}
     <div class="sec-head">
       <h2 class="h2" data-split-lines>${rich(t({ en: 'Proof, *not promises.*', zh: '用成果*说话。*' }))}</h2>
-      <div data-reveal><p class="lead">${esc(t({ en: 'Valve bodies in Inconel, offshore castings in duplex steel, IoT control boards and full PLC retrofits — delivered and certified.', zh: 'Inconel阀体、双相钢海上铸件、物联网控制板和完整PLC改造——均已交付并通过认证。' }))}</p>${button(t({ en: 'All projects', zh: '所有项目' }), href(lang, 'projects'), 'line', 'arrow-right')}</div>
+      <div data-reveal>${button(t({ en: 'All case studies', zh: '查看全部案例' }), href(lang, 'projects'), 'line', 'arrow-right')}</div>
     </div>
+    <div class="pcards">${projectCards(lang)}</div>
   </div>
-  <div class="gallery" data-gallery><div class="gallery-track">${projectSlides(lang)}</div></div>
 </section>`
 
   const standards = `<div class="standards" aria-label="Standards"><div class="marquee"><ul class="marquee-track">${[...STANDARDS, ...STANDARDS, ...STANDARDS, ...STANDARDS].map((s, i) => `<li${i >= STANDARDS.length ? ' aria-hidden="true"' : ''}>${s}</li>`).join('')}</ul></div></div>`

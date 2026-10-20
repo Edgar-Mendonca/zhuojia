@@ -1,7 +1,7 @@
 /**
  * Orbit hero: image and blueprint tiles travel along concentric rings,
  * tilted in 3D so the field reads like the inside of a bowl.
- * Rings and tiles share speeds with the CSS ring rotation.
+ * Tiles are links; hovering one eases the orbit to a stop.
  */
 const RINGS = [96, 150, 205, 268, 340, 420, 500]
 const PERIOD = [0, 140, -200, 240, -300, 360, 420] // seconds per revolution, sign = direction
@@ -52,13 +52,24 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
     hero.addEventListener('pointerleave', () => { tx = 0; ty = 0 })
   }
 
+  // Hovering a tile eases the orbit to a stop so it can be clicked.
+  let speed = 1, target = 1
+  hero.querySelectorAll('.tile').forEach((el) => {
+    el.addEventListener('pointerenter', () => (target = 0))
+    el.addEventListener('pointerleave', () => (target = 1))
+  })
+
   const half = () => size / 2
-  const start = performance.now()
+  let last = performance.now()
+  let time = 0, spin = 0
   let visible = true
   let raf = 0
 
   const frame = (now: number) => {
-    const time = reduce ? 0 : (now - start) / 1000
+    const dt = Math.min(0.05, (now - last) / 1000)
+    last = now
+    speed += (target - speed) * 0.08
+    if (!reduce) { time += dt; spin += dt * speed }
     mx += (tx - mx) * 0.06
     my += (ty - my) * 0.06
 
@@ -69,7 +80,7 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
     for (const t of tiles) {
       const enter = reduce ? 1 : easeOut(clamp((time - t.delay) / 1.5))
       const period = PERIOD[t.ring]
-      const a = t.a0 + (reduce ? 0 : (time / period) * Math.PI * 2)
+      const a = t.a0 + (spin / period) * Math.PI * 2
       const r = RINGS[t.ring] * unit * (0.35 + 0.65 * enter) * spread
       const x = Math.cos(a) * r + mx * t.ring * 14
       const y = Math.sin(a) * r + my * t.ring * 10
@@ -96,10 +107,12 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
   new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting
     cancelAnimationFrame(raf)
+    last = performance.now()
     if (visible) raf = requestAnimationFrame(frame)
   }).observe(hero)
   document.addEventListener('visibilitychange', () => {
     cancelAnimationFrame(raf)
+    last = performance.now()
     if (!document.hidden && visible) raf = requestAnimationFrame(frame)
   })
 }

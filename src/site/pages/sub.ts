@@ -1,80 +1,73 @@
-import { INDUSTRIES, PROJECTS, SERVICES, SITE, STANDARDS, TIMELINE, type Lang } from '../content'
-import { clientsWall, getStarted, heroCopy, orbitHero, pageTiles } from '../components'
+import { INDUSTRIES, PRINCIPLES, PROJECTS, SERVICES, SITE, STANDARDS, type L, type Lang } from '../content'
+import { color, getStarted, iconGrid, pageHeader } from '../components'
 import { page } from '../layout'
 import { bar, button, checks, esc, href, icon, img, rich, tr } from '../ui'
 
-const PALETTE = ['#1F6FEB', '#E5484D', '#7C3AED', '#F59E0B', '#0EA5A4', '#DB2777', '#16A34A', '#004C99']
+const contactBtn = (lang: Lang, label: L) => button(tr(lang)(label), href(lang, 'contact'), 'solid', 'arrow-right')
 
 /* ============================== ABOUT ============================== */
 export function about(lang: Lang) {
   const t = tr(lang)
-  const pillars = [
-    { icon: 'compass', title: t({ en: 'Engineering & innovation', zh: '工程与创新' }), text: t({ en: 'Advanced CAD/FEA validation, reverse engineering and custom system design for complex industrial challenges.', zh: '以先进的CAD/FEA验证、逆向工程和定制系统设计应对复杂工业挑战。' }),
-      items: [t({ en: 'Mechanical, electrical & structural design', zh: '机械、电气与结构设计' }), t({ en: 'FEA validation & stress analysis', zh: 'FEA验证与应力分析' }), t({ en: 'R&D prototyping & material testing', zh: '研发原型与材料测试' })] },
-    { icon: 'factory', title: t({ en: 'Manufacturing & quality', zh: '制造与质量' }), text: t({ en: 'Factory audits, production monitoring and strict quality control bridge the gap between design and reality.', zh: '通过工厂审核、生产监控和严格的质量控制，弥合设计与现实之间的差距。' }),
-      items: [t({ en: 'Precision CNC machining & exotic alloys', zh: '精密CNC加工与特种合金' }), t({ en: 'Comprehensive NDT & material certification', zh: '全面NDT与材料认证' }), t({ en: 'ISO & API compliance', zh: 'ISO与API合规' })] },
-    { icon: 'package', title: t({ en: 'Sourcing & execution', zh: '采购与执行' }), text: t({ en: 'Strategic procurement and end-to-end EPC management that keep your supply chain lean and your project on time.', zh: '战略采购与端到端EPC管理，让您的供应链精简高效、项目按时交付。' }),
-      items: [t({ en: 'Vendor identification & auditing', zh: '供应商识别与审核' }), t({ en: 'EPC coordination & scheduling', zh: 'EPC协调与排期' }), t({ en: 'Supply-chain optimisation', zh: '供应链优化' })] },
+  const facts: [string, L][] = [
+    ['2020', { en: 'Founded', zh: '成立' }], ['6', { en: 'Disciplines', zh: '核心领域' }],
+    ['8', { en: 'Industries', zh: '服务行业' }], ['20+', { en: 'Projects delivered', zh: '交付项目' }],
   ]
-  const body = orbitHero({
-    compact: true,
-    tiles: pageTiles(['automation-lab', 'engineering-design', 'alloy-casting', 'precision-manufacturing', 'industrial-casting']),
-    copy: heroCopy(lang, {
-      crumb: t({ en: 'About', zh: '关于' }), title: t({ en: 'ABOUT', zh: '关于卓嘉' }),
-      sub: t({ en: 'Your *project-driven* engineering partner.', zh: '您的*项目驱动型*工程伙伴。' }),
-      lead: t({ en: 'A hybrid of engineering consultancy, advanced manufacturer and product-development partner — managing projects from validation to prototype to full-scale production.', zh: '集工程咨询、先进制造和产品开发于一体——管理从验证、原型到全面量产的项目。' }),
-    }),
+  const pillars = [
+    { icon: 'compass', title: { en: 'Engineering', zh: '工程' }, text: { en: 'CAD/FEA validation, reverse engineering and custom system design, done in-house.', zh: '自主完成CAD/FEA验证、逆向工程与定制系统设计。' } },
+    { icon: 'factory', title: { en: 'Manufacturing', zh: '制造' }, text: { en: 'Qualified factories, audited by our engineers and held to your specification.', zh: '经我们工程师审核的合格工厂，严格按您的规格生产。' } },
+    { icon: 'package', title: { en: 'Sourcing', zh: '采购' }, text: { en: 'Procurement and logistics that keep cost, quality and delivery dates under control.', zh: '采购与物流，确保成本、质量与交期可控。' } },
+  ]
+  const body = pageHeader({
+    num: '01', label: t({ en: 'About', zh: '关于' }), note: t({ en: 'Since 2020', zh: '始于2020' }),
+    title: t({ en: 'Engineering, manufacturing and sourcing — *under one roof.*', zh: '工程、制造与采购——*一站整合。*' }),
+    lead: t({ en: 'ZHUOJIA is a hybrid of engineering consultancy, advanced manufacturer and product-development partner. We take projects from validation to prototype to full-scale production.', zh: '卓嘉集工程咨询、先进制造与产品开发于一体，带领项目从验证、原型走向全面量产。' }),
+    ctas: contactBtn(lang, { en: 'Work with us', zh: '与我们合作' }) + button(t({ en: 'Our services', zh: '我们的服务' }), href(lang, 'services'), 'line'),
+    visual: `<dl class="facts">${facts.map(([n, l]) => `<div data-reveal><dt class="mono">${esc(t(l))}</dt><dd>${n}</dd></div>`).join('')}</dl>`,
   }) + `
-<section class="section intro" id="story" data-section>
+<section class="section intro" id="story">
   <div class="frame">
-    ${bar('01', t({ en: 'Who we are', zh: '我们是谁' }))}
+    ${bar('02', t({ en: 'Who we are', zh: '我们是谁' }))}
     <p class="statement" data-scrub>${rich(t({ en: 'Clients work with one accountable team — not a chain of subcontractors — so specifications, quality and schedules stay aligned *from the first drawing to the final inspection.*', zh: '客户与一个负责到底的团队合作——而不是一连串分包商——从*第一张图纸到最终检验*，规格、质量与进度始终一致。' }))}</p>
   </div>
 </section>
-<section class="section" id="identity" data-section>
+<section class="section" id="model">
   <div class="frame">
-    ${bar('02', t({ en: 'Core identity', zh: '核心身份' }), t({ en: 'Project-driven · Solution-focused', zh: '项目驱动 · 解决方案导向' }))}
-    <div class="sec-head"><h2 class="h2" data-split-lines>${rich(t({ en: 'How we deliver *excellence.*', zh: '我们如何追求*卓越。*' }))}</h2></div>
+    ${bar('03', t({ en: 'The model', zh: '模式' }), t({ en: 'Three capabilities, one team', zh: '三种能力，一个团队' }))}
     <div class="cells cells-3">${pillars.map((p, i) => `<article class="cell" data-reveal>
-      <p class="mono cell-top"><span class="badge" style="--c:${PALETTE[i]}">0${i + 1}</span></p>
-      <span class="app-icon" style="--c:${PALETTE[i]}">${icon(p.icon)}</span>
-      <h3>${esc(p.title)}</h3><p>${esc(p.text)}</p>${checks(p.items)}</article>`).join('')}</div>
+      <p class="mono cell-top"><span class="badge" style="--c:${color(i)}">0${i + 1}</span></p>
+      <span class="app-icon" style="--c:${color(i)}">${icon(p.icon)}</span><h3>${esc(t(p.title))}</h3><p>${esc(t(p.text))}</p></article>`).join('')}</div>
   </div>
 </section>
-<section class="section" id="journey" data-section>
+<section class="section" id="principles">
   <div class="frame">
-    ${bar('03', t({ en: 'Our journey', zh: '我们的历程' }), '2019 — NOW')}
-    <div class="sec-head"><h2 class="h2" data-split-lines>${rich(t({ en: 'From idea to *industrial impact.*', zh: '从想法到*工业影响力。*' }))}</h2></div>
-    <ol class="timeline" data-timeline>${TIMELINE.map((e) => `<li class="tl" data-reveal>
-      <span class="tl-year">${e.year === 'NOW' ? esc(t({ en: 'NOW', zh: '如今' })) : e.year}</span>
-      <div><p class="mono">${esc(t(e.phase))}</p><h3>${esc(t(e.title))}</h3><p>${esc(t(e.text))}</p></div></li>`).join('')}</ol>
+    ${bar('04', t({ en: 'Principles', zh: '原则' }), t({ en: 'How we work', zh: '我们的工作方式' }))}
+    <div class="sec-head"><h2 class="h2" data-split-lines>${rich(t({ en: 'What you can *hold us to.*', zh: '我们*始终坚守*的承诺。' }))}</h2></div>
+    <ol class="principles">${PRINCIPLES.map((p, i) => `<li data-reveal><span class="pr-n">0${i + 1}</span><h3>${esc(t(p.title))}</h3><p>${esc(t(p.text))}</p></li>`).join('')}</ol>
   </div>
-</section>` + clientsWall(lang, '04') + getStarted(lang, '05')
+</section>` + getStarted(lang, '05', { en: 'Work with us', zh: '与我们合作' })
 
   return page({
     lang, key: 'about', body,
     title: t({ en: 'About — ZHUOJIA 卓嘉', zh: '关于我们 — 卓嘉' }),
     description: t({ en: 'ZHUOJIA 卓嘉 is a project-driven engineering partner bridging design, precision manufacturing and industrial sourcing.', zh: '卓嘉是一家项目驱动的工程合作伙伴，整合设计、精密制造与工业采购。' }),
-    index: [['top', t({ en: 'About', zh: '关于' })], ['story', t({ en: 'Story', zh: '故事' })], ['identity', t({ en: 'Identity', zh: '身份' })], ['journey', t({ en: 'Journey', zh: '历程' })], ['clients', t({ en: 'Clients', zh: '客户' })], ['start', t({ en: 'Get started', zh: '开始' })]],
+    index: [['top', t({ en: 'About', zh: '关于' })], ['story', t({ en: 'Story', zh: '故事' })], ['model', t({ en: 'Model', zh: '模式' })], ['principles', t({ en: 'Principles', zh: '原则' })], ['start', t({ en: 'Get started', zh: '开始' })]],
   })
 }
 
 /* ============================= SERVICES ============================ */
 export function services(lang: Lang) {
   const t = tr(lang)
-  const body = orbitHero({
-    compact: true,
-    tiles: pageTiles(['engineering-design', 'industrial-casting', 'supply-chain', 'industrial-electronics', 'specialised-projects'], ['beam', 'gear', 'pcb']),
-    copy: heroCopy(lang, {
-      crumb: t({ en: 'Services', zh: '服务' }), title: t({ en: 'SERVICES', zh: '服务' }),
-      sub: t({ en: 'End-to-end *engineering.*', zh: '端到端*工程。*' }),
-      lead: t({ en: 'From R&D and precision design to global sourcing and manufacturing support — tailored to your most complex industrial projects.', zh: '从研发与精密设计，到全球采购与制造支持——为您最复杂的工业项目量身定制。' }),
-      ctas: button(t({ en: 'Discuss your idea', zh: '讨论您的想法' }), href(lang, 'contact'), 'solid', 'arrow-right'),
-    }),
+  const body = pageHeader({
+    num: '01', label: t({ en: 'Services', zh: '服务' }), note: t({ en: 'Six disciplines', zh: '六大领域' }),
+    title: t({ en: 'Six disciplines. *One partner.*', zh: '六大领域，*一个伙伴。*' }),
+    lead: t({ en: 'Design, prototyping, manufacturing oversight and sourcing — use one service or the whole chain. Every engagement is led by an engineer who stays with it to delivery.', zh: '设计、原型、制造监督与采购——可选单项服务或全链条。每个项目都由一位工程师全程负责至交付。' }),
+    ctas: contactBtn(lang, { en: 'Discuss your idea', zh: '讨论您的想法' }),
+    meta: STANDARDS.slice(0, 4).join(' · '),
+    visual: iconGrid(SERVICES.map((s) => ({ icon: s.icon, label: t(s.title), url: `#${s.slug}` }))),
   }) + `
-<section class="section" id="list" data-section>
+<section class="section" id="list">
   <div class="frame">
-    ${bar('01', t({ en: 'Our services', zh: '我们的服务' }), t({ en: '6 disciplines', zh: '6 大领域' }))}
+    ${bar('02', t({ en: 'Disciplines', zh: '领域' }), '06')}
     <div class="svc-list">${SERVICES.map((s, i) => `<article class="svc" id="${s.slug}" data-reveal>
       <div class="svc-media"><img src="${img(s.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"><span class="svc-num">0${i + 1}</span></div>
       <div class="svc-body">
@@ -83,13 +76,13 @@ export function services(lang: Lang) {
       </div></article>`).join('')}</div>
   </div>
 </section>
-<section class="section" id="standards" data-section>
+<section class="section" id="standards">
   <div class="frame">
-    ${bar('02', t({ en: 'Compliance', zh: '合规' }))}
+    ${bar('03', t({ en: 'Compliance', zh: '合规' }))}
     <div class="sec-head"><h2 class="h2" data-split-lines>${rich(t({ en: 'Built to *international standards.*', zh: '按*国际标准*打造。' }))}</h2><p class="lead" data-reveal>${esc(t({ en: 'Every deliverable ships with the documentation to prove it: material certificates, NDT reports, dimensional inspection and compliance packs.', zh: '每项交付均附带证明文件：材料证书、NDT报告、尺寸检验和合规文件包。' }))}</p></div>
     <div class="std-grid">${STANDARDS.map((s) => `<span class="std" data-reveal>${s}</span>`).join('')}</div>
   </div>
-</section>` + getStarted(lang, '03')
+</section>` + getStarted(lang, '04', { en: 'Need a capability?', zh: '需要某项能力？' })
 
   return page({
     lang, key: 'services', body,
@@ -102,32 +95,29 @@ export function services(lang: Lang) {
 /* ============================ INDUSTRIES =========================== */
 export function industries(lang: Lang) {
   const t = tr(lang)
-  const body = orbitHero({
-    compact: true,
-    tiles: pageTiles(['refinery-night', 'industrial-casting', 'automation-lab', 'supply-chain', 'alloy-casting'], ['flange', 'stress', 'beam']),
-    copy: heroCopy(lang, {
-      crumb: t({ en: 'Industries', zh: '行业' }), title: t({ en: 'INDUSTRIES', zh: '行业' }),
-      sub: t({ en: 'Engineering *across sectors.*', zh: '*跨行业*工程。' }),
-      lead: t({ en: 'From offshore platforms to cutting-edge automation — tailored engineering, manufacturing and sourcing for the world’s most demanding sectors.', zh: '从海上平台到尖端自动化——为全球最严苛的行业量身定制工程、制造与采购。' }),
-      ctas: button(t({ en: 'Discuss your project', zh: '讨论您的项目' }), href(lang, 'contact'), 'solid', 'arrow-right'),
-    }),
+  const body = pageHeader({
+    num: '01', label: t({ en: 'Industries', zh: '行业' }), note: t({ en: 'Eight sectors', zh: '八大行业' }),
+    title: t({ en: 'Eight sectors. *Zero shortcuts.*', zh: '八大行业，*绝不妥协。*' }),
+    lead: t({ en: 'From offshore platforms to cleanroom electronics, we work where tolerances, certification and uptime are non-negotiable.', zh: '从海上平台到洁净室电子，我们服务于公差、认证与正常运行时间不容妥协的领域。' }),
+    ctas: contactBtn(lang, { en: 'Discuss your project', zh: '讨论您的项目' }),
+    visual: iconGrid(INDUSTRIES.map((d) => ({ icon: d.icon, label: t(d.title), url: `#${d.slug}` }))),
   }) + `
-<section class="section" id="sectors" data-section>
+<section class="section" id="sectors">
   <div class="frame">
-    ${bar('01', t({ en: 'Industries we power', zh: '我们服务的行业' }), '08')}
-    <div class="apps apps-detail">${INDUSTRIES.map((d, i) => `<article class="app" id="${d.slug}" style="--c:${PALETTE[i]}" data-reveal>
+    ${bar('02', t({ en: 'Sectors', zh: '领域' }), '08')}
+    <div class="apps apps-detail">${INDUSTRIES.map((d, i) => `<article class="app" id="${d.slug}" style="--c:${color(i)}" data-reveal>
       <p class="app-top"><span class="badge">0${i + 1}</span><span class="tag mono">${esc(d.tag)}</span></p>
       <div class="app-id"><span class="app-icon">${icon(d.icon)}</span><span><b>${esc(t(d.title))}</b><small>${esc(t(d.short))}</small></span></div>
       <p class="app-text">${esc(t(d.long))}</p>${checks(d.items.map(t))}
     </article>`).join('')}</div>
   </div>
-</section>` + clientsWall(lang, '02') + getStarted(lang, '03')
+</section>` + getStarted(lang, '03', { en: 'Your sector next', zh: '下一个就是您的行业' }, { en: 'Our team adapts quickly to new sectors and niche applications. Tell us about your challenge.', zh: '我们的团队能迅速适应新行业和特定应用。告诉我们您的挑战。' })
 
   return page({
     lang, key: 'industries', body,
     title: t({ en: 'Industries — ZHUOJIA 卓嘉', zh: '行业 — 卓嘉' }),
     description: t({ en: 'Engineering, manufacturing and sourcing for Oil & Gas, Manufacturing, Energy, Automation, R&D, Infrastructure, Marine & Offshore and Electrical sectors.', zh: '为石油天然气、制造、能源、自动化、研发、基础设施、船舶海洋和电气行业提供工程、制造与采购。' }),
-    index: [['top', t({ en: 'Industries', zh: '行业' })], ['sectors', t({ en: 'Sectors', zh: '领域' })], ['clients', t({ en: 'Clients', zh: '客户' })], ['start', t({ en: 'Get started', zh: '开始' })]],
+    index: [['top', t({ en: 'Industries', zh: '行业' })], ['sectors', t({ en: 'Sectors', zh: '领域' })], ['start', t({ en: 'Get started', zh: '开始' })]],
   })
 }
 
@@ -135,31 +125,28 @@ export function industries(lang: Lang) {
 export function projects(lang: Lang) {
   const t = tr(lang)
   const cats: [string, string][] = [['all', t({ en: 'All', zh: '全部' })], ...[...new Set(PROJECTS.map((p) => p.cat))].map((c) => [c, t(PROJECTS.find((p) => p.cat === c)!.catLabel)] as [string, string])]
-  const count = (c: string) => (c === 'all' ? PROJECTS.length : PROJECTS.filter((p) => p.cat === c).length)
-  const body = orbitHero({
-    compact: true,
-    tiles: pageTiles(['refinery-night', 'industrial-electronics', 'alloy-casting', 'automation-lab', 'precision-manufacturing'], ['pcb', 'flange', 'gear']),
-    copy: heroCopy(lang, {
-      crumb: t({ en: 'Projects', zh: '项目' }), title: t({ en: 'PROJECTS', zh: '项目' }),
-      sub: t({ en: 'Delivered *and certified.*', zh: '已交付，*已认证。*' }),
-      lead: t({ en: 'Case studies across oil & gas, industrial electronics, advanced manufacturing and automation — each one a commitment to precision and quality.', zh: '涵盖石油天然气、工业电子、先进制造和自动化的案例——每一个都体现对精度与质量的承诺。' }),
-    }),
+  const count = (c: string) => PROJECTS.filter((p) => c === 'all' || p.cat === c).length
+  const body = pageHeader({
+    num: '01', label: t({ en: 'Projects', zh: '项目' }), note: `${PROJECTS.length} ${t({ en: 'case studies', zh: '个案例' })}`,
+    title: t({ en: 'Delivered, *certified, documented.*', zh: '已交付，*已认证，有据可查。*' }),
+    lead: t({ en: 'Valve bodies in Inconel, offshore castings in duplex steel, IoT control boards and full PLC retrofits — each with the scope, deliverables and results.', zh: 'Inconel阀体、双相钢海上铸件、物联网控制板和完整PLC改造——每个案例都列出范围、交付物与成果。' }),
+    visual: `<div class="thumbs">${PROJECTS.map((p) => `<a href="#project-${p.num}" data-reveal><img src="${img(p.img)}" alt="" width="960" height="640" decoding="async"><span class="mono">${p.num} · ${esc(t(p.catLabel))}</span></a>`).join('')}</div>`,
   }) + `
-<section class="section" id="cases" data-section>
+<section class="section" id="cases">
   <div class="frame">
-    ${bar('01', t({ en: 'Case studies', zh: '案例研究' }), `${PROJECTS.length} ${t({ en: 'projects', zh: '个项目' })}`)}
+    ${bar('02', t({ en: 'Case studies', zh: '案例研究' }))}
     <div class="filters mono" role="group" aria-label="${esc(t({ en: 'Filter projects', zh: '筛选项目' }))}">${cats.map(([c, l]) => `<button type="button" data-filter="${c}" aria-pressed="${c === 'all'}">${esc(l)}<span>${count(c)}</span></button>`).join('')}</div>
     <div class="cases">${PROJECTS.map((p) => `<article class="case" id="project-${p.num}" data-category="${p.cat}">
-      <div class="case-media"><img src="${img(p.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"><p class="mono case-badge"><span>${esc(t({ en: 'Project', zh: '项目' }))} #${p.num}</span><span>${esc(t(p.kicker))}</span></p></div>
+      <div class="case-media"><img src="${img(p.img)}" alt="" width="960" height="640" loading="lazy" decoding="async"><p class="mono case-badge"><span>#${p.num}</span><span>${esc(t(p.kicker))}</span></p></div>
       <div class="case-body">
         <p class="mono feat-label"><span>${esc(t(p.catLabel))}</span><span>${p.num}</span></p>
         <h2 class="h3">${esc(t(p.title))}</h2><p>${esc(t(p.desc))}</p>
-        <dl class="meta">${[[t({ en: 'Client', zh: '客户' }), p.client], [t({ en: 'Completed', zh: '完成' }), t(p.date)], [t({ en: 'Location', zh: '地点' }), t(p.location)], [t({ en: 'Duration', zh: '工期' }), t(p.duration)]].map(([a, b]) => `<div><dt class="mono">${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join('')}</dl>
+        <dl class="meta">${([[{ en: 'Client', zh: '客户' }, p.client], [{ en: 'Completed', zh: '完成' }, t(p.date)], [{ en: 'Location', zh: '地点' }, t(p.location)], [{ en: 'Duration', zh: '工期' }, t(p.duration)]] as [L, string][]).map(([a, b]) => `<div><dt class="mono">${esc(t(a))}</dt><dd>${esc(b)}</dd></div>`).join('')}</dl>
         <div class="case-cols"><div><h3 class="mono">${esc(t({ en: 'Scope of work', zh: '工作范围' }))}</h3>${checks(p.scope.map(t))}</div><div><h3 class="mono">${esc(t({ en: 'Key deliverables', zh: '主要交付物' }))}</h3>${checks(p.deliverables.map(t))}</div></div>
         <p class="techs">${p.tech.map((x) => `<span class="tag mono">${esc(x)}</span>`).join('')}</p>
       </div></article>`).join('')}</div>
   </div>
-</section>` + getStarted(lang, '02')
+</section>` + getStarted(lang, '03', { en: 'Your project next', zh: '下一个就是您的项目' })
 
   return page({
     lang, key: 'projects', body,
@@ -173,44 +160,33 @@ export function projects(lang: Lang) {
 export function contact(lang: Lang) {
   const t = tr(lang)
   const opts = [['Engineering Design', '工程设计'], ['Manufacturing', '制造'], ['Industrial Sourcing', '工业采购'], ['Procurement', '采购'], ['Project Management', '项目管理'], ['Quality Inspection', '质量检验'], ['Technical Consulting', '技术咨询'], ['Other', '其他']]
-  const field = (id: string, label: string, type = 'text', req = false, ph = '', auto = '') => `<div class="field">
-      <label for="${id}" class="mono">${esc(label)}${req ? ' <i>*</i>' : ''}</label>
-      <input id="${id}" name="${id}" type="${type}"${auto ? ` autocomplete="${auto}"` : ''}${ph ? ` placeholder="${esc(ph)}"` : ''}${req ? ' required' : ''}>
-    </div>`
-  const body = orbitHero({
-    compact: true,
-    tiles: pageTiles(['supply-chain', 'engineering-design', 'refinery-night', 'industrial-electronics', 'alloy-casting'], ['gear', 'flange', 'stress']),
-    copy: heroCopy(lang, {
-      crumb: t({ en: 'Contact', zh: '联系' }), title: t({ en: 'CONTACT', zh: '联系我们' }),
-      sub: t({ en: 'Let’s build *something.*', zh: '让我们*携手共建。*' }),
-      lead: t({ en: 'Project enquiries, RFQs or technical consultations — our engineers reply within one business day.', zh: '项目咨询、询价或技术咨询——我们的工程师将在一个工作日内回复。' }),
-    }),
+  const field = (id: string, label: L, type = 'text', req = false, auto = '') => `<div class="field"><label for="${id}" class="mono">${esc(t(label))}${req ? ' <i>*</i>' : ''}</label><input id="${id}" name="${id}" type="${type}"${auto ? ` autocomplete="${auto}"` : ''}${req ? ' required' : ''}></div>`
+  const next: [L, L][] = [
+    [{ en: 'We review', zh: '审阅' }, { en: 'An engineer reads your enquiry and drawings within one business day.', zh: '工程师在一个工作日内审阅您的咨询与图纸。' }],
+    [{ en: 'We clarify', zh: '确认' }, { en: 'A short call or email to confirm specifications, standards and quantities.', zh: '通过简短电话或邮件确认规格、标准与数量。' }],
+    [{ en: 'You get a plan', zh: '获取方案' }, { en: 'A written proposal with scope, timeline and price — no obligation.', zh: '书面方案，包含范围、时间表与报价——无任何义务。' }],
+  ]
+  const body = pageHeader({
+    num: '01', label: t({ en: 'Contact', zh: '联系' }), note: t({ en: 'Reply within 1 business day', zh: '1个工作日内回复' }),
+    title: t({ en: 'Tell us what you *need built.*', zh: '告诉我们您*需要打造什么。*' }),
+    lead: t({ en: 'Project enquiries, RFQs or technical questions. Email the right desk directly or use the form below.', zh: '项目咨询、询价或技术问题。可直接发邮件给相应部门，或使用下方表格。' }),
+    visual: `<ul class="mails">${SITE.emails.map((e) => `<li data-reveal><a href="mailto:${e.address}"><span class="mono">${esc(t(e.label))}</span><b>${e.address}</b>${icon('arrow-up-right')}</a></li>`).join('')}
+      <li data-reveal class="hours"><span class="mono">${esc(t({ en: 'Hours', zh: '营业时间' }))}</span><b>${esc(t({ en: 'Mon–Fri 09:00–17:00 · Sat by appointment', zh: '周一至周五 09:00–17:00 · 周六预约' }))}</b></li></ul>`,
   }) + `
-<section class="section" id="enquiry" data-section>
+<section class="section" id="enquiry">
   <div class="frame">
-    ${bar('01', t({ en: 'Enquiry', zh: '咨询' }), t({ en: 'Response within 1 business day', zh: '1个工作日内回复' }))}
+    ${bar('02', t({ en: 'Enquiry', zh: '咨询' }), 'RFQ')}
     <div class="contact">
-      <div class="contact-side">
-        <div class="cell" data-reveal>
-          <p class="mono cell-top">${esc(t({ en: 'Engineering contacts', zh: '工程联系方式' }))}</p>
-          <ul class="mails">${SITE.emails.map((e) => `<li><a href="mailto:${e.address}"><span class="mono">${esc(t(e.label))}</span><b>${e.address}</b>${icon('arrow-up-right')}</a></li>`).join('')}</ul>
-        </div>
-        <div class="cell" data-reveal>
-          <p class="mono cell-top">${esc(t({ en: 'Business hours', zh: '营业时间' }))}</p>
-          <dl class="hours"><div><dt>${esc(t({ en: 'Monday – Friday', zh: '周一至周五' }))}</dt><dd>09:00 – 17:00</dd></div><div><dt>${esc(t({ en: 'Saturday', zh: '周六' }))}</dt><dd>${esc(t({ en: 'By appointment', zh: '预约' }))}</dd></div><div><dt>${esc(t({ en: 'Sunday', zh: '周日' }))}</dt><dd>${esc(t({ en: 'Closed', zh: '休息' }))}</dd></div></dl>
-          <p class="note">${esc(t({ en: 'Urgent RFQ? Email rfq@zhuojia.com any time.', zh: '紧急询价？请随时发送邮件至 rfq@zhuojia.com。' }))}</p>
-        </div>
-      </div>
+      <ol class="next">${next.map(([a, b], i) => `<li data-reveal><span class="pr-n">0${i + 1}</span><h3>${esc(t(a))}</h3><p>${esc(t(b))}</p></li>`).join('')}</ol>
       <form class="form" data-enquiry data-mailto="rfq@zhuojia.com" novalidate data-reveal>
-        <h2 class="h3">${esc(t({ en: 'Submit an enquiry', zh: '提交咨询' }))}</h2>
         <div class="form-grid">
-          ${field('name', t({ en: 'Full name', zh: '姓名' }), 'text', true, '', 'name')}
-          ${field('email', t({ en: 'Business email', zh: '商务邮箱' }), 'email', true, '', 'email')}
-          ${field('company', t({ en: 'Company', zh: '公司' }), 'text', false, '', 'organization')}
-          ${field('phone', t({ en: 'Phone / WhatsApp', zh: '电话 / WhatsApp' }), 'tel', false, '', 'tel')}
+          ${field('name', { en: 'Full name', zh: '姓名' }, 'text', true, 'name')}
+          ${field('email', { en: 'Business email', zh: '商务邮箱' }, 'email', true, 'email')}
+          ${field('company', { en: 'Company', zh: '公司' }, 'text', false, 'organization')}
+          ${field('phone', { en: 'Phone / WhatsApp', zh: '电话 / WhatsApp' }, 'tel', false, 'tel')}
           <div class="field"><label for="service" class="mono">${esc(t({ en: 'Service required', zh: '所需服务' }))} <i>*</i></label>
             <select id="service" name="service" required><option value="" selected disabled>${esc(t({ en: 'Select a service', zh: '请选择服务' }))}</option>${opts.map(([en, zh]) => `<option value="${en}">${esc(lang === 'zh' ? zh : en)}</option>`).join('')}</select></div>
-          ${field('country', t({ en: 'Country', zh: '国家/地区' }), 'text', false, '', 'country-name')}
+          ${field('country', { en: 'Country', zh: '国家/地区' }, 'text', false, 'country-name')}
           <div class="field full"><label for="details" class="mono">${esc(t({ en: 'Project details', zh: '项目详情' }))} <i>*</i></label>
             <textarea id="details" name="details" rows="6" required placeholder="${esc(t({ en: 'Requirements, specifications, quantities, standards (API, ASME, ISO…) and timelines.', zh: '需求、规格、数量、标准（API、ASME、ISO…）及时间要求。' }))}"></textarea></div>
           <p class="attach full">${icon('paperclip')}<span>${esc(t({ en: 'Drawings or BOMs? Submitting opens a pre-filled email — attach your files there.', zh: '有图纸或物料清单？提交后会打开预填好的邮件——请在邮件中添加附件。' }))}</span></p>
@@ -239,14 +215,12 @@ export function notFound(lang: Lang) {
     lang, key: '404', index: [],
     title: t({ en: 'Page not found — ZHUOJIA 卓嘉', zh: '页面未找到 — 卓嘉' }),
     description: t({ en: 'This page could not be found.', zh: '找不到该页面。' }),
-    body: orbitHero({
-      compact: true,
-      tiles: pageTiles(['specialised-projects', 'engineering-design', 'precision-manufacturing']),
-      copy: heroCopy(lang, {
-        title: '404', sub: t({ en: 'Off the *blueprint.*', zh: '超出了*蓝图。*' }),
-        lead: t({ en: 'The page you’re looking for has moved or never existed.', zh: '您要找的页面已移动或不存在。' }),
-        ctas: button(t({ en: 'Back to home', zh: '返回首页' }), href(lang, 'home'), 'solid', 'arrow-right') + button(t({ en: 'Contact us', zh: '联系我们' }), href(lang, 'contact'), 'line'),
-      }),
+    body: pageHeader({
+      num: '404', label: t({ en: 'Not found', zh: '未找到' }),
+      title: t({ en: 'Off the *blueprint.*', zh: '超出了*蓝图。*' }),
+      lead: t({ en: 'The page you’re looking for has moved or never existed.', zh: '您要找的页面已移动或不存在。' }),
+      ctas: button(t({ en: 'Back to home', zh: '返回首页' }), href(lang, 'home'), 'solid', 'arrow-right'),
+      visual: iconGrid(SERVICES.slice(0, 3).map((s) => ({ icon: s.icon, label: t(s.title), url: href(lang, 'services', s.slug) }))),
     }),
   })
 }

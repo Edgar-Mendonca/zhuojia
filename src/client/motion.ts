@@ -14,14 +14,12 @@ export function initMotion(reduce: boolean) {
     document.querySelectorAll('[data-process]').forEach((el) => el.classList.add('no-scrub'))
     document.querySelector('.hero')?.classList.add('is-ready')
   } else {
-    // Pinned sections first, so later triggers measure the added scroll distance.
-    gallery()
+    // Pinned/scrubbed sections first, so later triggers measure the final layout.
     process()
     heroIntro()
     headings()
     statements()
     footerWord()
-    timeline()
   }
   counters(reduce)
   rail(lenis)
@@ -146,31 +144,10 @@ function process() {
   }
 }
 
-/** Projects slide sideways while the section is pinned (desktop). */
-function gallery() {
-  const el = document.querySelector<HTMLElement>('[data-gallery]')
-  if (!el) return
-  const track = el.querySelector<HTMLElement>('.gallery-track')!
-  gsap.matchMedia().add('(min-width: 901px)', () => {
-    el.style.overflow = 'hidden'
-    const distance = () => Math.max(0, track.scrollWidth - window.innerWidth + 64)
-    const tween = gsap.to(track, {
-      x: () => -distance(), ease: 'none',
-      scrollTrigger: { trigger: el, start: 'center 55%', end: () => `+=${distance()}`, pin: true, scrub: 0.8, invalidateOnRefresh: true, anticipatePin: 1 },
-    })
-    return () => { tween.scrollTrigger?.kill(); tween.kill(); el.style.overflow = '' }
-  })
-}
-
 function footerWord() {
   const letters = document.querySelectorAll('.foot-word span')
   if (!letters.length) return
   gsap.from(letters, { yPercent: 100, duration: 1.2, ease: 'expo.out', stagger: 0.05, scrollTrigger: { trigger: '.foot-word', start: 'top 95%', once: true } })
-}
-
-function timeline() {
-  document.querySelectorAll('.tl').forEach((tl) =>
-    ScrollTrigger.create({ trigger: tl, start: 'top 70%', onEnter: () => tl.classList.add('is-in') }))
 }
 
 /** Right-hand section index and scroll ruler. */

@@ -291,7 +291,7 @@ export interface Client { name: string; full: L; sector: L; logo?: string; url?:
 
 export const CLIENTS: Client[] = [
   { name: 'ADNOC', full: { en: 'Abu Dhabi National Oil Company', zh: '阿布扎比国家石油公司' }, sector: { en: 'Energy', zh: '能源' }, logo: 'adnoc', url: 'https://www.adnoc.ae/' },
-  { name: 'ABS Engineering FZE', full: { en: 'ABS Engineering FZE', zh: 'ABS Engineering FZE' }, sector: { en: 'Engineering', zh: '工程' }, mark: ['ABS', 'ENGINEERING FZE'] },
+  { name: 'ABS Engineering FZE', full: { en: 'ABS Engineering FZE', zh: 'ABS Engineering FZE' }, sector: { en: 'Engineering', zh: '工程' }, logo: 'abs' },
   { name: 'Rayforce Shanxi', full: { en: 'Rayforce Shanxi', zh: '山西 Rayforce' }, sector: { en: 'Industrial', zh: '工业' }, mark: ['RAYFORCE', 'SHANXI'], url: 'http://www.rayforce.ltd/' },
   { name: 'IISc Bangalore', full: { en: 'Indian Institute of Science, Bangalore', zh: '印度科学理工学院（班加罗尔）' }, sector: { en: 'Research', zh: '科研' }, logo: 'iisc' },
   { name: 'Titania Aero', full: { en: 'Titania Aero, Spain', zh: 'Titania Aero（西班牙）' }, sector: { en: 'Aerospace', zh: '航空航天' }, logo: 'titania', url: 'https://titania.aero/en' },
@@ -320,29 +320,9 @@ export const STANDARDS = ['API 6A', 'ASME', 'ISO 9001', 'DNV', 'CE', 'FCC', 'NDT
 
 export const CAPABILITIES = ['CNC machining', 'Exotic alloys', 'Investment casting', 'FEA validation', 'PCB design', 'SMT assembly', 'PLC / SCADA', 'NDT testing', 'Reverse engineering', 'Rapid prototyping', 'Factory audits', 'Global sourcing']
 
-export const TIMELINE: { year: string; phase: L; title: L; text: L }[] = [
-  {
-    year: '2019', phase: { en: 'The beginning', zh: '起步' }, title: { en: 'The spark of an idea', zh: '想法的萌芽' },
-    text: { en: 'A small team of engineers saw that clients needed one partner to bridge engineering design, manufacturing and sourcing — under one roof.', zh: '一支小型工程师团队发现，客户需要一个能够在同一屋檐下整合工程设计、制造和采购的合作伙伴。' },
-  },
-  {
-    year: '2020', phase: { en: 'Foundation', zh: '成立' }, title: { en: 'ZHUOJIA is founded', zh: '卓嘉正式成立' },
-    text: { en: 'Established as a project-driven engineering consultancy, delivering our first industrial projects in mechanical design and precision manufacturing.', zh: '作为项目驱动的工程咨询公司成立，在机械设计与精密制造领域交付首批工业项目。' },
-  },
-  {
-    year: '2021', phase: { en: 'Expansion', zh: '扩展' }, title: { en: 'Scaling capabilities', zh: '能力扩展' },
-    text: { en: 'Expanded into industrial electronics, automation and R&D prototyping, and built a network of qualified manufacturing partners.', zh: '业务拓展至工业电子、自动化和研发原型，并建立了合格制造合作伙伴网络。' },
-  },
-  {
-    year: '2023', phase: { en: 'New sectors', zh: '新领域' }, title: { en: 'Serving demanding sectors', zh: '服务严苛行业' },
-    text: { en: 'Extended delivery across Oil & Gas, Marine, Energy, Aerospace and research institutions — with the same standards on every project.', zh: '业务延伸至石油天然气、船舶、能源、航空航天和科研机构——每个项目坚持同一标准。' },
-  },
-  {
-    year: '2024', phase: { en: 'Milestone', zh: '里程碑' }, title: { en: '20+ industrial projects delivered', zh: '交付20+工业项目' },
-    text: { en: 'Over 20 complex projects across 8 industries, from API compressor systems to offshore components and industrial IoT.', zh: '在8个行业交付20多个复杂项目，涵盖API压缩机系统、海洋部件和工业物联网。' },
-  },
-  {
-    year: 'NOW', phase: { en: 'Today', zh: '今天' }, title: { en: 'Engineering the future', zh: '工程未来' },
-    text: { en: 'A trusted multidisciplinary partner — six core disciplines and a relentless focus on precision, innovation and execution.', zh: '值得信赖的多学科合作伙伴——六大核心领域，对精密、创新和执行的不懈追求。' },
-  },
+export const PRINCIPLES: { title: L; text: L }[] = [
+  { title: { en: 'One accountable team', zh: '一个团队，全程负责' }, text: { en: 'The engineers who validate your design are the ones who audit the factory and sign off the inspection report.', zh: '验证设计的工程师，也是审核工厂并签发检验报告的人。' } },
+  { title: { en: 'Standards first', zh: '标准先行' }, text: { en: 'API, ASME, ISO and DNV requirements shape the drawing from day one — not as an afterthought at inspection.', zh: 'API、ASME、ISO与DNV的要求从第一天起就塑造图纸，而不是在检验时才补救。' } },
+  { title: { en: 'Evidence over promises', zh: '以证据说话' }, text: { en: 'Every part ships with traceable certificates, NDT reports and dimensional data you can hand to your auditor.', zh: '每个零件都附带可追溯证书、NDT报告和尺寸数据，可直接交给您的审核方。' } },
+  { title: { en: 'Built for the hard jobs', zh: '专攻难题' }, text: { en: 'Legacy parts with no drawings, exotic alloys, tight tolerances and short deadlines are where we do our best work.', zh: '无图纸的旧零件、特种合金、严苛公差和紧迫工期，正是我们最擅长的领域。' } },
 ]

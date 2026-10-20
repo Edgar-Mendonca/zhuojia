@@ -16,9 +16,9 @@ npm run preview   # serve the production build
 ## Where things live
 
 ```
-src/site/content.ts     ALL text: services, industries, projects, clients, timeline (EN + 中文)
+src/site/content.ts     ALL text: services, industries, projects, clients, principles (EN + 中文)
 src/site/pages/         page templates (home.ts, sub.ts)
-src/site/components.ts  orbit hero, client wall, call-to-action, project gallery
+src/site/components.ts  orbit hero (home), page headers, client wall, call-to-action, cards
 src/site/layout.ts      <head>, navigation, section index/ruler, footer
 src/styles/main.css     design system: colours, type, layout, components, dark mode
 src/client/             browser code: orbit hero, smooth scroll + scroll animations, forms
