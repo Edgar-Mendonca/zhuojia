@@ -3,12 +3,12 @@
  * tilted in 3D so the field reads like the inside of a bowl.
  * Tiles are links; hovering one eases the orbit to a stop.
  */
-const RINGS = [96, 150, 205, 268, 340, 420, 500]
-const PERIOD = [0, 140, -200, 240, -300, 360, 420] // seconds per revolution, sign = direction
-const WIDTH = [0, 92, 132, 160, 190, 218, 240]
-const DEPTH = [0, -220, -120, -40, 20, 70, 100]
+// Tiles sit on drawn rings: radius = 64 × ring (see components.ts).
+const RING_UNIT = 64
+const PERIOD = 320 // seconds per revolution — the field turns as one, so tiles never collide
+const WIDTH: Record<number, number> = { 2: 100, 4: 175, 6: 215 }
 
-interface TileState { el: HTMLElement; ring: number; a0: number; delay: number; w: number }
+interface TileState { el: HTMLElement; ring: number; a0: number; delay: number; w: number; h: number; over: boolean }
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 4)
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v))
@@ -22,6 +22,8 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
     a0: (Number(el.dataset.angle) * Math.PI) / 180,
     delay: 0.25 + i * 0.045,
     w: 0,
+    h: 0,
+    over: false,
   }))
 
   let unit = 2
@@ -54,10 +56,13 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
 
   // Hovering a tile eases the orbit to a stop so it can be clicked.
   let speed = 1, target = 1
-  hero.querySelectorAll('.tile').forEach((el) => {
-    el.addEventListener('pointerenter', () => (target = 0))
-    el.addEventListener('pointerleave', () => (target = 1))
-  })
+  for (const t of tiles) {
+    const on = (v: boolean) => () => { t.over = v; target = v ? 0 : 1; t.el.classList.toggle('is-open', v) }
+    t.el.addEventListener('pointerenter', on(true))
+    t.el.addEventListener('pointerleave', on(false))
+    t.el.addEventListener('focus', on(true))
+    t.el.addEventListener('blur', on(false))
+  }
 
   const half = () => size / 2
   let last = performance.now()
@@ -79,16 +84,18 @@ export function initOrbit(hero: HTMLElement, reduce: boolean) {
 
     for (const t of tiles) {
       const enter = reduce ? 1 : easeOut(clamp((time - t.delay) / 1.5))
-      const period = PERIOD[t.ring]
-      const a = t.a0 + (spin / period) * Math.PI * 2
-      const r = RINGS[t.ring] * unit * (0.35 + 0.65 * enter) * spread
-      const x = Math.cos(a) * r + mx * t.ring * 14
-      const y = Math.sin(a) * r + my * t.ring * 10
-      const ry = (-x / half()) * 40
-      const rx = (y / half()) * 32
-      const s = 0.7 + 0.3 * enter
-      t.el.style.transform = `translate3d(${(x - t.w / 2).toFixed(1)}px, ${(y - t.w / 3).toFixed(1)}px, ${DEPTH[t.ring]}px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) scale(${s.toFixed(3)})`
-      t.el.style.opacity = (enter * (1 - p * 1.1)).toFixed(3)
+      const a = t.a0 + (spin / PERIOD) * Math.PI * 2
+      const r = RING_UNIT * t.ring * unit * (0.35 + 0.65 * enter) * spread
+      const x = Math.cos(a) * r + mx * t.ring * 9
+      const y = Math.sin(a) * r + my * t.ring * 6
+      // Hovered tiles straighten up, lift towards the viewer and expand.
+      t.h += ((t.over ? 1 : 0) - t.h) * 0.14
+      const flat = 1 - t.h
+      const ry = (-x / half()) * 46 * flat
+      const rx = (y / half()) * 34 * flat
+      const s = (0.7 + 0.3 * enter) * (1 + 0.75 * t.h)
+      t.el.style.transform = `translate3d(${(x - t.w / 2).toFixed(1)}px, ${(y - t.w / 3).toFixed(1)}px, ${(t.h * 160).toFixed(1)}px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) scale(${s.toFixed(3)})`
+      t.el.style.opacity = (Math.max(enter * (1 - p * 1.1), t.h)).toFixed(3)
     }
     if (copy) {
       copy.style.transform = `translate3d(0, ${(p * 90).toFixed(1)}px, 0)`

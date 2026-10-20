@@ -1,4 +1,4 @@
-import { CLIENTS, PROJECTS, type L, type Lang, type PageKey } from './content'
+import { CLIENTS, INDUSTRIES, PROJECTS, SERVICES, type L, type Lang, type PageKey } from './content'
 import { BASE, bar, button, esc, href, icon, img, rich, tr } from './ui'
 
 /* ------------------------------------------------------------------ */
@@ -40,10 +40,11 @@ const blueprint = (name: string) =>
 /* ------------------------------------------------------------------ */
 
 type Link = [PageKey, string?]
-export type Tile = { ring: number; angle: number; to: Link; blur?: boolean } & ({ img: string; pos?: string } | { bp: string } | { spec: [string, string] })
+type TileBody = { to: Link; blur?: boolean } & ({ img: string; pos?: string } | { bp: string } | { spec: [string, string] })
+export type Tile = { ring: number; angle: number } & TileBody
 
-/** Ring radii in viewBox units (box is -500…500). */
-const RINGS = [96, 150, 205, 268, 340, 420, 500]
+/** Evenly spaced rings (viewBox units, box is -500…500); tiles ride on rings 2–7 (see orbit.ts). */
+const RINGS = [64, 128, 192, 256, 320, 384, 448, 512]
 
 const PAGE_LABEL: Record<PageKey, L> = {
   home: { en: 'Home', zh: '首页' }, about: { en: 'About', zh: '关于' }, services: { en: 'Services', zh: '服务' },
@@ -52,7 +53,16 @@ const PAGE_LABEL: Record<PageKey, L> = {
 
 function rings() {
   return `<svg class="rings" viewBox="-500 -500 1000 1000" aria-hidden="true">${RINGS.map((r, i) => `<g class="ring r${i}"><circle r="${r}" pathLength="1000"/>${
-    i === 1 || i === 4 ? `<circle class="ticks" r="${r}"/>` : ''}${i === 2 || i === 4 ? `<circle class="arc" r="${r}" pathLength="1000"/>` : ''}</g>`).join('')}</svg>`
+    i === 2 || i === 6 ? `<circle class="ticks" r="${r}"/>` : ''}${i === 3 || i === 5 ? `<circle class="arc" r="${r}" pathLength="1000"/>` : ''}</g>`).join('')}</svg>`
+}
+
+/** Destination name for a tile's caption. */
+function linkTitle([page, hash]: Link): L {
+  const slug = hash ?? ''
+  if (page === 'services') return SERVICES.find((x) => x.slug === slug)?.title ?? PAGE_LABEL.services
+  if (page === 'industries') return INDUSTRIES.find((x) => x.slug === slug)?.title ?? PAGE_LABEL.industries
+  if (page === 'projects') return PROJECTS.find((x) => 'project-' + x.num === slug)?.title ?? { en: 'All case studies', zh: '全部案例' }
+  return { en: 'Quality & principles', zh: '质量与原则' }
 }
 
 function tile(lang: Lang, t: Tile, i: number) {
@@ -60,8 +70,12 @@ function tile(lang: Lang, t: Tile, i: number) {
     ? `<img src="${img(t.img)}" alt="" width="480" height="320" decoding="async"${t.pos ? ` style="object-position:${t.pos}"` : ''}>`
     : 'bp' in t ? blueprint(t.bp) : `<span>${esc(t.spec[0])}</span><b>${esc(t.spec[1])}</b>`
   const kind = 'bp' in t ? ' tile-bp' : 'spec' in t ? ' tile-spec' : ''
-  const label = tr(lang)(PAGE_LABEL[t.to[0]])
-  return `<a class="tile${t.blur ? ' is-far' : ''}" href="${href(lang, t.to[0], t.to[1])}" data-ring="${t.ring}" data-angle="${t.angle}" style="--i:${i}" tabindex="-1" aria-label="${esc(label)}"><span class="tile-in${kind}">${inner}</span><span class="tile-tag mono">${esc(label)} ↗</span></a>`
+  const t_ = tr(lang)
+  const label = t_(PAGE_LABEL[t.to[0]])
+  const title = t_(linkTitle(t.to))
+  return `<a class="tile${t.blur ? ' is-far' : ''}" href="${href(lang, t.to[0], t.to[1])}" data-ring="${t.ring}" data-angle="${t.angle}" style="--i:${i}" tabindex="-1" aria-label="${esc(label)}: ${esc(title)}">`
+    + `<span class="tile-in${kind}">${inner}<span class="tile-cap"><span class="mono">${esc(label)}</span><b>${esc(title)}</b></span></span>`
+    + `<span class="tile-frame" aria-hidden="true"></span><span class="tile-dim mono" aria-hidden="true">${esc(t_({ en: 'Open', zh: '查看' }))} ↗</span></a>`
 }
 
 export function orbitHero(lang: Lang, tiles: Tile[], copy: string) {
@@ -72,34 +86,37 @@ export function orbitHero(lang: Lang, tiles: Tile[], copy: string) {
 }
 
 const S = 'services', I = 'industries', P = 'projects'
-export const HOME_TILES: Tile[] = [
-  { ring: 1, angle: 200, img: 'precision-manufacturing', blur: true, to: [I, 'manufacturing'] },
-  { ring: 1, angle: 335, bp: 'gear', blur: true, to: [S, 'engineering-design'] },
-  { ring: 1, angle: 95, spec: ['TOL', '±0.02'], blur: true, to: [S, 'engineering-design'] },
-  { ring: 2, angle: 240, img: 'industrial-casting', to: [S, 'manufacturing-support'] },
-  { ring: 2, angle: 300, img: 'refinery-night', pos: '50% 80%', to: [P, 'project-01'] },
-  { ring: 2, angle: 30, bp: 'flange', to: [I, 'oil-gas'] },
-  { ring: 2, angle: 145, img: 'alloy-casting', to: [P, 'project-03'] },
-  { ring: 3, angle: 180, img: 'automation-lab', to: [P, 'project-04'] },
-  { ring: 3, angle: 268, spec: ['STD', 'API 6A'], to: [S, 'standards'] },
-  { ring: 3, angle: 345, img: 'industrial-electronics', to: [P, 'project-02'] },
-  { ring: 3, angle: 60, img: 'supply-chain', to: [S, 'supply-sourcing'] },
-  { ring: 3, angle: 115, bp: 'stress', to: [S, 'rd-prototyping'] },
-  { ring: 4, angle: 215, bp: 'pcb', to: [I, 'automation'] },
-  { ring: 4, angle: 250, img: 'engineering-design', to: [S, 'engineering-design'] },
-  { ring: 4, angle: 318, img: 'specialised-projects', to: [S, 'specialised-projects'] },
-  { ring: 4, angle: 20, img: 'refinery-night', pos: '30% 40%', to: [I, 'energy'] },
-  { ring: 4, angle: 88, img: 'precision-manufacturing', pos: '80% 50%', to: [S, 'manufacturing-support'] },
-  { ring: 4, angle: 150, bp: 'beam', to: [I, 'infrastructure'] },
-  { ring: 5, angle: 198, img: 'supply-chain', pos: '20% 60%', to: [S, 'supply-sourcing'] },
-  { ring: 5, angle: 232, spec: ['QC', 'PASSED'], to: ['about'] },
-  { ring: 5, angle: 290, img: 'industrial-casting', pos: '70% 30%', to: [I, 'marine'] },
-  { ring: 5, angle: 335, bp: 'flange', to: [I, 'oil-gas'] },
-  { ring: 5, angle: 10, img: 'automation-lab', pos: '70% 50%', to: [I, 'automation'] },
-  { ring: 5, angle: 48, spec: ['DNV', 'CERT'], to: [I, 'marine'] },
-  { ring: 5, angle: 128, img: 'engineering-design', pos: '20% 50%', to: ['about'] },
-  { ring: 5, angle: 160, img: 'alloy-casting', pos: '30% 70%', to: [P] },
+/** Slots on drawn rings 2, 4 and 6 (radius = 64 × ring), leaving a clear ring between layers. */
+const SLOTS: [number, number][] = [
+  ...[150, 210, 330].map((a) => [2, a] as [number, number]),                                        // inner, blurred
+  ...[22, 67, 112, 157, 202, 247, 292, 337].map((a) => [4, a] as [number, number]),                 // middle
+  ...[0, 36, 72, 108, 144, 180, 216, 252, 288, 324].map((a) => [6, a] as [number, number]),         // outer
 ]
+const BODIES: TileBody[] = [ // one per slot, in order
+  { img: 'precision-manufacturing', blur: true, to: [I, 'manufacturing'] },
+  { spec: ['TOL', '±0.02'], blur: true, to: [S, 'engineering-design'] },
+  { bp: 'gear', blur: true, to: [S, 'engineering-design'] },
+  { img: 'alloy-casting', to: [P, 'project-03'] },
+  { img: 'industrial-casting', to: [S, 'manufacturing-support'] },
+  { bp: 'flange', to: [I, 'oil-gas'] },
+  { spec: ['STD', 'API 6A'], to: [S, 'standards'] },
+  { img: 'refinery-night', pos: '50% 80%', to: [P, 'project-01'] },
+  { bp: 'stress', to: [S, 'rd-prototyping'] },
+  { img: 'automation-lab', to: [P, 'project-04'] },
+  { img: 'industrial-electronics', to: [P, 'project-02'] },
+  { img: 'engineering-design', to: [S, 'engineering-design'] },
+  { bp: 'pcb', to: [I, 'automation'] },
+  { img: 'supply-chain', to: [S, 'supply-sourcing'] },
+  { spec: ['QC', 'PASSED'], to: ['about'] },
+  { img: 'specialised-projects', to: [S, 'specialised-projects'] },
+  { bp: 'beam', to: [I, 'infrastructure'] },
+  { img: 'refinery-night', pos: '30% 40%', to: [I, 'energy'] },
+  { img: 'precision-manufacturing', pos: '80% 50%', to: [S, 'manufacturing-support'] },
+  { spec: ['DNV', 'CERT'], to: [I, 'marine'] },
+  { img: 'automation-lab', pos: '70% 50%', to: [I, 'automation'] },
+  { img: 'alloy-casting', pos: '30% 70%', to: [P] },
+]
+export const HOME_TILES: Tile[] = SLOTS.map(([ring, angle], i) => ({ ring, angle, ...BODIES[i] }))
 
 /* ------------------------------------------------------------------ */
 /* Sub-page header (Artcraft "Crafting apps" style)                     */
