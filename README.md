@@ -1,55 +1,41 @@
 # ZHUOJIA 卓嘉 — Engineering & Consultants
 
-Company website, served by GitHub Pages at https://edgar-mendonca.github.io/zhuojia/
+Company website, live at https://edgar-mendonca.github.io/zhuojia/ (English) and https://edgar-mendonca.github.io/zhuojia/zh/ (中文).
 
-Plain static HTML, CSS and JavaScript. There is no build step and nothing to install: edit a file, commit, and GitHub Pages publishes it.
+Built with **Vite + TypeScript**. Pages are rendered to static HTML at build time in both languages, so there is no text flashing and search engines see real content. Every push to `main` is built and deployed by GitHub Actions (`.github/workflows/deploy.yml`).
 
-## Structure
+## Run locally
 
-```
-index.html, about.html, services.html,
-industries.html, projects.html, contact.html   pages
-404.html                                        "page not found" page
-assets/css/site.css                             design system: colours, type, components, dark mode
-assets/js/site.js                               language switch, theme, menu, animations, project filter, form
-assets/img/                                     optimised images (WebP), logo, favicons, social preview
-sitemap.xml, robots.txt, site.webmanifest       SEO and install metadata
+```bash
+npm install
+npm run dev       # http://localhost:5173/zhuojia/
+npm run build     # type-check + production build into dist/
+npm run preview   # serve the production build
 ```
 
-## Editing text (English + 中文)
+## Where things live
 
-Every translatable element carries both languages:
-
-```html
-<h3 data-en="Project Management" data-zh="项目管理">Project Management</h3>
+```
+src/site/content.ts     ALL text: services, industries, projects, clients, timeline (EN + 中文)
+src/site/pages/         page templates (home.ts, sub.ts)
+src/site/components.ts  orbit hero, client wall, call-to-action, project gallery
+src/site/layout.ts      <head>, navigation, section index/ruler, footer
+src/styles/main.css     design system: colours, type, layout, components, dark mode
+src/client/             browser code: orbit hero, smooth scroll + scroll animations, forms
+public/img, public/logos  images and client logos (served as-is)
 ```
 
-Change `data-en` and `data-zh` (and the visible text, which is the English fallback). Headings that use the blue italic accent have `data-html` and contain `<em>…</em>` in both attributes.
+### Editing text
+Open `src/site/content.ts`. Every string has an `en` and a `zh` version. Wrap words in `*asterisks*` to render them in the blue italic accent.
 
-The header and footer are repeated in every page, so a change to a nav link or footer line needs to be made in each `.html` file.
+### Adding a project, client or industry
+Add an entry to `PROJECTS`, `CLIENTS` or `INDUSTRIES` in `content.ts`. Client logos go in `public/logos/<name>.svg` (single-colour SVG; it takes the text colour automatically) and are referenced by `logo: '<name>'`.
 
-## Colours
-
-Defined once at the top of `assets/css/site.css`:
-
-| Token | Value | Use |
-|---|---|---|
-| `--primary` | `#004C99` | buttons, brand |
-| `--secondary` | `#0066CC` | hover states |
-| `--accent` | `#00A3FF` | highlights, focus rings |
-| `--signal` | `#FF7A1A` | small status details (from the logo) |
-| `--ink` | `#050B16` | dark sections, header, footer |
+### Colours
+Defined at the top of `src/styles/main.css`: `--primary #004C99`, `--secondary #0066CC`, `--accent #00A3FF`, plus paper/ink neutrals and a dark theme.
 
 ## Contact form
+GitHub Pages has no server, so the form opens the visitor's email app with the enquiry pre-filled to `rfq@zhuojia.com`. To receive submissions directly, create a form endpoint (e.g. [Formspree](https://formspree.io)) and add `data-endpoint="https://formspree.io/f/your-id"` to the `<form>` in `src/site/pages/sub.ts`.
 
-GitHub Pages has no server, so by default the form opens the visitor's email app with the enquiry pre-filled and addressed to `rfq@zhuojia.com` (set by `data-mailto` on the `<form>` in `contact.html`).
-
-To receive submissions directly instead, create a form endpoint with a service such as [Formspree](https://formspree.io) and add it to the form:
-
-```html
-<form data-enquiry data-mailto="rfq@zhuojia.com" data-endpoint="https://formspree.io/f/your-id" novalidate>
-```
-
-## Images
-
-Add new photos to `assets/img/` as `.webp`, about 960px wide (1920px for full-width hero backgrounds), and always set `width`, `height` and `alt` on the `<img>`.
+## Motion & accessibility
+Smooth scrolling (Lenis) and scroll animations (GSAP ScrollTrigger + SplitText) load after first paint. Visitors with *reduce motion* enabled get a static, fully readable site. All pages have skip links, focus styles, `hreflang` alternates, a sitemap and Open Graph tags.
